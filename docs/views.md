@@ -3,24 +3,28 @@
 ## New Session
 ![new-session]
 
-## Feed Show (landing page)
-![feed-show]
+## Products Feed (landing page)
+![products-feed]
 
-## Blog Show
-![blog-show]
+## Product Show
+![product-show]
 
-## Post Show
-![post-show]
+## Collection Show
+![collection-show]
 
-## Post Form
-![post-form]
+## Product Form
+![product-form]
+
+## Collection Form
+![collection-form]
 
 ## Search Results
 ![search-results]
 
 [new-session]: ./wireframes/new_session.png
-[feed-show]: ./wireframes/feed_show.png
-[blog-show]: ./wireframes/blog_show.png
-[post-show]: ./wireframes/post_show.png
-[post-form]: ./wireframes/post_form.png
+[products-feed]: ./wireframes/products_feed.png
+[product-show]: ./wireframes/product_show.png
+[collection-show]: ./wireframes/collection_show.png
+[product-form]: ./wireframes/product_form.png
+[collection-form]: ./wireframes/collection_form.png
 [search-results]: ./wireframes/search_results.png

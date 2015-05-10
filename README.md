@@ -1,24 +1,25 @@
-# Flux-capacitr
+# Health Hunt
 
 [Heroku link][heroku]
 
 [heroku]: https://producthuntclone.herokuapp.com/
 
 ## Minimum Viable Product
-Flux-capacitr is a clone of Tumblr built on Rails and Backbone. Users can:
+Health Hunt is a clone of Product Hunt built on Rails and Backbone. Users can:
 
-<!-- This is a Markdown checklist. Use it to keep track of your progress! -->
-
-- [x] Create accounts
-- [x] Create sessions (log in)
-- [x] Create blogs
-- [x] Create blog posts
-- [ ] View blogs and posts
-- [ ] Subscribe to blogs
-- [ ] View a feed of subscribed blogs
-- [ ] Tag blog posts
-- [ ] Search for blogs by title
-- [ ] Search for posts by tag
+- [ ] Create accounts
+- [ ] Create sessions (log in)
+- [ ] Create products
+- [ ] Create product comments
+- [ ] Create collections of products
+- [ ] View products and comments
+- [ ] View owned collections
+- [ ] Upvote products
+- [ ] Browse each days most upvoted products
+- [ ] Browse popular public collections
+- [ ] Search for products by title
+- [ ] Search for products by description
+- [ ] Follow users
 
 ## Design Docs
 * [View Wireframes][views]
@@ -30,8 +31,10 @@ Flux-capacitr is a clone of Tumblr built on Rails and Backbone. Users can:
 ## Implementation Timeline
 
 ### Phase 1: User Authentication, Blog Creation (~1 day)
-I will implement user authentication in Rails based on the practices learned at
-App Academy. By the end of this phase, users will be able to create blogs using
+I will implement user authentication in Rails based on the practices
+learned at App Academy. 
+
+By the end of this phase, users will be able to create blogs using
 a simple text form in a Rails view. The most important part of this phase will
 be pushing the app to Heroku and ensuring that everything works before moving on
 to phase 2.
