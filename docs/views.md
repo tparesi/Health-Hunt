@@ -21,6 +21,9 @@
 ## Collection Form
 ![collection-form]
 
+## Comment Form
+![comment-form]
+
 ## Search Results
 ![search-results]
 
@@ -34,5 +37,6 @@
 [collection-show]: ./wireframes/collection_show.png
 [product-form]: ./wireframes/product_form.png
 [collection-form]: ./wireframes/collection_form.png
+[comment-form]: ./wireframes/comment_form.png
 [search-results]: ./wireframes/search_results.png
 [profile-show]: ./wireframes/profile_show.png

@@ -1,22 +1,27 @@
-# Phase 1: User Authentication, Basic Blogs and Posts
+# Phase 1: User Authentication, Collection, Product, Comment Creation
 
 ## Rails
 ### Models
 * User
-* Blog
-* Post
+* Collection
+* Product
+* Comment
 
 ### Controllers
 * UsersController (create, new)
 * SessionsController (create, new, destroy)
-* BlogsController (create, new, show)
-* PostsController (create, new, show)
+* CollectionsController (create, new, show)
+* ProductsController (create, new, show)
+* CommentsController (create, new)
 
 ### Views
 * users/new.html.erb
 * session/new.html.erb
-* blogs/new.html.erb
-* blogs/show.html.erb
+* collections/index.html.erb
+* collections/show.html.erb
+* products/index.html.erb
+* products/show.html.erb
+* comments/index.html.erb
 
 ## Backbone
 ### Models

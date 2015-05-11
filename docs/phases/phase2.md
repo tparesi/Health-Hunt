@@ -1,29 +1,33 @@
-# Phase 2: Viewing Blogs and Posts
+# Phase 2: Viewing Collections, Products, and Comments
 
 ## Rails
 ### Models
 
 ### Controllers
-Api::BlogsController (create, destroy, index, show)
-Api::PostsController (create, destroy, show, update)
+* Api::CollectionsController (create, destroy, index, show, update)
+* Api::ProductsController (create, destroy, index, show, update)
+* Api::CommentsController (create, destroy, index, show, update)
 
 ### Views
-* blogs/show.json.jbuilder
+* collections/show.json.jbuilder
+* products/show.json.jbuilder
 
 ## Backbone
 ### Models
-* Blog (parses nested `posts` association)
-* Post
+* Collection
+* Product (parses nested `comments` association)
 
 ### Collections
-* Blogs
-* Posts
+* Collections
+* Products
 
 ### Views
-* BlogForm
-* BlogShow (composite view, contains PostsIndex subview)
-* PostsIndex (composite view, contains PostsIndexItem subviews)
-* PostsIndexItem
-* PostShow
+* CollectionForm
+* CollectionsIndex
+* ProductForm
+* ProductsIndex
+* ProductShow (composite view, contains CommentsIndex subview)
+* CommentsIndex (composite view, contains CommentsIndexItem subview)
+* CommentsIndexItem
 
 ## Gems/Libraries

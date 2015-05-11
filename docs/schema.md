@@ -9,6 +9,14 @@ title       | string    | not null
 url         | string    | not null
 description | string    | not null
 
+## comments
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+owner_id    | integer   | not null, foreign key (references users)
+product_id  | integer   | not null, foreign key (references products)
+body        | string    | not null
+
 ## collectionings
 column name   | data type | details
 --------------|-----------|-----------------------
@@ -22,6 +30,7 @@ column name | data type | details
 id          | integer   | not null, primary key
 owner_id    | integer   | not null, foreign key (references users)
 title       | string    | not null
+image_url   | string    |
 <!-- description | string    | not null -->
 
 ## users

@@ -1,4 +1,4 @@
-# Phase 3: Editing and Displaying Posts
+# Phase 3: Editing and Displaying Collections, Products, and Comments
 
 ## Rails
 ### Models
@@ -13,7 +13,9 @@
 ### Collections
 
 ### Views
-* PostForm
+* CollectionForm
+* ProductForm
+* CommentForm
 
 ## Gems/Libraries
 * Filepicker

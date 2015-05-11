@@ -30,55 +30,47 @@ Health Hunt is a clone of Product Hunt built on Rails and Backbone. Users can:
 
 ## Implementation Timeline
 
-### Phase 1: User Authentication, Blog Creation (~1 day)
+### Phase 1: User Authentication, Collection, Product, Comment Creation (~1.5 days)
 I will implement user authentication in Rails based on the practices
 learned at App Academy. By the end of this phase, users will be able to
-log in and create products using a simple text form in a Rails View.
+log in and create products, comments, and collections using a simple
+text form in a Rails View.
 
 [Details][phase-one]
 
-### Phase 2: Viewing Blogs and Posts (~2 days)
-I will add API routes to serve blog and post data as JSON, then add Backbone
-models and collections that fetch data from those routes. By the end of this
-phase, users will be able to create blogs and view both blogs and posts, all
-inside a single Backbone app.
+### Phase 2: Viewing Collections, Products, and Comments (~3 days)
+I will add API routes to serve product data as JSON, then add Backbone
+models and collections that fetch data from those routes. By the end of
+this phase, users will be able to create and view collections, comments,
+and products, all inside a single Backbone app.
 
 [Details][phase-two]
 
-### Phase 3: Editing and Displaying Posts (~2 days)
-I plan to use third-party libraries to add functionality to the `PostForm` and
-`PostShow` views in this phase. First I'll need to add a Markdown editor to the
-`PostForm`, and make sure that the Markdown is properly escaped and formatted in
-the `PostShow` view. I also plan to integrate Filepicker for file upload so
-users can add images to blog posts.
+### Phase 3: Editing and Displaying Collections, Products, and Comments (~2 days)
+I plan to use third-party libraries to add functionality to the
+'CollectionForm' and `CommentForm` views in this phase.
+First I'll need to add a Markdown editor to the `CommentForm`. Then, I
+plan to integrate Filepicker for file uploads so users can add images to
+collections.
 
 [Details][phase-three]
 
-### Phase 4: User Feeds (~1-2 days)
-I'll start by adding a `feed` route that uses the `current_user`'s
-`subscribed_blogs` association to serve a list of blog posts ordered
-chronologically. On the Backbone side, I'll make a `FeedShow` view whose `posts`
-collection fetches from the new route.  Ultimately, this will be the page users
-see after logging in.
+### Phase 4: User Profile (~2 days)
+I want to add a profile page for the user where they can see their upvoted
+products, created products, collections, followers, and followees.
 
 [Details][phase-four]
 
-### Phase 5: Searching for Blogs and Posts (~2 days)
-I'll need to add `search` routes to both the Blogs and Posts controllers. On the
-Backbone side, there will be a `SearchResults` composite view has `BlogsIndex`
-and `PostsIndex` subviews. These views will use plain old `blogs` and `posts`
-collections, but they will fetch from the new `search` routes.
+### Phase 5: Searching for Products (~1 day)
+I'll need to add a `search` route to products. On the
+Backbone side, there will be a `SearchIndex.`
 
 [Details][phase-five]
 
 ### Bonus Features (TBD)
-- [ ] "Like" button and counter for posts
-- [ ] Custom blog urls
 - [ ] Pagination/infinite scroll
-- [ ] Activity history (e.g. likes, reblogs, taggings)
-- [ ] Post types (image posts, quote posts, etc)
-- [ ] Reblogging
 - [ ] Multiple sessions/session management
+- [ ] Log In API (Twitter/Facebook/Google)
 - [ ] User avatars
 - [ ] Typeahead search bar
 
