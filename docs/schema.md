@@ -1,39 +1,28 @@
 # Schema Information
 
-## blogs
+## products
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 owner_id    | integer   | not null, foreign key (references users)
 title       | string    | not null
+url         | string    | not null
+description | string    | not null
 
-## followings
+## collectionings
+column name   | data type | details
+--------------|-----------|-----------------------
+id            | integer   | not null, primary key
+product_id    | integer   | not null, foreign key (references products)
+collection_id | integer   | not null, foreign key (references collections)
+
+## collections
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-blog_id     | integer   | not null, foreign key (references blogs)
-follower_id | integer   | not null, foreign key (references users)
-
-## posts
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-author_id   | integer   | not null, foreign key (references users)
+owner_id    | integer   | not null, foreign key (references users)
 title       | string    | not null
-body        | string    |
-
-## tags
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-label       | string    | not null, unique
-
-## taggings
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-post_id     | integer   | not null, foreign key (references posts)
-tag_id      | integer   | not null, foreign key (references tags)
+<!-- description | string    | not null -->
 
 ## users
 column name     | data type | details
@@ -43,3 +32,16 @@ email           | string    | not null, unique
 password_digest | string    | not null
 session_token   | string    | not null, unique
 
+## followings
+column name  | data type | details
+-------------|-----------|-----------------------
+id           | integer   | not null, primary key
+followee_id  | integer   | not null, foreign key (references users)
+follower_id  | integer   | not null, foreign key (references users)
+
+## up_votings (each product and user combo must be unique)
+column name  | data type | details
+-------------|-----------|-----------------------
+id           | integer   | not null, primary key
+product_id   | integer   | not null, foreign key (references products)
+user_id      | integer   | not null, foreign key (references users)

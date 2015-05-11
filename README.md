@@ -32,12 +32,8 @@ Health Hunt is a clone of Product Hunt built on Rails and Backbone. Users can:
 
 ### Phase 1: User Authentication, Blog Creation (~1 day)
 I will implement user authentication in Rails based on the practices
-learned at App Academy. 
-
-By the end of this phase, users will be able to create blogs using
-a simple text form in a Rails view. The most important part of this phase will
-be pushing the app to Heroku and ensuring that everything works before moving on
-to phase 2.
+learned at App Academy. By the end of this phase, users will be able to
+log in and create products using a simple text form in a Rails View.
 
 [Details][phase-one]
 
