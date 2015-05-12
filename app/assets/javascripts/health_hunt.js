@@ -3,7 +3,8 @@ window.HealthHunt = {
   Collections: {},
   Views: {},
   Routers: {},
-  initialize: function() {
+  initialize: function(options) {
+    this.currentUser = new HealthHunt.Models.User({ id: options.userId })
     new HealthHunt.Routers.Router({
       $rootEl: $("#main")
     });

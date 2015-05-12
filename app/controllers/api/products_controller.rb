@@ -1,5 +1,6 @@
 module Api
   class ProductsController < ApiController
+
     def create
       @product = current_user.products.new(product_params)
 
