@@ -13,7 +13,7 @@
 class User < ActiveRecord::Base
   attr_reader :password
 
-  has_many :products, class_name: "Product", forein_key: :owner_id
+  has_many :products, class_name: "Product", foreign_key: :owner_id
 
   validates :email, :session_token, presence: true
   validates :email, :session_token, uniqueness: true
