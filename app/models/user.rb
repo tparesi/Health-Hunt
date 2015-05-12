@@ -13,6 +13,8 @@
 class User < ActiveRecord::Base
   attr_reader :password
 
+  has_many :products, class_name: "Product", forein_key: :owner_id
+
   validates :email, :session_token, presence: true
   validates :email, :session_token, uniqueness: true
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
