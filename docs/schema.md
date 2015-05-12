@@ -13,7 +13,7 @@ description | string    | not null
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-owner_id    | integer   | not null, foreign key (references users)
+author_id   | integer   | not null, foreign key (references users)
 product_id  | integer   | not null, foreign key (references products)
 body        | string    | not null
 
