@@ -1,0 +1,26 @@
+<h1><%= product.isNew() ? 'New Product' : 'Edit Product' %></h1>
+
+<label>
+  Title
+<br>
+  <input type='text' name='title' value='<%= product.escape('title') %>'>
+<br>
+</label>
+
+<label>
+  URL
+<br>
+  <input type='text' name='url' value='<%= product.escape('url') %>'>
+<br>
+</label>
+
+<label>
+  Description
+<br>
+  <textarea name='description'><%= product.escape('description') %></textarea>
+<br>
+</label>
+
+<button class="new-product">Submit</button>
+<br>
+<a href='#'>Cancel</a>

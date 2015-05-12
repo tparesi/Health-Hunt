@@ -25,7 +25,7 @@ HealthHunt.Routers.Router = Backbone.Router.extend({
       collection: this.collection,
       model: product
     });
-    this._swapViews(formView);
+    this._swapView(formView);
   },
 
   show: function (id) {
@@ -42,7 +42,7 @@ HealthHunt.Routers.Router = Backbone.Router.extend({
       collection: this.collection,
       model: product
     });
-    this._swapViews(formView);
+    this._swapView(formView);
   },
 
   _swapView: function (view) {
