@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
   validates :password, length: { in: 6..12 }, allow_nil: true
 
-  after_initialize: ensure_session_token
+  after_initialize :ensure_session_token
 
   def self.find_user_by_credentials(email, password)
     user = User.find_by(email: email)
