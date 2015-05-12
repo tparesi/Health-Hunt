@@ -13,7 +13,7 @@ HealthHunt.Routers.Router = Backbone.Router.extend({
   },
 
   index: function () {
-    var indexView = new HealthHunt.Views.ProductIndex({
+    var indexView = new HealthHunt.Views.ProductsIndex({
       collection: this.collection
     });
     this._swapView(indexView);

@@ -1,3 +1,3 @@
 HealthHunt.Models.Product = Backbone.Model.extend({
-  urlRoot: 'api_products'
+  urlRoot: 'api/products'
 });

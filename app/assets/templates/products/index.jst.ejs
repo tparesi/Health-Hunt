@@ -1,0 +1,11 @@
+<h3>Products</h3>
+
+<ul>
+  <% products.each(function (product) { %>
+    <li>
+      <a href="#/products/<%= product.id %>">
+        <%= product.escape("title") %>
+      </a>
+    </li>
+  <% }); %>
+</ul>

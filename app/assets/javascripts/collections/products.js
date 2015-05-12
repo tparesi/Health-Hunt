@@ -1,5 +1,5 @@
-HealthHunt.Collections.Products = Backbone.Views.extend({
-  url: 'api_products',
+HealthHunt.Collections.Products = Backbone.Collection.extend({
+  url: 'api/products',
   model: HealthHunt.Models.Product,
 
   getOrFetch: function (id) {
