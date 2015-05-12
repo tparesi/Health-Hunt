@@ -27,7 +27,7 @@ gem 'backbone-on-rails'
 gem 'ejs'
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -40,6 +40,8 @@ gem 'bcrypt-ruby', '~> 3.0.0', require: "bcrypt"
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'annotate'
+  gem 'pry-rails'
 end
 
 group :development, :test do
