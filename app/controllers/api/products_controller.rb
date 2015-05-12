@@ -4,7 +4,7 @@ module Api
       @product = current_user.products.new(product_params)
 
       if @product.save
-        render json: @board
+        render json: @product
       else
         render json: @product.errors.full_messages, status: :unprocessable_entity
       end
@@ -17,7 +17,7 @@ module Api
 
     def show
       @product = Product.find(params[:id])
-      render json: @product
+      render :show
     end
 
     def update
