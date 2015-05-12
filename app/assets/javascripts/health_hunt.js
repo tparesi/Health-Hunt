@@ -4,10 +4,13 @@ window.HealthHunt = {
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    new HealthHunt.Routers.Router({
+      $rootEl: $("#main")
+    });
+    Backbone.history.start();
   }
 };
 
 $(document).ready(function(){
-  ProductHuntClone.initialize();
+  HealthHunt.initialize();
 });
