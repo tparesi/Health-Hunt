@@ -9,7 +9,7 @@
 <body>
 
   <% if logged_in? %>
-    <%= current_user.username %>
+    <%= current_user.email %>
     <%= button_to "Log Out", session_url, :method => :delete %>
   <% else %>
     <%= link_to "Log In", new_session_url %>

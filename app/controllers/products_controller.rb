@@ -1,4 +1,4 @@
-class ProductsController < ApplicationContoller
+class ProductsController < ApplicationController
   def new
     @product = Product.new
   end
@@ -6,7 +6,7 @@ class ProductsController < ApplicationContoller
   def create
     @product = current_user.products.new(product_params)
 
-    if @product.save!
+    if @product.save
       redirect_to product_url(@product)
     else
       flash.now[:errors] = @product.errors.full_messages
