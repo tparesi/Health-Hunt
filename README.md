@@ -30,11 +30,11 @@ Health Hunt is a clone of Product Hunt built on Rails and Backbone. Users can:
 
 ## Implementation Timeline
 
-### Phase 1: User Authentication, Collection, Product, Comment Creation (~1.5 days)
+### Phase 1: User Authentication, Product, Comment Creation (~1.5 days)
 I will implement user authentication in Rails based on the practices
 learned at App Academy. By the end of this phase, users will be able to
-log in and create products, comments, and collections using a simple
-text form in a Rails View.
+log in and create products and comments through Backbone using a Rails
+API.
 
 [Details][phase-one]
 

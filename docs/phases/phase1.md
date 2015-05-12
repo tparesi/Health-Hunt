@@ -3,31 +3,33 @@
 ## Rails
 ### Models
 * User
-* Collection
+* Session
 * Product
 * Comment
 
 ### Controllers
 * UsersController (create, new)
 * SessionsController (create, new, destroy)
-* CollectionsController (create, new, show)
-* ProductsController (create, new, show)
-* CommentsController (create, new)
+* Api::ProductsController (create, index, show, update, destroy)
+* Api::CommentsController (create, update, destroy)
 
 ### Views
 * users/new.html.erb
 * session/new.html.erb
-* collections/index.html.erb
-* collections/show.html.erb
-* products/index.html.erb
-* products/show.html.erb
-* comments/index.html.erb
+* static_pages/root.html.erb
 
 ## Backbone
 ### Models
+* Product (parses nested `comments` association)
 
 ### Collections
+* Products
+* Comments
 
 ### Views
+* ProductForm
+* ProductsIndex
+* ProductShow (composite view, contains CommentsIndexItems subview)
+* CommentsIndexItems
 
 ## Gems/Libraries

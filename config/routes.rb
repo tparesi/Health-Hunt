@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   root to: "sessions#new"
 
-  resources :users, only: [:create, :new, :show, :destroy, :edit, :update]
+  resources :users, only: [:create, :new]
   resource :session, only: [:create, :new, :destroy]
-  resources :products
+
+  namespace :api, defaults: { format: :json } do
+    resources :products, except: [:new, :edit]
+  end
 end
