@@ -24,7 +24,11 @@ HealthHunt.Routers.Router = Backbone.Router.extend({
   },
 
   show: function (id) {
-
+    var product = this.collection.getOrFetch(id);
+    var showView = new HealthHunt.Views.ProductShow({
+      model: product
+    });
+    this._swapView(showView);
   },
 
   edit: function (id) {
