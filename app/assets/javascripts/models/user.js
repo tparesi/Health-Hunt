@@ -1,3 +1,3 @@
-HealthHunt.Models.User = Backbone.Model.extend({
-  urlRoot: 'api/users'
+HealthHunt.Models.CurrentUser = Backbone.Model.extend({
+  urlRoot: 'api/session'
 });
