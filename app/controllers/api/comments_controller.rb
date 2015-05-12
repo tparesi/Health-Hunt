@@ -1,13 +1,35 @@
-class CommentsController < ApplicationController
-  def create
+module Api
+  class CommentsController < ApplicationController
+    def create
+      @comment = current_user.comments.new(comment_params)
 
-  end
+      if @comment.save
+        render json: @comment
+      else
+        render json: @comment.errors.full_messages, status: :unprocessable_entity
+      end
+    end
 
-  def update
+    def update
+      @comment = current_user.find(params[:id])
 
-  end
+      if @comment.update(comment_params)
+        render json: @comment
+      else
+        render json: @comment.errors.full_messages, status: :unprocessable_entity
+      end
+    end
 
-  def destroy
+    def destroy
+      @comment = current_user.find(params[:id])
+      @comment.try(:destroy)
+      render json: {}
+    end
 
+    private
+
+    def comment_params
+      params.require(:comment).permit(:body, :product_id )
+    end
   end
 end
