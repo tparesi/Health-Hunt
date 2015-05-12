@@ -10,8 +10,9 @@ class UsersController < ApplicationController
 
     if @user.save
       login_user!(@user)
-      redirect to user_url(@user)
+      redirect_to user_url(@user)
     else
+      flash.now[:errors] = @user.errors.full_messages
       render :new
     end
   end
@@ -27,11 +28,20 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = User.find(params[:id])
 
+    if @user.update(user_params)
+      redirect_to user_url(@user)
+    else
+      flash.now[:errors] = @user.errors.full_messages
+      render :edit
+    end
   end
 
   def destroy
-
+    @user = User.find(params[:id])
+    @user.try(:destroy)
+    render :new
   end
 
   private
