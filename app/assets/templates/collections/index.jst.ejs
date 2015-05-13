@@ -1,0 +1,14 @@
+<h3><a href="#">Products</a></h3>
+<h3>Collections</h3>
+
+<ul>
+  <% collections.each(function (collection) { %>
+    <li>
+      <a href="#/collections/<%= collection.id %>">
+        <%= collection.escape("title") %>
+      </a>
+    </li>
+  <% }); %>
+</ul>
+
+<a href="#/collections/new">Create New Collection</a>

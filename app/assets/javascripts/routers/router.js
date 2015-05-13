@@ -1,20 +1,23 @@
 HealthHunt.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
-    this.collection = new HealthHunt.Collections.Products();
-    this.collection.fetch();
+    this.products = new HealthHunt.Collections.Products();
+    this.products.fetch();
+    this.collections = new HealthHunt.Collections.Collections();
+    this.collections.fetch();
   },
 
   routes: {
     "": "index",
     "products/new": "new",
     "products/:id": "show",
-    "products/:id/edit": "edit"
+    "products/:id/edit": "edit",
+    "collections": "collectionsIndex"
   },
 
   index: function () {
     var indexView = new HealthHunt.Views.ProductsIndex({
-      collection: this.collection
+      collection: this.products
     });
     this._swapView(indexView);
   },
@@ -22,7 +25,7 @@ HealthHunt.Routers.Router = Backbone.Router.extend({
   new: function () {
     var product = new HealthHunt.Models.Product();
     var formView = new HealthHunt.Views.ProductForm({
-      collection: this.collection,
+      collection: this.products,
       model: product
     });
     this._swapView(formView);
@@ -39,10 +42,17 @@ HealthHunt.Routers.Router = Backbone.Router.extend({
   edit: function (id) {
     var product = this.collection.getOrFetch(id);
     var formView = new HealthHunt.Views.ProductForm({
-      collection: this.collection,
+      collection: this.products,
       model: product
     });
     this._swapView(formView);
+  },
+
+  collectionsIndex: function () {
+    var collectionsIndexView = new HealthHunt.Views.CollectionsIndex({
+      collection: this.collections
+    });
+    this._swapView(collectionsIndexView);
   },
 
   _swapView: function (view) {
