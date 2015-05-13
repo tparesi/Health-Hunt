@@ -1,10 +1,17 @@
-<h3>Choose Collection:</h3>
+<h3>Choose Collection(s):</h3>
 
 <form>
   <% HealthHunt.currentUser.collections().each(function (collection) { %>
-    <%= collection.escape("title") %>
+    <label>
+      <input type="checkbox" name="collection_ids[]" value="<%= collection.get("id") %>">
+      <%= collection.escape("title") %>
+    </label>
     <br>
   <% }) %>
+
+  <br>
+  <button class="prod-coll">Update Collections</button>
 </form>
+<br>
 
 <a href="#/products/<%= product.id %>">Cancel</a>

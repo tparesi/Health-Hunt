@@ -9,6 +9,10 @@ HealthHunt.Models.Product = Backbone.Model.extend({
     return this._comments;
   },
 
+  toJSON: function () {
+    return {product: _.clone(this.attributes)};
+  },
+
   parse: function (response) {
     if (response.comments) {
       this.comments().set(response.comments, { parse: true });

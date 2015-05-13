@@ -40,7 +40,7 @@ module Api
     private
 
     def product_params
-      params.require(:product).permit(:title, :url, :description)
+      params.require(:product).permit(:title, :url, :description, collection_ids: [])
     end
   end
 end

@@ -1,1 +1,1 @@
-json.extract! coll, :owner_id, :title, :image_url, :description
+json.extract! coll, :id, :owner_id, :title, :image_url, :description
