@@ -1,4 +1,4 @@
-json.extract! @collection, :owner_id, :title, :image_url, :description
+json.partial! 'api/collections/collection', collection: @collection
 
 json.creator @collection.owner.email
 

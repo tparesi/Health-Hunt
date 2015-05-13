@@ -1,0 +1,10 @@
+<h3>Choose Collection:</h3>
+
+<form>
+  <% HealthHunt.currentUser.collections().each(function (collection) { %>
+    <%= collection.escape("title") %>
+    <br>
+  <% }) %>
+</form>
+
+<a href="#/products/<%= product.id %>">Cancel</a>

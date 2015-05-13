@@ -13,7 +13,3 @@ window.HealthHunt = {
     Backbone.history.start();
   }
 };
-
-$(document).ready(function(){
-  HealthHunt.initialize();
-});
