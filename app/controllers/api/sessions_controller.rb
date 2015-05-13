@@ -1,5 +1,5 @@
 module Api
-  class SessionsController < ApplicationController
+  class SessionsController < ApiController
     def show
       @user = current_user
       render :show

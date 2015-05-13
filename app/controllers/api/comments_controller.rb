@@ -1,5 +1,5 @@
 module Api
-  class CommentsController < ApplicationController
+  class CommentsController < ApiController
     def create
       @comment = current_user.comments.new(comment_params)
 

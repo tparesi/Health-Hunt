@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     resource :session, only: [:show]
     resources :products, except: [:new, :edit]
     resources :comments, only: [:create, :update, :destroy]
+    resources :collections, except: [:new, :edit]
   end
 end
