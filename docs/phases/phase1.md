@@ -1,4 +1,4 @@
-# Phase 1: User Authentication, Collection, Product, Comment Creation
+# Phase 1: User Authentication, Product, Comment Creation
 
 ## Rails
 ### Models
@@ -10,6 +10,7 @@
 ### Controllers
 * UsersController (create, new)
 * SessionsController (create, new, destroy)
+* Api::SessionsController (show)
 * Api::ProductsController (create, index, show, update, destroy)
 * Api::CommentsController (create, update, destroy)
 
@@ -20,6 +21,7 @@
 
 ## Backbone
 ### Models
+* Session
 * Product (parses nested `comments` association)
 
 ### Collections
@@ -31,5 +33,6 @@
 * ProductsIndex
 * ProductShow (composite view, contains CommentsIndexItems subview)
 * CommentsIndexItems
+* CommentsForm
 
 ## Gems/Libraries

@@ -54,3 +54,4 @@ column name  | data type | details
 id           | integer   | not null, primary key
 product_id   | integer   | not null, foreign key (references products)
 user_id      | integer   | not null, foreign key (references users)
+upvoted      | boolean   | not null, initially set to false

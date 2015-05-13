@@ -4,7 +4,6 @@
 ### Models
 
 ### Controllers
-Api::ProductsController (search)
 
 ### Views
 
@@ -14,6 +13,8 @@ Api::ProductsController (search)
 ### Collections
 
 ### Views
-* SearchIndex
 
 ## Gems/Libraries
+* Filepicker
+* Markdown-js
+* Bootstrap Markdown

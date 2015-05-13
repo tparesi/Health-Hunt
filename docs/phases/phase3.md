@@ -2,6 +2,7 @@
 
 ## Rails
 ### Models
+* Upvoting
 
 ### Controllers
 
@@ -13,11 +14,5 @@
 ### Collections
 
 ### Views
-* CollectionForm
-* ProductForm
-* CommentForm
 
 ## Gems/Libraries
-* Filepicker
-* Markdown-js
-* Bootstrap Markdown

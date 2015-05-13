@@ -2,32 +2,25 @@
 
 ## Rails
 ### Models
+* Collection
+* Collectionings
 
 ### Controllers
-* Api::CollectionsController (create, destroy, index, show, update)
-* Api::ProductsController (create, destroy, index, show, update)
-* Api::CommentsController (create, destroy, index, show, update)
+* Api::CollectionsController (create, index, show, update, destroy)
 
 ### Views
 * collections/show.json.jbuilder
-* products/show.json.jbuilder
 
 ## Backbone
 ### Models
-* Collection
-* Product (parses nested `comments` association)
+* Collection (parses nested 'products' association)
 
 ### Collections
 * Collections
-* Products
 
 ### Views
 * CollectionForm
 * CollectionsIndex
-* ProductForm
-* ProductsIndex
-* ProductShow (composite view, contains CommentsIndex subview)
-* CommentsIndex (composite view, contains CommentsIndexItem subview)
-* CommentsIndexItem
+* ProductsIndexItems
 
 ## Gems/Libraries

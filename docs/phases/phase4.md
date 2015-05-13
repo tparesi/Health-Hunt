@@ -2,6 +2,7 @@
 
 ## Rails
 ### Models
+* Following
 
 ### Controllers
 
