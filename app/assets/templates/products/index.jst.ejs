@@ -1,14 +1,6 @@
 <h3>Products</h3>
 <h3><a href="#/collections">Collections</a></h3>
 
-<ul>
-  <% products.each(function (product) { %>
-    <li>
-      <a href="#/products/<%= product.id %>">
-        <%= product.escape("title") %>
-      </a>
-    </li>
-  <% }); %>
-</ul>
+<ul class="products"></ul>
 
 <a href="#/products/new">Create New Product</a>
