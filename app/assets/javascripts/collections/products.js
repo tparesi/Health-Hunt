@@ -8,10 +8,12 @@ HealthHunt.Collections.Products = Backbone.Collection.extend({
    if (product) {
      product.fetch();
    } else {
-     product = new HealthHunt.Models.Product({
-       id: id
+     product = new HealthHunt.Models.Product({ id: id });
+     product.fetch({
+       success: function () {
+         this.add(product)
+       }.bind(this)
      });
-     product.fetch();
    }
 
    return product;

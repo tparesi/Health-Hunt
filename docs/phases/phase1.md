@@ -31,8 +31,8 @@
 ### Views
 * ProductForm
 * ProductsIndex
-* ProductShow (composite view, contains CommentsIndexItems subview)
-* CommentsIndexItems
-* CommentsForm
+* ProductShow (composite view, contains CommentShow subview)
+* CommentShow
+* CommentForm
 
 ## Gems/Libraries
