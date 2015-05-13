@@ -8,3 +8,7 @@ p3 = u2.products.create(title: 'CrossFit Bell', url: "http://www.crossfitbell.co
 c1 = u1.collections.create(title: 'CrossFit', description: "Collection of CrossFit Related Products")
 c2 = u1.collections.create(title: 'Paleo', description: "Collection of Paleo Related Products")
 c3 = u2.collections.create(title: 'Olympic Weightlifting', description: "Collection of Olympic Weighlifting Resources")
+
+cp1 = c1.collectionings.create(product_id: 1)
+cp2 = c1.collectionings.create(product_id: 3)
+cp3 = c2.collectionings.create(product_id: 2)

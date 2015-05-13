@@ -17,7 +17,7 @@ module Api
 
     def show
       @collection = Collection.find(params[:id])
-      render json: @collection
+      render :show
     end
 
     def update

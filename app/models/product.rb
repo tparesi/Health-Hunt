@@ -13,6 +13,8 @@
 class Product < ActiveRecord::Base
   belongs_to :owner, class_name: "User", foreign_key: :owner_id
   has_many :comments
+  has_many :collectionings
+  has_many :collections, through: :collectionings
 
   validates :owner_id, :title, :url, :description, presence: true
   before_save :smart_add_url_protocol
