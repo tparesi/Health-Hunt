@@ -31,7 +31,7 @@ id          | integer   | not null, primary key
 owner_id    | integer   | not null, foreign key (references users)
 title       | string    | not null
 image_url   | string    |
-<!-- description | string    | not null -->
+description | string    | not null
 
 ## users
 column name     | data type | details

@@ -2,11 +2,11 @@ HealthHunt.Views.ProductShow = Backbone.CompositeView.extend({
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
     this.collection = this.model.comments();
-    
+
     // Set up for composite views
     this.listenTo(this.collection, 'add', this.addCommentView);
     this.collection.each(this.addCommentView.bind(this));
-    this.listenTo(this.collection, 'remove', this.removePhotoView);
+    this.listenTo(this.collection, 'remove', this.removeCommentView);
   },
 
   events: {
@@ -29,7 +29,7 @@ HealthHunt.Views.ProductShow = Backbone.CompositeView.extend({
     this.addSubview('.comments', subview);
   },
 
-  removePhotoView: function (comment) {
+  removeCommentView: function (comment) {
     this.removeModelSubview('.comments', comment);
   },
 
@@ -46,6 +46,6 @@ HealthHunt.Views.ProductShow = Backbone.CompositeView.extend({
           this.reset();
         });
       }.bind(this)
-    })
+    });
   }
 });

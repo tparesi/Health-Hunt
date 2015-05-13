@@ -1,6 +1,10 @@
 HealthHunt.Views.CommentShow = Backbone.View.extend({
   initialize: function () {
-    this.listenTo(this.model, 'sync', this.render);
+    this.listenTo(this.model, 'sync remove', this.render);
+  },
+
+  events: {
+    "click .delete-comment": "deleteComment"
   },
 
   tagName: 'li',
@@ -12,5 +16,10 @@ HealthHunt.Views.CommentShow = Backbone.View.extend({
     });
     this.$el.html(content);
     return this;
+  },
+
+  deleteComment: function (event) {
+    event.preventDefault();
+    this.model.destroy();
   }
 });
