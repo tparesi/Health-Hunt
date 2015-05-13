@@ -10,7 +10,8 @@ HealthHunt.Views.ProductShow = Backbone.CompositeView.extend({
   },
 
   events: {
-    "click .new-comment": "createComment"
+    "click .new-comment": "createComment",
+    "click .delete-product": "deleteProduct"
   },
 
   template: JST['products/show'],
@@ -46,6 +47,15 @@ HealthHunt.Views.ProductShow = Backbone.CompositeView.extend({
           this.reset();
         });
       }.bind(this)
+    });
+  },
+
+  deleteProduct: function (event) {
+    event.preventDefault();
+    this.model.destroy({
+      success: function () {
+        Backbone.history.navigate("#", { trigger: true });
+      }
     });
   }
 });

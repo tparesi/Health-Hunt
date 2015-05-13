@@ -1,0 +1,19 @@
+<h1><%= collection.isNew() ? 'New Collection' : 'Edit Collection' %></h1>
+
+<label>
+  Title
+<br>
+  <input type='text' name='title' value='<%= collection.escape('title') %>'>
+<br>
+</label>
+
+<label>
+  Description
+<br>
+  <textarea name='description'><%= collection.escape('description') %></textarea>
+<br>
+</label>
+
+<button class="new-collection">Submit</button>
+<br>
+<a href='#/collections'>Cancel</a>

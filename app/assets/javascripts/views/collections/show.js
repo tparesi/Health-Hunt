@@ -9,6 +9,10 @@ HealthHunt.Views.CollectionShow = Backbone.CompositeView.extend({
     // this.listenTo(this.products, 'remove', this.removeProductView);
   },
 
+  events: {
+    "click .delete-collection": "deleteCollection"
+  },
+
   template: JST['collections/show'],
 
   render: function () {
@@ -28,4 +32,13 @@ HealthHunt.Views.CollectionShow = Backbone.CompositeView.extend({
   // removeProductView: function (product) {
   //   this.removeModelSubview('.products', product);
   // }
+
+  deleteCollection: function (event) {
+    event.preventDefault();
+    this.model.destroy({
+      success: function () {
+        Backbone.history.navigate("#/collections", { trigger: true });
+      }
+    });
+  }
 });
