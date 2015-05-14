@@ -1,16 +1,15 @@
 <h3>Choose Collection(s):</h3>
 
-<form>
+<form class="update-coll">
   <% HealthHunt.currentUser.collections().each(function (collection) { %>
     <% var idArray = [] %>
-    <% collection.products().each( function(product) { idArray.push(product.id) }) %>
 
     <label>
       <input
         type="checkbox"
         name="collection_ids[]"
         value="<%= collection.get("id") %>"
-        <% if (idArray.indexOf(product.id) >= 0) { %>
+        <% if (product.containsCollectionId(collection.id)) { %>
           checked
         <% } %>>
       <%= collection.escape("title") %>
@@ -20,7 +19,7 @@
 </form>
 <br>
 
-<!-- <form class="new-collection-form">
+<form class="new-collection-form">
   <h3>Create New Collection</h3>
 
   <label>
@@ -41,7 +40,8 @@
   <br>
 
   <br>
-</form> -->
+</form>
+
   <button class="prod-coll">Update Collections</button>
 <br>
 <a href="#/products/<%= product.id %>">Cancel</a>

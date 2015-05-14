@@ -17,14 +17,6 @@ HealthHunt.Models.CurrentUser = Backbone.Model.extend({
     return this._products;
   },
 
-  collectionProductIds: function () {
-    if (!this._product_ids) {
-      this._product_ids = new HealthHunt.Collections.Products();
-    }
-
-    return this._products;
-  },
-
   parse: function (response) {
     if (response.collections) {
       this.collections().set(response.collections, { parse: true });

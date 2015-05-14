@@ -22,7 +22,8 @@ HealthHunt.Views.CollectionForm = Backbone.View.extend({
     this.model.save({}, {
       success: function () {
         this.collection.add(this.model, { merge: true });
-        Backbone.history.navigate("#/collections", { trigger: true })
+        HealthHunt.currentUser.collections().add(newCollectionModel);
+        Backbone.history.navigate("#/collections", { trigger: true });
       }.bind(this)
     });
   }

@@ -1,7 +1,8 @@
 HealthHunt.Views.AddProduct = Backbone.View.extend({
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
-    this.listenTo(this.collection, 'sync', this.render);
+    this.listenTo(HealthHunt.currentUser, 'sync', this.render);
+    this.listenTo(HealthHunt.currentUser.collections(), 'add remove', this.render);
   },
 
   events: {
@@ -13,15 +14,17 @@ HealthHunt.Views.AddProduct = Backbone.View.extend({
 
   render: function () {
     var content = this.template({
-      product: this.model
+      product: this.model,
+      formTemplate: JST['collections/form']
     });
+    console.log('hello');
     this.$el.html(content);
     return this;
   },
 
   toggleProduct: function (event) {
-    event.preventDefault();
-    var collection_ids = this.$el.find("form").serializeJSON();
+    event && event.preventDefault();
+    var collection_ids = this.$el.find(".update-coll").serializeJSON();
     var html = "#/products/" + this.model.id;
 
     this.model.set(collection_ids);
@@ -35,12 +38,15 @@ HealthHunt.Views.AddProduct = Backbone.View.extend({
   submit: function (event) {
     event.preventDefault();
     var attrs = this.$el.find(".new-collection-form").serializeJSON();
-    var model = new HealthHunt.Models.Collection();
+    var newCollectionModel = new HealthHunt.Models.Collection();
+    var html = "#/products/" + this.model.id;
 
-    model.set(attrs);
-    model.save({}, {
+    newCollectionModel.set(attrs);
+    newCollectionModel.save({}, {
       success: function () {
-        this.collection.add(this.model, { merge: true });
+        HealthHunt.currentUser.collections().add(newCollectionModel);
+        this.model.addCollectionAndSave(newCollectionModel);
+        Backbone.history.navigate(html, { trigger: true });
       }.bind(this)
     });
   }
