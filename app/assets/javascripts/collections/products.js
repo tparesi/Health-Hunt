@@ -2,6 +2,11 @@ HealthHunt.Collections.Products = Backbone.Collection.extend({
   url: 'api/products',
   model: HealthHunt.Models.Product,
 
+  comparator: function (product) {
+    // debugger
+    return product.get("votes");
+  },
+
   getOrFetch: function (id) {
    var product = this.get(id);
 
@@ -11,7 +16,7 @@ HealthHunt.Collections.Products = Backbone.Collection.extend({
      product = new HealthHunt.Models.Product({ id: id });
      product.fetch({
        success: function () {
-         this.add(product)
+         this.add(product);
        }.bind(this)
      });
    }

@@ -25,7 +25,10 @@ HealthHunt.Views.CollectionShow = Backbone.CompositeView.extend({
   },
 
   addProductView: function (product) {
-    var subview = new HealthHunt.Views.ProductsIndexItem({ model: product });
+    var subview = new HealthHunt.Views.ProductsIndexItem({
+      model: product,
+      collection: this.collection
+    });
     this.addSubview('.products', subview);
   },
 

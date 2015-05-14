@@ -38,13 +38,15 @@ module Api
     end
 
     def vote
-      @product = Product.find(params[:id])
-      @vote = Vote.find(product_id: @product.id, user_id: current_user.id)
+      @product = Product.find(params[:product_id])
+      @vote = Vote.find_by(product_id: @product.id, user_id: current_user.id)
 
       if @vote
-        @vote.detroy
+        @vote.destroy!
+        render :show
       else
         current_user.votes.create!(product_id: @product.id)
+        render :show
       end
     end
 

@@ -1,4 +1,8 @@
 HealthHunt.Views.ProductsIndexItem = Backbone.View.extend({
+  initialize: function () {
+    this.listenTo(this.model, 'change', this.render);
+  },
+
   tagName: "li",
   template: JST["products/index_item"],
   events: {
@@ -17,13 +21,14 @@ HealthHunt.Views.ProductsIndexItem = Backbone.View.extend({
     event.preventDefault();
 
     $.ajax({
-      url: "",
+      url: "api/products/vote",
       type: "POST",
       data: {
         product_id: this.model.id
-      }, success: function () {
-        console.log("success");
-      }
+      }, success: function (attrs) {
+        this.model.set(this.model.parse(attrs));
+        this.collection.add(this.model, { merge: true });
+      }.bind(this)
     });
   }
 });
