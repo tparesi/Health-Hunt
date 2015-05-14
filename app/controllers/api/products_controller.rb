@@ -37,10 +37,21 @@ module Api
       render json: {}
     end
 
+    def vote
+      @product = Product.find(params[:id])
+      @vote = Vote.find(product_id: @product.id, user_id: current_user.id)
+
+      if @vote
+        @vote.detroy
+      else
+        current_user.votes.create!(product_id: @product.id)
+      end
+    end
+
     private
 
     def product_params
-      params.require(:product).permit(:title, :url, :description, collection_ids: [])
+      params.require(:product).permit(:title, :url, :description, :voter_ids, collection_ids: [])
     end
   end
 end
