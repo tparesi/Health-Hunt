@@ -1,8 +1,9 @@
 HealthHunt.Views.AddProduct = Backbone.View.extend({
   initialize: function () {
+    HealthHunt.currentUser.collections().fetch();
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(HealthHunt.currentUser, 'sync', this.render);
-    this.listenTo(HealthHunt.currentUser.collections(), 'add remove', this.render);
+    this.listenTo(HealthHunt.currentUser.collections(), 'sync remove', this.render);
   },
 
   events: {

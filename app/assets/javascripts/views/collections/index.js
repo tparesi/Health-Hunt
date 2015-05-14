@@ -1,5 +1,6 @@
 HealthHunt.Views.CollectionsIndex = Backbone.View.extend({
   initialize: function () {
+    this.collection.fetch();
     this.listenTo(this.collection, 'sync add remove', this.render);
   },
 
