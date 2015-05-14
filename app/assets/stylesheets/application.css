@@ -13,3 +13,190 @@
  *= require_tree .
  *= require_self
  */
+
+html, body, header, nav, h1,
+ul, li, strong, main, i, a,
+section, img, div, h2, p, form,
+fieldset, label, label,
+span, article, footer, time, small {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  background: transparent;
+}
+
+/*ul {
+  list-style: none;
+}*/
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+a:hover {
+  color: blue;
+}
+
+/* Clearfix */
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  padding-top: 10px;
+}
+
+a {
+  display: block;
+}
+
+#main {
+  position: relative;
+  margin: 0 auto;
+  margin-top: 50px;
+  width: 900px;
+}
+
+.header {
+  width: 100%;
+  position: fixed;
+  z-index: 1000;
+  top: 0px;
+  background: #D75637;
+  font-size: 20px;
+}
+
+.header-nav {
+  margin: 0 auto;
+  width: 900px;
+  border-right: 1px solid #fff;
+}
+
+.header-logo a {
+  float: left;
+  color: white;
+  padding: 10px 20px;
+}
+
+.header-logo a:hover {
+  background:rgba(255,255,255,0.2);
+}
+
+.session-header a {
+  display: block;
+  float: right;
+  padding: 10px 20px;
+  color: white;
+  border-left: 1px solid #fff;
+}
+
+.session-header a:hover {
+  background:rgba(255,255,255,0.2);
+}
+
+.logout {
+  display: block;
+  outline: none;
+  border: none;
+  background: #D75637;
+  font-size: 20px;
+  float: right;
+  height: 47px;
+  padding: 10px 20px;
+  color: white;
+  border-left: 1px solid #fff;
+}
+
+.logout:hover {
+  background:rgba(255,255,255,0.2);
+  cursor: pointer;
+
+}
+
+.user-email {
+  display: block;
+  color: white;
+  float: right;
+  padding: 10px 20px;
+  border-left: 1px solid #fff;
+}
+
+.session-body {
+  width: 300px;
+  height: 200px;
+  background-color: red;
+  position: relative;
+  top: 150px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background: #D75637;
+  font-size: 20px;
+  color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.session-body form.group {
+  position: relative;
+  padding: 30px 10px;
+}
+
+.session-body label {
+  display: block;
+  padding: 5px;
+}
+
+.session-body input {
+  display: block;
+  float: right;
+  background: white;
+  padding: 0 10px;
+  width: 150px;
+  height: 25px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.session-body .button {
+  position: absolute;
+  top: 150px;
+  right: 115px;
+  height: 30px;
+  width: 75px;
+  border-radius: 5px;
+  font-size: 16px;
+  color: white;
+  outline: none;
+  background: linear-gradient(#6f6c6c, #a9a5a5);
+}
+
+.session-body .button:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+
+.session-body .button:active {
+  background: linear-gradient(#a9a5a5, #6f6c6c);
+}

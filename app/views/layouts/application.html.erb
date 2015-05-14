@@ -2,21 +2,30 @@
 <html>
 <head>
   <title>Health Hunt</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,700' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 
 </head>
 <body>
-  <% if logged_in? %>
-    <%= current_user.email %>
-    <%= button_to "Log Out", session_url, :method => :delete %>
-  <% else %>
-    <%= link_to "Log In", new_session_url %>
-    <%= link_to "Sign Up", new_user_url %>
-  <% end %>
+  <header class="header group">
+    <nav class="header-nav">
+      <h1 class="header-logo">
+        <a href="#">Health Hunt</a>
+      </h1>
 
-<br>
+      <div class="session-header group">
+        <% if logged_in? %>
+          <div class="user-email"><%= current_user.email.match(/.+?(?=@)/) %></div>
+          <%= button_to "Log Out", session_url, :method => :delete, :class => "logout"  %>
+        <% else %>
+          <%= link_to "Log In", new_session_url %>
+          <%= link_to "Sign Up", new_user_url %>
+        <% end %>
+      </div>
+    </nav>
+  </header>
 
 <%= flash[:errors].join("<br>").html_safe if flash[:errors] %>
 
