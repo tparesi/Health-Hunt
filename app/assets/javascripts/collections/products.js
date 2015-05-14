@@ -3,8 +3,7 @@ HealthHunt.Collections.Products = Backbone.Collection.extend({
   model: HealthHunt.Models.Product,
 
   comparator: function (product) {
-    // debugger
-    return product.get("votes");
+    return -product.get("votes");
   },
 
   getOrFetch: function (id) {

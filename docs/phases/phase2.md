@@ -1,4 +1,4 @@
-# Phase 2: Viewing Collections, Products, and Comments
+# Phase 2: Collections Creation
 
 ## Rails
 ### Models
@@ -20,7 +20,9 @@
 
 ### Views
 * CollectionForm
+* CollecionShow
 * CollectionsIndex
+* CollectionAddProduct
 * ProductsIndexItems
 
 ## Gems/Libraries

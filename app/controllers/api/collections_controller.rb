@@ -4,7 +4,7 @@ module Api
       @collection = current_user.collections.new(collection_params)
 
       if @collection.save
-        render json: @collection
+        render :show
       else
         render json: @collection.errors.full_messages, status: :unprocessable_entity
       end
@@ -24,7 +24,7 @@ module Api
       @collection = Collection.find(params[:id])
 
       if @collection.update(collection_params)
-        render json: @collection
+        render json: :show
       else
         render json: @collection.errors.full_messages, status: :unprocessable_entity
       end
