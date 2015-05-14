@@ -13,7 +13,7 @@ module Api
 
     def index
       @products = Product.all
-      render json: @products
+      render :index
     end
 
     def show

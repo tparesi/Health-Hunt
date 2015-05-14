@@ -2,7 +2,7 @@
 
 ## Rails
 ### Models
-* Upvoting
+* Votes
 
 ### Controllers
 

@@ -48,7 +48,7 @@ id           | integer   | not null, primary key
 followee_id  | integer   | not null, foreign key (references users)
 follower_id  | integer   | not null, foreign key (references users)
 
-## up_votings (each product and user combo must be unique)
+## votes (each product and user combo must be unique)
 column name  | data type | details
 -------------|-----------|-----------------------
 id           | integer   | not null, primary key

@@ -18,7 +18,6 @@ HealthHunt.Views.AddProduct = Backbone.View.extend({
       product: this.model,
       formTemplate: JST['collections/form']
     });
-    console.log('hello');
     this.$el.html(content);
     return this;
   },

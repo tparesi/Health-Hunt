@@ -15,9 +15,15 @@ class Product < ActiveRecord::Base
   has_many :comments
   has_many :collectionings
   has_many :collections, through: :collectionings
+  has_many :votes
+  has_many :voters, through: :votes, source: :user
 
   validates :owner_id, :title, :url, :description, presence: true
   before_save :smart_add_url_protocol
+
+  def vote_count
+    self.votes.to_a.count
+  end
 
   protected
 

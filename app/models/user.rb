@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   has_many :products, foreign_key: :owner_id
   has_many :comments, foreign_key: :author_id
   has_many :collections, foreign_key: :owner_id
+  has_many :votes
 
   validates :email, :session_token, presence: true
   validates :email, :session_token, uniqueness: true
