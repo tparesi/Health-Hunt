@@ -1,6 +1,23 @@
 HealthHunt.Models.Product = Backbone.Model.extend({
   urlRoot: '/api/products',
 
+  date: function () {
+      var date = this.get('created_at');
+      date = new Date(date);
+      return date;
+    },
+
+  compareDate: function (model) {
+    var date1 = this.date();
+    var date2 = model.date();
+
+    if (date1.getDate() === date2.getDate() && date1.getMonth() === date2.getMonth() && date1.getFullYear() === date2.getFullYear()) {
+      return true;
+    } else {
+      return false;
+    }
+  },
+
   comments: function () {
     if (!this._comments) {
       this._comments = new HealthHunt.Collections.Comments([], { product: this });

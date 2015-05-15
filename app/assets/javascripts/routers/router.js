@@ -1,6 +1,9 @@
 HealthHunt.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
+    var subHeaderView = new HealthHunt.Views.SubHeader();
+    $("#subheader").html(subHeaderView.render().$el);
+
     this.products = new HealthHunt.Collections.Products();
     this.products.fetch();
     this.collections = new HealthHunt.Collections.Collections();

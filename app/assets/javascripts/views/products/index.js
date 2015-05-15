@@ -10,7 +10,11 @@ HealthHunt.Views.ProductsIndex = Backbone.CompositeView.extend({
   render: function () {
     var content = this.template();
     this.$el.html(content);
-    this.collection.each(this.addProductView.bind(this));
+    this.collection.each(this.removeProductView.bind(this));
+
+    this.collection.each( function (product) {
+      this.addProductView(product);
+    }.bind(this));
     this.attachSubviews();
     return this;
   },

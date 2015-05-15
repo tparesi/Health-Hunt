@@ -15,7 +15,7 @@
  */
 
 html, body, header, nav, h1,
-ul, li, strong, main, i, a, h3,
+ul, li, strong, main, i, a,
 section, img, div, h2, p, form,
 fieldset, label, label,
 span, article, footer, time, small {
@@ -58,6 +58,8 @@ a:hover {
   clear: both;
 }
 
+/* Main Content */
+
 body {
   font-family: sans-serif;
   font-size: 16px;
@@ -71,6 +73,8 @@ body {
   padding: 75px;
   width: 900px;
 }
+
+/* Header */
 
 .header {
   width: 100%;
@@ -90,7 +94,7 @@ body {
 .header-logo a {
   float: left;
   color: white;
-  padding: 10px 20px;
+  padding: 10px 30px;
 }
 
 .header-logo a:hover {
@@ -124,7 +128,6 @@ body {
 .logout:hover {
   background:rgba(255,255,255,0.2);
   cursor: pointer;
-
 }
 
 .user-email {
@@ -195,11 +198,13 @@ body {
   background: #a9a5a5;
 }
 
+/* Subheader */
+
 .subheader {
   display: block;
   position: fixed;
   z-index: 5;
-  top: 40px;
+  top: 43px;
   color: #D75637;
   border-bottom: 1px solid #D75637;
   background: white;
@@ -208,8 +213,8 @@ body {
 
 .prod-col-header {
   display: block;
-  position: relative;
-  left: 100px;
+  margin: auto;
+  width: 900px;
   z-index: 10;
 }
 
@@ -219,10 +224,15 @@ body {
 
 .prod-col-header a {
   display: block;
-  padding: 10px 20px;
+  padding: 15px 20px;
 }
 
 .prod-col-header a:hover {
   background: #D75637;
   color: white;
+}
+
+.active-subheader {
+  box-shadow: 0 4px 2px -2px #D75637;
+  font-weight: bold;
 }

@@ -16,6 +16,8 @@
 
 <% if (product.get("owner_id") === HealthHunt.currentUser.get("id")) { %>
   <a href="#/products/<%= product.id %>/edit">Edit Product</a>
+  <br>
+  <button class="delete-product">Delete product</button>
 <% } %>
 <br>
 
@@ -35,7 +37,3 @@
 
 <button class="new-comment">Add Comment</button>
 </form>
-
-<% if (product.get("owner_id") === HealthHunt.currentUser.get("id")) { %>
-  <button class="delete-product">Delete product</button>
-<% } %>

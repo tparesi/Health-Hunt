@@ -1,3 +1,3 @@
-json.extract! product, :id, :owner_id, :title, :url, :description
+json.extract! product, :id, :owner_id, :title, :url, :description, :created_at
 
 json.votes product.vote_count
