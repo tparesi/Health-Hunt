@@ -1,6 +1,4 @@
-<%= comment.get("author") %> said,
-<br>
-"<%= comment.get("body") %>"
+<%= comment.get("author").match(/.+?(?=@)/) %>: <%= comment.get("body") %>"
 <br>
 
 <% if (comment.get("author_id") === HealthHunt.currentUser.get("id")) { %>

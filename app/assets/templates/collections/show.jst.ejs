@@ -3,13 +3,6 @@
 
 <ul class="products"></ul>
 <br>
-
-<br>
-<a href="#">Products</a>
-<br>
-<a href="#/collections">Collections</a>
-<br>
-<br>
 <% if (collection.get("owner_id") === HealthHunt.currentUser.get("id")) { %>
   <button class="delete-collection">Delete Collection</button>
 <% } %>

@@ -15,7 +15,7 @@
  */
 
 html, body, header, nav, h1,
-ul, li, strong, main, i, a,
+ul, li, strong, main, i, a, h3,
 section, img, div, h2, p, form,
 fieldset, label, label,
 span, article, footer, time, small {
@@ -59,20 +59,16 @@ a:hover {
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: sans-serif;
   font-size: 16px;
   font-weight: 400;
   padding-top: 10px;
 }
 
-a {
-  display: block;
-}
-
 #main {
   position: relative;
-  margin: 0 auto;
-  margin-top: 50px;
+  margin: auto;
+  padding: 75px;
   width: 900px;
 }
 
@@ -187,7 +183,7 @@ a {
   font-size: 16px;
   color: white;
   outline: none;
-  background: linear-gradient(#6f6c6c, #a9a5a5);
+  background: #6f6c6c;
 }
 
 .session-body .button:hover {
@@ -195,7 +191,38 @@ a {
   opacity: 0.9;
 }
 
-
 .session-body .button:active {
-  background: linear-gradient(#a9a5a5, #6f6c6c);
+  background: #a9a5a5;
+}
+
+.subheader {
+  display: block;
+  position: fixed;
+  z-index: 5;
+  top: 40px;
+  color: #D75637;
+  border-bottom: 1px solid #D75637;
+  background: white;
+  width: 100%;
+}
+
+.prod-col-header {
+  display: block;
+  position: relative;
+  left: 100px;
+  z-index: 10;
+}
+
+.prod-col-header h2 {
+  float: left;
+}
+
+.prod-col-header a {
+  display: block;
+  padding: 10px 20px;
+}
+
+.prod-col-header a:hover {
+  background: #D75637;
+  color: white;
 }
