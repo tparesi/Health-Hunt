@@ -7,11 +7,24 @@ HealthHunt.Models.Product = Backbone.Model.extend({
       return date;
     },
 
-  compareDate: function (model) {
-    var date1 = this.date();
-    var date2 = model.date();
+  compareDate: function (product) {
+    var date = this.date();
+    var date2 = product.date();
 
-    if (date1.getDate() === date2.getDate() && date1.getMonth() === date2.getMonth() && date1.getFullYear() === date2.getFullYear()) {
+    if (date.getDate() === date2.getDate() && date.getMonth() === date2.getMonth() && date.getFullYear() === date2.getFullYear()) {
+      return 0;
+    } else if (date.getFullYear() > date2.getFullYear() || date.getMonth() > date2.getMonth() || date.getDate() > date2.getDate()) {
+      return -1;
+    } else {
+      return 1;
+    }
+  },
+
+  compareDateTruthy: function (product) {
+    var date = this.date();
+    var date2 = product.date();
+
+    if (date.getDate() === date2.getDate() && date.getMonth() === date2.getMonth() && date.getFullYear() === date2.getFullYear()) {
       return true;
     } else {
       return false;

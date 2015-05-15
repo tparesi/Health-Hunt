@@ -14,9 +14,6 @@ HealthHunt.Views.ProductsIndexItem = Backbone.View.extend({
       product: this.model
     });
     this.$el.html(content);
-    if (this.model.date() == new Date().getDate()) {
-      this.$el.append("hello");
-    }
     return this;
   },
 
