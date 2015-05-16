@@ -1,8 +1,14 @@
-<h3><%= collection.escape("title") %></h3>
-<h4><%= collection.escape("description") %></h4>
+<div class="collection-show-header">
+  <div class="collection-show-header-content">
+    <h3><%= collection.escape("title") %></h3>
+    <h4><%= collection.escape("description") %></h4>
+    <% if (collection.get("owner_id") === HealthHunt.currentUser.get("id")) { %>
+      <button class="delete-collection">Delete Collection</button>
+    <% } %>
+  </div>
+</div>
 
-<ul class="products"></ul>
-<br>
-<% if (collection.get("owner_id") === HealthHunt.currentUser.get("id")) { %>
-  <button class="delete-collection">Delete Collection</button>
-<% } %>
+<div class="collection-show-body">
+  <ul class="products"></ul>
+  <br>
+</div>

@@ -4,6 +4,7 @@ HealthHunt.Views.CollectionsIndex = Backbone.View.extend({
     this.listenTo(this.collection, 'sync add remove', this.render);
   },
 
+  className: 'collections-index',
   template: JST['collections'],
 
   render: function () {
