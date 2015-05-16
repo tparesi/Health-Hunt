@@ -1,5 +1,13 @@
 HealthHunt.Views.SubHeader = Backbone.View.extend({
   initialize: function () {
+    $(window).on("load", function(event) {
+        if (window.location.hash === "") {
+          this.productActive();
+        } else if ( window.location.hash === "#/collections") {
+          this.collectionActive();
+        }
+      }.bind(this));
+
     $(window).on("hashchange", function(event) {
         if (window.location.hash === "") {
           this.productActive();
@@ -27,5 +35,10 @@ HealthHunt.Views.SubHeader = Backbone.View.extend({
   productActive: function (event) {
     this.$("a").removeClass("active-subheader");
     this.$(".prod-col h2:first-child a").addClass("active-subheader");
+  },
+
+  collectionActive: function (event) {
+    this.$("a").removeClass("active-subheader");
+    this.$(".prod-col h2:last-child a").addClass("active-subheader");
   }
 });

@@ -12,7 +12,7 @@ module Api
 
     def index
       @collections = Collection.all
-      render json: @collections
+      render :index
     end
 
     def show
