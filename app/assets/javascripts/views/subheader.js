@@ -1,9 +1,9 @@
 HealthHunt.Views.SubHeader = Backbone.View.extend({
   initialize: function () {
     $(window).on("load", function(event) {
-        if (window.location.hash === "") {
+        if (window.location.hash === "" || window.location.hash.match(/#\/products*/)) {
           this.productActive();
-        } else if ( window.location.hash === "#/collections") {
+        } else if ( window.location.hash.match(/#\/collections*/)) {
           this.collectionActive();
         }
       }.bind(this));

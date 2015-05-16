@@ -371,12 +371,11 @@ body {
 /* Collection Show */
 
 .collection-show-header {
-
+  background: #534540;
 }
 
 .collection-show-header-content {
   position: relative;
-  background: #534540;
   color: white;
   margin: auto;
   width: 900px;
