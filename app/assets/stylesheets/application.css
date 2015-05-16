@@ -17,7 +17,7 @@
 html, body, header, nav, h1,
 ul, li, strong, main, i, a,
 section, img, div, h2, p, form,
-fieldset, label, label,
+fieldset, label, label, button, h3,
 span, article, footer, time, small {
   margin: 0;
   padding: 0;
@@ -32,9 +32,9 @@ span, article, footer, time, small {
   background: transparent;
 }
 
-/*ul {
+ul {
   list-style: none;
-}*/
+}
 
 img {
   display: block;
@@ -44,10 +44,6 @@ img {
 
 input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px white inset;
-}
-
-a:hover {
-  color: blue;
 }
 
 /* Clearfix */
@@ -218,16 +214,16 @@ body {
   z-index: 10;
 }
 
-.prod-col-header h2 {
+.prod-col h2 {
   float: left;
 }
 
-.prod-col-header a {
+.prod-col a {
   display: block;
   padding: 15px 20px;
 }
 
-.prod-col-header a:hover {
+.prod-col a:hover {
   background: #D75637;
   color: white;
 }
@@ -235,4 +231,90 @@ body {
 .active-subheader {
   box-shadow: 0 4px 2px -2px #D75637;
   font-weight: bold;
+}
+
+.add-product {
+  display: block;
+  float: right;
+  margin: 10px 150px 0 0;
+  background: white;
+  color: #D75637;
+  font-size: 24px;
+  font-weight: 100;
+}
+
+.add-product a {
+  display: block;
+  padding: 0 8px 2px 8px;
+  border-radius: 50%;
+}
+
+.add-product a:hover {
+  background-color: rgba(215, 86, 55, 0.8);
+  color: white;
+}
+
+/* Product Index */
+
+.date {
+  color: grey;
+  font-size: 20px;
+  padding: 10px 0;
+}
+
+.product {
+  display: block;
+  position: relative;
+  margin: 10px 0;
+}
+
+.product-info {
+  float: left;
+  padding: 0 0 0 20px;
+}
+
+.product-info h3 {
+  display: block;
+  margin: 0 0 5px 0;
+  font-size: 20px;
+  font-weight: bold;
+  color: #3e3e3e;
+}
+
+.product-info p {
+  color: #a7a6a6;
+}
+
+.product-link {
+  display: block;
+}
+
+/* Upvote Button */
+
+.upvote {
+  float: left;
+  background: #eaeaea;
+  padding: 20px 13px 5px 13px;
+  font-size: 13px;
+  font-weight: bold;
+  border-radius: 5px;
+  border-bottom: 1px solid #a7a6a6;
+  width: 8px;
+  cursor: pointer;
+  color: #3e3e3e;
+}
+
+.upvote-button {
+  cursor: pointer;
+}
+
+.upvote-triangle {
+  position: absolute;
+  content: "";
+  top: 8px;
+  left: 10px;
+  border-bottom: 7px solid #3e3e3e;
+  border-top: 0;
+  border-right: 7px solid transparent;
+  border-left: 7px solid transparent;
 }

@@ -10,7 +10,7 @@ HealthHunt.Views.SubHeader = Backbone.View.extend({
   template: JST["subheader"],
 
   events: {
-    'click a': "toggleActive"
+    'click .prod-col a': "toggleActive"
   },
 
   render: function () {
@@ -26,6 +26,6 @@ HealthHunt.Views.SubHeader = Backbone.View.extend({
 
   productActive: function (event) {
     this.$("a").removeClass("active-subheader");
-    this.$(".prod-col-header h2:first-child a").addClass("active-subheader");
+    this.$(".prod-col h2:first-child a").addClass("active-subheader");
   }
 });

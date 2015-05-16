@@ -2,7 +2,10 @@
 <a href="<%= product.escape("url") %>">Check it Out!</a>
 <br>
 <br>
-<button class="upvote"><%= product.get("votes") %> Upvotes</button>
+<div class="upvote">
+  <div class="upvote-triangle"></div>
+  <button class="upvote-button"><%= product.get("votes") %></button>
+</div>
 <br>
 
 <h4>
