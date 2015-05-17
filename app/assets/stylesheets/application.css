@@ -15,9 +15,9 @@
  */
 
 html, body, header, nav, h1,
-ul, li, strong, main, i, a, h4,
+ul, li, strong, main, i, a, h3,
 section, img, div, h2, p, form,
-fieldset, label, label, button, h3,
+fieldset, input, label, button, h4, h5,
 span, article, footer, time, small {
   margin: 0;
   padding: 0;
@@ -44,6 +44,10 @@ img {
 
 input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+input {
+  color: black;
 }
 
 /* Clearfix */
@@ -97,9 +101,10 @@ body {
 .session-header a {
   display: block;
   float: right;
-  padding: 10px 20px;
+  padding: 11px 20px;
   color: white;
   border-left: 1px solid #fff;
+  font-size: 18px;
 }
 
 .session-header a:hover {
@@ -108,12 +113,10 @@ body {
 
 .logout {
   display: block;
-  outline: none;
-  border: none;
   background: #da552f;
-  font-size: 20px;
+  font-size: 18px;
   float: right;
-  padding: 10px 20px;
+  padding: 11px 20px;
   color: white;
   border-left: 1px solid #fff;
 }
@@ -124,12 +127,13 @@ body {
 }
 
 .user-email {
-  display: block;
   color: white;
   float: right;
   padding: 10px 20px;
   border-left: 1px solid #fff;
 }
+
+/* Login/Sign Up Form */
 
 .session-body {
   width: 300px;
@@ -164,31 +168,34 @@ body {
   padding: 0 10px;
   width: 150px;
   height: 25px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: sans-serif;
   font-size: 14px;
   font-weight: 400;
 }
 
 .session-body .button {
+  padding: 0 5px 0 5px;
   position: absolute;
   top: 150px;
   right: 115px;
   height: 30px;
-  width: 75px;
+  width: 60px;
   border-radius: 5px;
   font-size: 16px;
   color: white;
-  outline: none;
   background: #6f6c6c;
+  text-align: center;
 }
 
 .session-body .button:hover {
   cursor: pointer;
-  opacity: 0.9;
+  color: rgba(255, 255, 255, 0.6)
+  /*opacity: 0.9;*/
 }
 
 .session-body .button:active {
-  background: #a9a5a5;
+  background: #9c9c9c;
+  color: #6f6c6c;
 }
 
 /* Subheader */
@@ -256,7 +263,7 @@ body {
 .products {
   margin: auto;
   width: 900px;
-  padding: 0 0 0 20px;
+  padding: 10px 0 0 20px;
 }
 
 .date {
@@ -290,6 +297,7 @@ body {
 
 .product-link {
   display: block;
+  cursor: pointer;
 }
 
 /* Upvote Button */
@@ -309,13 +317,14 @@ body {
 
 .upvote-button {
   cursor: pointer;
+  position: relative;
 }
 
 .upvote-triangle {
   position: absolute;
   content: "";
-  top: 8px;
-  left: 10px;
+  top: -11px;
+  left: -3px;
   border-bottom: 7px solid #534540;
   border-top: 0;
   border-right: 7px solid transparent;
@@ -405,3 +414,160 @@ body {
   width: 900px;
   padding: 20px 0 0 20px;
 }
+
+/* Product Show */
+
+.prod-show-header {
+  position: relative;
+  background: #534540;
+  color: white;
+  padding: 40px 0 40px 90px;
+}
+
+.prod-show-header h3 {
+  font-size: 24px;
+  padding: 0 0 10px 0;
+}
+
+.prod-show-header h4 {
+  font-size: 18px;
+  padding: 0 0 30px 0;
+  color: rgba(255,255,255,0.5);
+}
+
+.prod-show-header a {
+  padding: 10px;
+  background: #46bf5b;
+  border-radius: 15px;
+  font-size: 14px;
+  margin: 0 15px 0 0;
+}
+
+.prod-show-header a:last-child {
+  background: #da552f;
+}
+
+.prod-show-subheader {
+  background: #eaeaea;
+  color: #a7a6a6;
+  padding: 15px 0 15px 50px;
+}
+
+.prod-show-subheader a {
+  display: block;
+  float: right;
+  padding: 0 150px 0 0;
+}
+
+.prod-show-body {
+  position: relative;
+  padding: 15px 0 15px 50px;
+  height: 100%;
+}
+
+.prod-show-body h5 {
+  color: #a7a6a6;
+  margin: 0 0 10px 0;
+}
+
+.prod-show-body .comments {
+  margin: 20px;
+}
+
+.prod-show-body .comments li {
+  margin: 10px 0;
+}
+
+.prod-show-body .comments-form {
+  margin: 20px;
+}
+
+.delete-comment {
+  padding: 0 0 0 10px;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.new-comment {
+  cursor: pointer;
+  padding: 5px 0 0 0;
+  font-size: 12px;
+}
+
+.big-upvote {
+  position: absolute;
+  top: 50px;
+  left: 25px;
+  background: rgba(255,255,255,0.2);
+  padding: 26px 17px 8px 16px;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 5px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  width: 8px;
+  cursor: pointer;
+  color: white;
+}
+
+.big-upvote-button {
+  cursor: pointer;
+  position: relative;
+}
+
+.big-upvote-triangle {
+  position: absolute;
+  content: "";
+  top: -15px;
+  left: -3px;
+  border-bottom: 10px solid white;
+  border-top: 0;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+
+/* modal */
+/*
+.modal {
+  display: none;
+}
+
+.modal-open {
+  display: block;
+  z-index: 1000;
+  border-left: solid 1px #a7a6a6;
+}
+
+.modal-main {
+  z-index: 1001;
+  background: blue;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 700px;
+  height: 100;
+  top: 0;
+  bottom: 0;
+  overflow: auto;
+}
+
+.modal-blur {
+  z-index: 1000;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background: black;
+  opacity: 0.2;
+  width: 100%;
+}
+
+.modal-blur a {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.modal-hide {
+  overflow: hidden;
+}*/

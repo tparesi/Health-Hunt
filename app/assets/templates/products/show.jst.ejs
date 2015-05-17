@@ -1,42 +1,41 @@
-<h3><%= product.escape("title") %></h3>
-<a href="<%= product.escape("url") %>">Check it Out!</a>
-<br>
-<br>
-<div class="upvote">
-  <div class="upvote-triangle"></div>
-  <button class="upvote-button"><%= product.get("votes") %></button>
+<div class="modal-main modal-open">
+  <div class="prod-show-header">
+    <h3><%= product.escape("title") %></h3>
+
+    <div class="big-upvote">
+      <button class="big-upvote-button"><%= product.get("votes") %><div class="big-upvote-triangle"></div></button>
+    </div>
+
+    <h4><%= product.escape("description") %></h4>
+
+    <a href="<%= product.escape("url") %>">Check it Out!</a>
+    <% if (product.get("owner_id") === HealthHunt.currentUser.get("id")) { %>
+      <a href="#/products/<%= product.id %>/edit">Edit Product</a>
+    <% } %>
+  </div>
+
+  <div class="prod-show-subheader">
+    Product Submitted by <%= product.escape("creator").match(/.+?(?=@)/) %>
+    <a href="#/products/<%= product.id %>/add_product">Add Product to a Collection</a>
+  </div>
+
+  <div class="prod-show-body">
+    <h5>Comments</h5>
+    <ul class="comments group"></ul>
+
+    <form class="comments-form">
+    <input type="hidden" name="product_id" value="<%= product.id %>">
+
+    <label>
+      <textarea name="body"></textarea>
+    </label>
+
+    <br>
+    <button class="new-comment">Add Comment</button>
+    </form>
+  </div>
 </div>
-<br>
 
-<h4>
-  <%= product.escape("description") %>
-  <br>
-  Product Submitted by: <%= product.escape("creator") %>
-</h4>
-
-<a href="#/products/<%= product.id %>/add_product">Add Product to a Collection</a>
-<br>
-
-<% if (product.get("owner_id") === HealthHunt.currentUser.get("id")) { %>
-  <a href="#/products/<%= product.id %>/edit">Edit Product</a>
-  <br>
-  <button class="delete-product">Delete product</button>
-<% } %>
-<br>
-
-<h5>Comments</h5>
-<div class="comments"></div>
-<br>
-
-<form>
-<input type="hidden" name="product_id" value="<%= product.id %>">
-
-<label>
-  Body
-  <br>
-  <textarea name="body"></textarea>
-</label>
-<br>
-
-<button class="new-comment">Add Comment</button>
-</form>
+<div class="modal-blur">
+  <a href="#" class="close-modal"></a>
+</div>

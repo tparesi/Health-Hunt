@@ -1,7 +1,6 @@
 <a class="product-link group" href="#/products/<%= product.id %>">
   <div class="upvote">
-    <div class="upvote-triangle"></div>
-    <button class="upvote-button"><%= product.get("votes") %></button>
+    <button class="upvote-button"><%= product.get("votes") %><div class="upvote-triangle"></div></button>
   </div>
   <div class="product-info group">
       <h3 class="product-title"><%= product.escape("title") %></h3>
