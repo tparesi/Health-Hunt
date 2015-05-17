@@ -1,28 +1,15 @@
-<br>
-<h1><%= product.isNew() ? 'New Product' : 'Edit Product' %></h1>
+<h3><%= product.isNew() ? 'New Product' : 'Edit Product' %></h3>
 
-<label>
-  Title
-<br>
-  <input type='text' name='title' value='<%= product.escape('title') %>'>
-<br>
-</label>
+<input type='text' name='title' value='<%= product.escape('title') %>' placeholder="Enter Product Name">
 
-<label>
-  URL
-<br>
-  <input type='text' name='url' value='<%= product.escape('url') %>'>
-<br>
-</label>
+<input type='text' name='url' value='<%= product.escape('url') %>' placeholder="Enter Product URL">
 
-<label>
-  Description
-<br>
-  <textarea name='description'><%= product.escape('description') %></textarea>
-<br>
-</label>
+<textarea name='description' placeholder="Enter Product Description"><%= product.escape('description') %></textarea>
 
 <button class="new-product">Submit</button>
-<br>
-<button class="delete-product">Delete product</button>
+
 <a href='#'>Cancel</a>
+
+<% if (!product.isNew()) { %>
+  <button class="delete-product">Delete product</button>
+<% } %>

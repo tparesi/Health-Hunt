@@ -1,5 +1,7 @@
 HealthHunt.Views.ProductForm = Backbone.View.extend({
   tagName: 'form',
+  className: 'product-form',
+  
   events: {
     "click .new-product": "submit"
   },

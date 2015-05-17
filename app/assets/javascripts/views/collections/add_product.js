@@ -6,6 +6,8 @@ HealthHunt.Views.AddProduct = Backbone.View.extend({
     this.listenTo(HealthHunt.currentUser.collections(), 'sync remove', this.render);
   },
 
+  className: 'product-collection-form',
+
   events: {
     "click .prod-coll": "toggleProduct",
     "click .new-collection": "submit"

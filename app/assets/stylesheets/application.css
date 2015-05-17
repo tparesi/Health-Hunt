@@ -14,7 +14,7 @@
  *= require_self
  */
 
-html, body, header, nav, h1,
+html, body, header, nav, h1, textarea,
 ul, li, strong, main, i, a, h3,
 section, img, div, h2, p, form,
 fieldset, input, label, button, h4, h5,
@@ -486,12 +486,33 @@ body {
   padding: 0 0 0 10px;
   font-size: 10px;
   cursor: pointer;
+  margin: 5px 30px 10px 0;
+  background: #ec4040;
+  padding: 5px 10px;
+  border-radius: 15px;
+  color: white;
 }
 
 .new-comment {
   cursor: pointer;
-  padding: 5px 0 0 0;
   font-size: 12px;
+  padding: 5px 10px;
+  background: #46bf5b;
+  border-radius: 15px;
+  color: white;
+  margin: 5px 0 0 0;
+}
+
+.comments-form textarea {
+  display: block;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px 5px;
+  width: 290px;
+  font-size: 14px;
+  height: 100px;
+  resize: none;
 }
 
 .big-upvote {
@@ -523,6 +544,128 @@ body {
   border-top: 0;
   border-right: 8px solid transparent;
   border-left: 8px solid transparent;
+}
+
+/* Product Form */
+
+.product-form {
+  background: #eaeaea;
+  border-radius: 5px;
+  border: 1px solid black;
+  margin: 20px;
+  width: 450px;
+}
+
+.product-form h3 {
+  background: #534540;
+  text-align: center;
+  font-size: 20px;
+  color: white;
+  padding: 10px 0 ;
+}
+
+.product-form textarea,
+.product-form input {
+  display: block;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px 5px;
+  width: 390px;
+  margin: 10px auto;
+  font-size: 14px;
+}
+
+.product-form textarea {
+  height: 100px;
+  resize: none;
+}
+
+.product-form button,
+.product-form a {
+  padding: 10px 15px;
+  background: #46bf5b;
+  border-radius: 15px;
+  font-size: 16px;
+  color: white;
+  margin: 5px 0 10px 15px;
+}
+
+.product-form button {
+  cursor: pointer;
+}
+
+.product-form .new-product {
+  margin: 5px 0 10px 30px;
+}
+
+.product-form .delete-product {
+  display: block;
+  float: right;
+  margin: 5px 30px 10px 0;
+  background: #ec4040;
+}
+
+.product-form a {
+  background: #534540;
+}
+
+/* New Collection Form */
+
+.product-collection-form {
+  background: #eaeaea;
+  border-radius: 5px;
+  border: 1px solid black;
+  margin: 20px;
+  width: 300px;
+}
+
+.product-collection-form h3 {
+  background: #534540;
+  text-align: center;
+  font-size: 20px;
+  color: white;
+  padding: 10px 0 ;
+}
+
+.prod-coll-form-field {
+ padding: 10px;
+}
+
+.update-coll {
+  color: #534540;
+}
+
+.update-coll label {
+  display: block;
+  font-size: 16px;
+  padding: 5px 0 5px 10px;
+}
+
+.new-collection-form input {
+  display: block;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px 5px;
+  width: 260px;
+  margin: 10px 5px;
+  font-size: 14px;
+}
+
+.product-collection-form button,
+.product-collection-form a {
+  padding: 10px 15px;
+  background: #46bf5b;
+  border-radius: 15px;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  margin: 5px 0 10px 10px;
+}
+
+.product-collection-form a {
+  background: #534540;
 }
 
 /* modal */

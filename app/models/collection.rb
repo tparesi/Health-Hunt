@@ -15,5 +15,5 @@ class Collection < ActiveRecord::Base
   has_many :collectionings
   has_many :products, through: :collectionings
 
-  validates :owner_id, :title, :description, presence: true
+  validates :owner_id, :title, presence: true
 end
