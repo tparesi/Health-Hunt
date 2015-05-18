@@ -8,6 +8,7 @@ HealthHunt.Views.CommentShow = Backbone.View.extend({
   },
 
   tagName: 'li',
+  className: 'comment-show',
   template: JST['comments/show'],
 
   render: function () {

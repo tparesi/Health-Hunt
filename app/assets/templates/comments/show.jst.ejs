@@ -1,6 +1,5 @@
-<%= comment.get("author").match(/.+?(?=@)/) %>: <%= comment.get("body") %>"
-<br>
-
+<h4><%= comment.get("author").match(/.+?(?=@)/) %></h4>
+<p>"<%= comment.get("body") %>"</p>
 <% if (comment.get("author_id") === HealthHunt.currentUser.get("id")) { %>
   <button class="delete-comment">Delete Comment</button>
 <% } %>

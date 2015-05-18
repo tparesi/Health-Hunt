@@ -10,7 +10,7 @@
 
     <a href="<%= product.escape("url") %>">Check it Out!</a>
     <% if (product.get("owner_id") === HealthHunt.currentUser.get("id")) { %>
-      <a href="#/products/<%= product.id %>/edit">Edit Product</a>
+      <a class="edit-product" href="#/products/<%= product.id %>/edit">Edit Product</a>
     <% } %>
   </div>
 

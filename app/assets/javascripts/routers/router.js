@@ -18,7 +18,8 @@ HealthHunt.Routers.Router = Backbone.Router.extend({
     "products/:id/add_product": "collectionAddProduct",
     "collections": "collectionsIndex",
     "collections/new": "collectionNew",
-    "collections/:id": "collectionShow"
+    "collections/:id": "collectionShow",
+    "collections/:id/edit": "collectionEdit"
   },
 
   index: function () {
@@ -79,6 +80,15 @@ HealthHunt.Routers.Router = Backbone.Router.extend({
 
   collectionNew: function () {
     var collection = new HealthHunt.Models.Collection();
+    var collectionFormView = new HealthHunt.Views.CollectionForm({
+      collection: this.collections,
+      model: collection
+    });
+    this._swapView(collectionFormView);
+  },
+
+  collectionEdit: function (id) {
+    var collection = this.collections.getOrFetch(id);
     var collectionFormView = new HealthHunt.Views.CollectionForm({
       collection: this.collections,
       model: collection

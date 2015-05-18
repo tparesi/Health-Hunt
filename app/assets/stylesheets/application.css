@@ -381,6 +381,7 @@ body {
 
 .collection-show-header {
   background: #534540;
+  height: 240px;
 }
 
 .collection-show-header-content {
@@ -399,13 +400,13 @@ body {
 .collection-show-header-content h4 {
 }
 
-.delete-collection {
+.edit-collection-button {
   position: absolute;
   top: 100px;
   right: 150px;
   padding: 10px;
   background: #da552f;
-  border-radius: 10px;
+  border-radius: 15px;
   cursor: pointer;
 }
 
@@ -443,7 +444,7 @@ body {
   margin: 0 15px 0 0;
 }
 
-.prod-show-header a:last-child {
+.prod-show-header .edit-product {
   background: #da552f;
 }
 
@@ -480,6 +481,20 @@ body {
 
 .prod-show-body .comments-form {
   margin: 20px;
+}
+
+.comment-show {
+  display: block;
+  color: #534540;
+}
+
+.comment-show h4 {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.comment-show p {
+  margin: 10px 15px 0 15px;
 }
 
 .delete-comment {
@@ -666,6 +681,70 @@ body {
 
 .product-collection-form a {
   background: #534540;
+}
+
+/* Edit Collection Form */
+
+.edit-collection {
+  background: #534540;
+  color: white;
+}
+
+.edit-collection-interior {
+  width: 900px;
+  margin: auto;
+  padding: 0 0 0 20px;
+  position: relative;
+}
+
+.edit-collection-form {
+  padding: 50px 0 0 0;
+  height: 190px;
+  float: left;
+}
+
+.edit-collection-form input {
+  display: block;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 15px 10px;
+  width: 400px;
+  font-size: 16px;
+  color: #534540;
+}
+
+.edit-collection-form input:first-child {
+  margin: 0 0 20px 0;
+}
+
+.edit-collection a,
+.edit-collection button{
+  padding: 10px 15px;
+  border-radius: 15px;
+  font-size: 16px;
+  color: white;
+  margin: 15px 0 0 15px;
+  cursor: pointer;
+}
+
+.new-collection {
+  background: #46bf5b;
+  display: block;
+  float: right;
+}
+
+.edit-collection a {
+  background: grey;
+  display: block;
+  float: right;
+}
+
+.delete-collection {
+  background: #ec4040;
+  position: absolute;
+  top: 85px;
+  right: 50px;
 }
 
 /* modal */
