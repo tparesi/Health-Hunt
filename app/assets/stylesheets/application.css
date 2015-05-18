@@ -298,7 +298,26 @@ body {
 .product-link {
   display: block;
   cursor: pointer;
+  float: left;
+  width: 100%;
 }
+
+.product-link:hover {
+  background: #f0f0f0;
+  border-radius: 5px;
+}
+.prod-coll-link {
+  display: block;
+  position: absolute;
+  color: #a7a6a6;
+  right: 5px;
+  top: 15px;
+}
+
+.prod-coll-link:hover {
+  color: #da552f;
+}
+
 
 /* Upvote Button */
 
@@ -313,6 +332,7 @@ body {
   width: 8px;
   cursor: pointer;
   color: #534540;
+  margin: 3px;
 }
 
 .upvote-button {

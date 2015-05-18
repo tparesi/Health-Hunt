@@ -2,8 +2,12 @@
   <div class="upvote">
     <button class="upvote-button"><%= product.get("votes") %><div class="upvote-triangle"></div></button>
   </div>
-  <div class="product-info group">
-      <h3 class="product-title"><%= product.escape("title") %></h3>
-      <p class="product-description"><%= product.escape("description") %></p>
+
+  <div class="product-info">
+    <h3 class="product-title"><%= product.escape("title") %></h3>
+    <p class="product-description"><%= product.escape("description") %></p>
   </div>
+
 </a>
+
+<a class="prod-coll-link" href="#/products/<%= product.id %>/add_product">Add Product to a Collection</a>
