@@ -1,5 +1,6 @@
 module Api
   class CollectionsController < ApiController
+
     def create
       @collection = current_user.collections.new(collection_params)
 
@@ -39,7 +40,7 @@ module Api
     private
 
     def collection_params
-      params.require(:collection).permit(:title, :description)
+      params.require(:collection).permit(:title, :description, :image)
     end
 
   end

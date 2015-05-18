@@ -16,5 +16,15 @@ HealthHunt.Models.Collection = Backbone.Model.extend({
     }
 
     return response;
+  },
+
+  toJSON: function(){
+    var json = { collection: _.clone(this.attributes) };
+
+    if (this._image) {
+      json.collection.image = this._image;
+    }
+
+    return json;
   }
 });

@@ -249,7 +249,7 @@ body {
 
 .add-product a {
   display: block;
-  padding: 0 8px 2px 8px;
+  padding: 0 7.5px 2px 7.5px;
   border-radius: 50%;
 }
 
@@ -451,13 +451,19 @@ body {
 .prod-show-subheader {
   background: #eaeaea;
   color: #a7a6a6;
-  padding: 15px 0 15px 50px;
+  padding: 0 0 0 50px;
+}
+
+.prod-show-subheader h4{
+  float: left;
+  padding: 15px;
 }
 
 .prod-show-subheader a {
   display: block;
   float: right;
-  padding: 0 150px 0 0;
+  margin: 0 150px 0 0;
+  padding: 15px;
 }
 
 .prod-show-body {
@@ -729,6 +735,12 @@ body {
 }
 
 .new-collection {
+  background: #46bf5b;
+  display: block;
+  float: left;
+}
+
+.new-collection-submit {
   background: #46bf5b;
   display: block;
   float: right;

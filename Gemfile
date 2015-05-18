@@ -25,6 +25,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'simple-rss'
 gem 'backbone-on-rails'
 gem 'ejs'
+gem "paperclip", "~> 4.2"
+gem 'figaro'
+gem 'aws-sdk', '< 2.0'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt'

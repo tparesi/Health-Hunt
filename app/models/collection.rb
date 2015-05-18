@@ -15,5 +15,8 @@ class Collection < ActiveRecord::Base
   has_many :collectionings
   has_many :products, through: :collectionings
 
+  has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+
   validates :owner_id, :title, presence: true
 end

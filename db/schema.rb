@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150517225106) do
+ActiveRecord::Schema.define(version: 20150518140825) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,12 +27,15 @@ ActiveRecord::Schema.define(version: 20150517225106) do
   add_index "collectionings", ["product_id"], name: "index_collectionings_on_product_id", using: :btree
 
   create_table "collections", force: :cascade do |t|
-    t.integer  "owner_id",    null: false
-    t.string   "title",       null: false
-    t.string   "image_url"
+    t.integer  "owner_id",           null: false
+    t.string   "title",              null: false
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "collections", ["owner_id"], name: "index_collections_on_owner_id", using: :btree

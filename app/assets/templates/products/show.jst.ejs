@@ -14,8 +14,8 @@
     <% } %>
   </div>
 
-  <div class="prod-show-subheader">
-    Product Submitted by <%= product.escape("creator").match(/.+?(?=@)/) %>
+  <div class="prod-show-subheader group">
+    <h4>Product Submitted by <%= product.escape("creator").match(/.+?(?=@)/) %></h4>
     <a href="#/products/<%= product.id %>/add_product">Add Product to a Collection</a>
   </div>
 

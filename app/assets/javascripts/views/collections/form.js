@@ -6,8 +6,9 @@ HealthHunt.Views.CollectionForm = Backbone.View.extend({
   className: 'edit-collection',
 
   events: {
-    "click .new-collection": "submit",
-    "click .delete-collection": "deleteCollection"
+    "submit": "submit",
+    "click .delete-collection": "deleteCollection",
+    "change #input-collection-image": "fileInputChange"
   },
 
   template: JST['collections/form'],
@@ -32,6 +33,26 @@ HealthHunt.Views.CollectionForm = Backbone.View.extend({
         Backbone.history.navigate("#/collections", { trigger: true });
       }.bind(this)
     });
+  },
+
+  fileInputChange: function(event){
+    console.log(event.currentTarget.files[0]);
+
+    var that = this;
+    var file = event.currentTarget.files[0];
+    var reader = new FileReader();
+
+    reader.onloadend = function(){
+      that.model._image = reader.result;
+      console.log(that.model);
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      delete that.model._image;
+      console.log(that.model);
+    }
   },
 
   deleteCollection: function (event) {

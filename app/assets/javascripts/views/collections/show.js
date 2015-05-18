@@ -14,6 +14,7 @@ HealthHunt.Views.CollectionShow = Backbone.CompositeView.extend({
     var content = this.template({
       collection: this.model
     });
+
     this.$el.html(content);
     this.products.each(this.addProductView.bind(this));
     return this;
