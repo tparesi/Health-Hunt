@@ -4,10 +4,6 @@ HealthHunt.Views.ProductsIndex = Backbone.CompositeView.extend({
     this.listenTo(this.collection, 'remove', this.removeProductView);
   },
 
-  // events: {
-  //   "click .product-link": "openProduct"
-  // },
-
   template: JST['products'],
 
   render: function () {
@@ -37,19 +33,5 @@ HealthHunt.Views.ProductsIndex = Backbone.CompositeView.extend({
 
   removeProductView: function (product) {
     this.removeModelSubview('.products', product);
-  },
-
-  // openProduct: function (event) {
-  //   var productId = $(event.currentTarget).data("id");
-  //   var product = this.collection.get(productId);
-  //   var showView = new HealthHunt.Views.ProductShow({
-  //     model: product
-  //   });
-  //   $(".modal").html(showView.render().$el);
-  //   $(".modal").addClass("modal-open");
-  //   $("body").addClass("modal-hide");
-  //
-  //   // Trying to figure out how to set url??
-  //   // history.pushState(null, null, '#/products/' + productId);
-  // }
+  }
 });

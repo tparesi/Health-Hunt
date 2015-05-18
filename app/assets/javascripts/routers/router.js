@@ -43,7 +43,14 @@ HealthHunt.Routers.Router = Backbone.Router.extend({
     var showView = new HealthHunt.Views.ProductShow({
       model: product
     });
-    this._swapView(showView);
+
+    // For when a prouct is navigated to directly
+    // if (!this.currentView) {
+    //   this.index();
+    // }
+
+    $(".modal").html(showView.render().$el);
+    // this._swapView(showView);
   },
 
   edit: function (id) {

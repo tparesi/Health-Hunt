@@ -7,7 +7,9 @@
   <% collections.each(function (collection) { %>
     <li class="collection">
       <a href="#/collections/<%= collection.id %>">
-        <img src="<%= collection.get("image_url") %>">
+        <% if (collection.get("image_url") !== "/images/original/missing.png" ) { %>
+          <img src="<%= collection.get("image_url") %>">
+        <% } %>
         <%= collection.escape("title") %>
       </a>
     </li>

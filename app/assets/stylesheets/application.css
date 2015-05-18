@@ -275,7 +275,6 @@ body {
 .product {
   display: block;
   position: relative;
-  margin: 10px 0;
 }
 
 .product-info {
@@ -300,9 +299,10 @@ body {
   cursor: pointer;
   float: left;
   width: 100%;
+  padding: 10px;
 }
 
-.product-link:hover {
+.product:hover {
   background: #f0f0f0;
   border-radius: 5px;
 }
@@ -310,8 +310,8 @@ body {
   display: block;
   position: absolute;
   color: #a7a6a6;
-  right: 5px;
-  top: 15px;
+  right: 10px;
+  top: 25px;
 }
 
 .prod-coll-link:hover {
@@ -396,6 +396,7 @@ body {
   bottom: 0;
   margin: auto;
   opacity: 0.5;
+  height: 100%
 }
 
 .collection a {
@@ -486,6 +487,10 @@ body {
   margin: 0 15px 0 0;
 }
 
+.prod-show-header a:hover {
+  color: #da552f;
+}
+
 .prod-show-header .edit-product {
   background: #da552f;
 }
@@ -493,18 +498,17 @@ body {
 .prod-show-subheader {
   background: #eaeaea;
   color: #a7a6a6;
-  padding: 0 0 0 50px;
 }
 
 .prod-show-subheader h4{
   float: left;
-  padding: 15px;
+  padding: 15px 20px;
 }
 
 .prod-show-subheader a {
   display: block;
   float: right;
-  margin: 0 150px 0 0;
+  margin: 0 20px 0 0;
   padding: 15px;
 }
 
@@ -512,6 +516,7 @@ body {
   position: relative;
   padding: 15px 0 15px 50px;
   height: 100%;
+  background: white;
 }
 
 .prod-show-body h5 {
@@ -812,9 +817,9 @@ body {
 }
 
 /* modal */
-/*
+
 .modal {
-  display: none;
+
 }
 
 .modal-open {
@@ -825,7 +830,6 @@ body {
 
 .modal-main {
   z-index: 1001;
-  background: blue;
   position: absolute;
   right: 0;
   top: 0;
@@ -848,12 +852,13 @@ body {
   width: 100%;
 }
 
-.modal-blur a {
+.modal-blur {
   display: block;
   height: 100%;
   width: 100%;
+  cursor: pointer;
 }
 
 .modal-hide {
   overflow: hidden;
-}*/
+}

@@ -1,9 +1,10 @@
 HealthHunt.Views.ProductForm = Backbone.View.extend({
   tagName: 'form',
   className: 'product-form',
-  
+
   events: {
-    "click .new-product": "submit"
+    "click .new-product": "submit",
+    "click .delete-product": "deleteProduct",
   },
 
   template: JST['products/form'],
@@ -27,5 +28,14 @@ HealthHunt.Views.ProductForm = Backbone.View.extend({
         Backbone.history.navigate("", { trigger: true })
       }.bind(this)
     });
-  }
+  },
+
+  deleteProduct: function (event) {
+    event.preventDefault();
+    this.model.destroy({
+      success: function () {
+        Backbone.history.navigate("#", { trigger: true });
+      }
+    });
+  },
 });

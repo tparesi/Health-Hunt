@@ -1,5 +1,7 @@
 <div class="collection-show-header">
-  <img src="<%= collection.get("image_url") %>">
+  <% if (collection.get("image_url") !== "/images/original/missing.png" ) { %>
+    <img src="<%= collection.get("image_url") %>">
+  <% } %>
   <div class="collection-show-header-content">
     <h3><%= collection.escape("title") %></h3>
     <h4><%= collection.escape("description") %></h4>
