@@ -1,11 +1,11 @@
 <div class="collection-show-header">
+  <img src="<%= collection.get("image_url") %>">
   <div class="collection-show-header-content">
     <h3><%= collection.escape("title") %></h3>
     <h4><%= collection.escape("description") %></h4>
     <% if (collection.get("owner_id") === HealthHunt.currentUser.get("id")) { %>
       <a href="#/collections/<%= collection.id %>/edit" class="edit-collection-button">Edit Collection</a>
     <% } %>
-    <!-- <img src="<%= collection.get("image_url") %>" width="100%"> -->
   </div>
 </div>
 

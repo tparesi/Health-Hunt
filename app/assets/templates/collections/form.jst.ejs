@@ -1,12 +1,10 @@
 <div class="edit-collection-interior group">
-  <form class="edit-collection-form">
+  <form class="edit-collection-form group">
     <input type='text' name='title' value='<%= collection.escape('title') %>' placeholder="Enter Collection Name">
     <input type="text" name="description" value="<%= collection.escape('description') %>" placeholder="Enter Description of Collection">
 
-    <label>
-      Image
-      <input type="file" name="image" id="input-collection-image">
-    </label>
+    <input type="file" name="image" id="input-collection-image">
+
 
     <a href='#/collections/<%= collection.id %>'>Cancel</a>
     <button class="new-collection-submit">Submit</button>

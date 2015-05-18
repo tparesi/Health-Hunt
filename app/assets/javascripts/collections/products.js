@@ -2,6 +2,14 @@ HealthHunt.Collections.Products = Backbone.Collection.extend({
   url: 'api/products',
   model: HealthHunt.Models.Product,
 
+  sortByVotes: function (product) {
+    this.comparator = this.compareByVotes;
+  },
+
+  compareByVotes: function (product) {
+    return -product.get("votes");
+  },
+
   comparator: function (product1, product2) {
     if (product1.compareDate(product2) === 0) {
       if (product1.get("votes") > product2.get("votes")) {

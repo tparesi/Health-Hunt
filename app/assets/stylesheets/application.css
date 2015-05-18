@@ -359,11 +359,23 @@ body {
 }
 
 .collection {
+  position: relative;
+  z-index: 0;
   float: left;
   border-radius: 5px;
   margin: 10px;
   color: white;
   background: #534540;
+  overflow: hidden;
+}
+
+.collection img {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  opacity: 0.5;
 }
 
 .collection a {
@@ -380,8 +392,18 @@ body {
 /* Collection Show */
 
 .collection-show-header {
+  position: relative;
   background: #534540;
   height: 240px;
+  overflow: hidden;
+}
+
+.collection-show-header img{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  opacity: 0.5;
 }
 
 .collection-show-header-content {
@@ -726,12 +748,22 @@ body {
 
 .edit-collection a,
 .edit-collection button{
+  float: right;
   padding: 10px 15px;
   border-radius: 15px;
   font-size: 16px;
   color: white;
   margin: 15px 0 0 15px;
   cursor: pointer;
+}
+
+#input-collection-image {
+  float: right;
+  background: #534540;
+  border: none;
+  outline: none;
+  margin: 25px 0 0 15px;
+  padding: 0;
 }
 
 .new-collection {

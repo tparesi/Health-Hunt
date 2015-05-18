@@ -1,12 +1,13 @@
 <div class="collection-header">
-  <h2 class='collection-index-title'>Popular Collections</h2>
-  <h3 class='collection-index-subtitle'>Collections Curated for You By You</h3>
+  <h2 class="collection-index-title">Popular Collections</h2>
+  <h3 class="collection-index-subtitle">Collections Curated for You By You</h3>
 </div>
 
-<ul class='collections group'>
+<ul class="collections group">
   <% collections.each(function (collection) { %>
-    <li class='collection group'>
+    <li class="collection">
       <a href="#/collections/<%= collection.id %>">
+        <img src="<%= collection.get("image_url") %>">
         <%= collection.escape("title") %>
       </a>
     </li>

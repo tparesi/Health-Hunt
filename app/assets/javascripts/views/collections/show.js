@@ -16,6 +16,8 @@ HealthHunt.Views.CollectionShow = Backbone.CompositeView.extend({
     });
 
     this.$el.html(content);
+
+    this.products.sortByVotes();
     this.products.each(this.addProductView.bind(this));
     return this;
   },
