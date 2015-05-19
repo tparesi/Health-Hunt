@@ -744,6 +744,17 @@ body {
 .edit-collection {
   background: #534540;
   color: white;
+  overflow: hidden;
+  position: relative;
+}
+
+.edit-collection img{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  opacity: 0.5;
+  overflow: hidden;
 }
 
 .edit-collection-interior {
@@ -792,6 +803,7 @@ body {
   outline: none;
   margin: 25px 0 0 15px;
   padding: 0;
+  width: 88px;
 }
 
 .new-collection {

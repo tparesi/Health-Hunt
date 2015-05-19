@@ -36,23 +36,25 @@ HealthHunt.Views.CollectionForm = Backbone.View.extend({
   },
 
   fileInputChange: function(event){
-    console.log(event.currentTarget.files[0]);
-
     var that = this;
     var file = event.currentTarget.files[0];
     var reader = new FileReader();
 
     reader.onloadend = function(){
+      that._updatePreview(reader.result);
       that.model._image = reader.result;
-      console.log(that.model);
     };
 
     if (file) {
       reader.readAsDataURL(file);
     } else {
+      that._updatePreview("");
       delete that.model._image;
-      console.log(that.model);
     }
+  },
+
+  _updatePreview: function(src){
+    this.$el.prepend("<img src='" + src + "'>");
   },
 
   deleteCollection: function (event) {
