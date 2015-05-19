@@ -25,7 +25,7 @@ module Api
       @collection = Collection.find(params[:id])
 
       if @collection.update(collection_params)
-        render json: :show
+        render :show
       else
         render json: @collection.errors.full_messages, status: :unprocessable_entity
       end

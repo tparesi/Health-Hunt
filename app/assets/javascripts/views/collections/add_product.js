@@ -28,12 +28,11 @@ HealthHunt.Views.AddProduct = Backbone.View.extend({
   toggleProduct: function (event) {
     event && event.preventDefault();
     var collection_ids = this.$el.find(".update-coll").serializeJSON();
-    var html = "#/products/" + this.model.id;
 
     this.model.set(collection_ids);
     this.model.save({}, {
       success: function () {
-        Backbone.history.navigate(html, { trigger: true });
+        window.history.back();
       }
     });
   },
@@ -42,14 +41,13 @@ HealthHunt.Views.AddProduct = Backbone.View.extend({
     event.preventDefault();
     var attrs = this.$el.find(".new-collection-form").serializeJSON();
     var newCollectionModel = new HealthHunt.Models.Collection();
-    var html = "#/products/" + this.model.id;
 
     newCollectionModel.set(attrs);
     newCollectionModel.save({}, {
       success: function () {
         HealthHunt.currentUser.collections().add(newCollectionModel);
         this.model.addCollectionAndSave(newCollectionModel);
-        Backbone.history.navigate(html, { trigger: true });
+        window.history.back();
       }.bind(this)
     });
   },

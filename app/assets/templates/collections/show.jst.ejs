@@ -1,12 +1,14 @@
 <div class="collection-show-header">
-  <% if (collection.get("image_url") !== "/images/original/missing.png" ) { %>
-    <img src="<%= collection.get("image_url") %>">
-  <% } %>
+  <img src="<%= collection.get("image_url") %>">
+
+
+  <div class="edit-collection"></div>
+
   <div class="collection-show-header-content">
     <h3><%= collection.escape("title") %></h3>
     <h4><%= collection.escape("description") %></h4>
     <% if (collection.get("owner_id") === HealthHunt.currentUser.get("id")) { %>
-      <a href="#/collections/<%= collection.id %>/edit" class="edit-collection-button">Edit Collection</a>
+      <button class="edit-collection-button">Edit Collection</button>
     <% } %>
   </div>
 </div>

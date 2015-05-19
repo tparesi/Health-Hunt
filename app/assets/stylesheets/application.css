@@ -380,23 +380,15 @@ body {
 
 .collection {
   position: relative;
-  z-index: 0;
+  z-index: 1;
   float: left;
   border-radius: 5px;
   margin: 10px;
   color: white;
   background: #534540;
   overflow: hidden;
-}
-
-.collection img {
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  opacity: 0.5;
-  height: 100%
+  background-size: cover;
+  background-position: 100%;
 }
 
 .collection a {
@@ -406,8 +398,25 @@ body {
   height: 220px;
   cursor: pointer;
   text-align: center;
-  line-height: 220px;
-  font-size: 16px;
+  line-height: 200px;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.collection a:before {
+  content: "";
+  position: absolute;
+  z-index: -100;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.4;
+  background: black;
+}
+
+.collection a:hover:before {
+  opacity: 0;
 }
 
 /* Collection Show */
@@ -485,10 +494,6 @@ body {
   border-radius: 15px;
   font-size: 14px;
   margin: 0 15px 0 0;
-}
-
-.prod-show-header a:hover {
-  color: #da552f;
 }
 
 .prod-show-header .edit-product {
@@ -742,7 +747,6 @@ body {
 /* Edit Collection Form */
 
 .edit-collection {
-  background: #534540;
   color: white;
   overflow: hidden;
   position: relative;
@@ -818,7 +822,7 @@ body {
   float: right;
 }
 
-.edit-collection a {
+.cancel-form-grey {
   background: grey;
   display: block;
   float: right;

@@ -5,11 +5,8 @@
 
 <ul class="collections group">
   <% collections.each(function (collection) { %>
-    <li class="collection">
+    <li class="collection" style="background-image: url('<%= collection.get("image_url") %>') ">
       <a href="#/collections/<%= collection.id %>">
-        <% if (collection.get("image_url") !== "/images/original/missing.png" ) { %>
-          <img src="<%= collection.get("image_url") %>">
-        <% } %>
         <%= collection.escape("title") %>
       </a>
     </li>
