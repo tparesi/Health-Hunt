@@ -39,15 +39,15 @@ HealthHunt.Routers.Router = Backbone.Router.extend({
 
   show: function (id) {
     var product = this.products.getOrFetch(id);
-    var showView = new HealthHunt.Views.ProductShow({
+    this.showView = new HealthHunt.Views.ProductShow({
       model: product
     });
 
-    if (!this.currentView) {
+    if (!this._currentView) {
       this.index();
     }
 
-    $(".modal").html(showView.render().$el);
+    $(".modal").html(this.showView.render().$el);
   },
 
   edit: function (id) {
@@ -93,6 +93,10 @@ HealthHunt.Routers.Router = Backbone.Router.extend({
   },
 
   _swapView: function (view) {
+    if (this.showView) {
+      this.showView.closeModal();
+      this.showView = null;
+    }
     this._currentView && this._currentView.remove();
     this._currentView = view;
     this.$rootEl.html(view.render().$el);

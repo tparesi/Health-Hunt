@@ -12,7 +12,7 @@ HealthHunt.Views.ProductShow = Backbone.CompositeView.extend({
   events: {
     "click .new-comment": "createComment",
     "click .upvote": "toggleVote",
-    "click .modal-blur": "closeModal"
+    "click .modal-blur": "close"
   },
 
   template: JST['products/show'],
@@ -69,6 +69,10 @@ HealthHunt.Views.ProductShow = Backbone.CompositeView.extend({
   closeModal: function () {
     this.remove();
     $("body").removeClass("modal-hide");
+  },
+
+  close: function () {
+    this.closeModal();
     window.history.back();
   }
 });
