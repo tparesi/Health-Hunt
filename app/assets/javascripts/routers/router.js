@@ -15,9 +15,7 @@ HealthHunt.Routers.Router = Backbone.Router.extend({
 
   routes: {
     "": "index",
-    "products/new": "new",
     "products/:id": "show",
-    "products/:id/edit": "edit",
     "products/:id/add_product": "collectionAddProduct",
     "collections": "collectionsIndex",
     "collections/new": "collectionNew",
@@ -31,15 +29,6 @@ HealthHunt.Routers.Router = Backbone.Router.extend({
     this._swapView(indexView);
   },
 
-  new: function () {
-    var product = new HealthHunt.Models.Product();
-    var formView = new HealthHunt.Views.ProductForm({
-      collection: this.products,
-      model: product
-    });
-    this._swapView(formView);
-  },
-
   show: function (id) {
     if (!this._currentView) {
       this.index();
@@ -51,15 +40,6 @@ HealthHunt.Routers.Router = Backbone.Router.extend({
       collection: this.products
     });
     $(".modal").html(this.showView.render().$el);
-  },
-
-  edit: function (id) {
-    var product = this.products.getOrFetch(id);
-    var formView = new HealthHunt.Views.ProductForm({
-      collection: this.products,
-      model: product
-    });
-    this._swapView(formView);
   },
 
   collectionsIndex: function () {
