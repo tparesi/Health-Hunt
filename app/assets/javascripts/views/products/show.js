@@ -21,6 +21,7 @@ HealthHunt.Views.ProductShow = Backbone.CompositeView.extend({
     var content = this.template({
       product: this.model
     });
+    $("body").addClass("modal-hide");
     this.$el.html(content);
     this.attachSubviews();
     return this;
@@ -66,7 +67,8 @@ HealthHunt.Views.ProductShow = Backbone.CompositeView.extend({
   },
 
   closeModal: function () {
-    this.$el.empty();
+    this.remove();
+    $("body").removeClass("modal-hide");
     window.history.back();
   }
 });

@@ -10,7 +10,8 @@ HealthHunt.Views.AddProduct = Backbone.View.extend({
 
   events: {
     "click .prod-coll": "toggleProduct",
-    "click .new-collection": "submit"
+    "click .new-collection": "submit",
+    "click .cancel-form": "cancelForm"
   },
 
   template: JST['collections/add_product'],
@@ -51,5 +52,10 @@ HealthHunt.Views.AddProduct = Backbone.View.extend({
         Backbone.history.navigate(html, { trigger: true });
       }.bind(this)
     });
+  },
+
+  cancelForm: function (event) {
+    event.preventDefault();
+    window.history.back();
   }
 });

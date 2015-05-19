@@ -515,7 +515,6 @@ body {
 .prod-show-body {
   position: relative;
   padding: 15px 0 15px 50px;
-  height: 100%;
   background: white;
 }
 
@@ -724,7 +723,6 @@ body {
 .product-collection-form button,
 .product-collection-form a {
   padding: 10px 15px;
-  background: #46bf5b;
   border-radius: 15px;
   font-size: 16px;
   color: white;
@@ -732,7 +730,12 @@ body {
   margin: 5px 0 10px 10px;
 }
 
-.product-collection-form a {
+.prod-coll,
+.new-collection {
+  background: #46bf5b;
+}
+
+.cancel-form {
   background: #534540;
 }
 
@@ -819,46 +822,34 @@ body {
 /* modal */
 
 .modal {
-
-}
-
-.modal-open {
-  display: block;
-  z-index: 1000;
-  border-left: solid 1px #a7a6a6;
 }
 
 .modal-main {
+  border-left: solid 1px #a7a6a6;
   z-index: 1001;
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
   bottom: 0;
   width: 700px;
-  height: 100;
-  top: 0;
-  bottom: 0;
   overflow: auto;
+  background: white;
 }
 
 .modal-blur {
   z-index: 1000;
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   background: black;
   opacity: 0.2;
   width: 100%;
-}
-
-.modal-blur {
-  display: block;
-  height: 100%;
-  width: 100%;
   cursor: pointer;
 }
 
 .modal-hide {
   overflow: hidden;
+  height: 100%;
+  position: relative;
 }

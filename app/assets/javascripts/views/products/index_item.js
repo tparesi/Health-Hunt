@@ -5,6 +5,7 @@ HealthHunt.Views.ProductsIndexItem = Backbone.View.extend({
 
   tagName: "li",
   className: "product group",
+  
   template: JST["products/index_item"],
   events: {
     "click .upvote": "toggleVote"

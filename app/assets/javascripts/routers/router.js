@@ -44,13 +44,11 @@ HealthHunt.Routers.Router = Backbone.Router.extend({
       model: product
     });
 
-    // For when a prouct is navigated to directly
-    // if (!this.currentView) {
-    //   this.index();
-    // }
+    if (!this.currentView) {
+      this.index();
+    }
 
     $(".modal").html(showView.render().$el);
-    // this._swapView(showView);
   },
 
   edit: function (id) {
