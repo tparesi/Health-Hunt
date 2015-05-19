@@ -18,8 +18,7 @@ HealthHunt.Views.AddProduct = Backbone.View.extend({
 
   render: function () {
     var content = this.template({
-      product: this.model,
-      formTemplate: JST['collections/form']
+      product: this.model
     });
     this.$el.html(content);
     return this;
@@ -32,8 +31,8 @@ HealthHunt.Views.AddProduct = Backbone.View.extend({
     this.model.set(collection_ids);
     this.model.save({}, {
       success: function () {
-        window.history.back();
-      }
+        this.cancelForm();
+      }.bind(this)
     });
   },
 
@@ -47,13 +46,13 @@ HealthHunt.Views.AddProduct = Backbone.View.extend({
       success: function () {
         HealthHunt.currentUser.collections().add(newCollectionModel);
         this.model.addCollectionAndSave(newCollectionModel);
-        window.history.back();
+        this.cancelForm();
       }.bind(this)
     });
   },
 
   cancelForm: function (event) {
-    event.preventDefault();
-    window.history.back();
+    event && event.preventDefault();
+    this.remove();
   }
 });

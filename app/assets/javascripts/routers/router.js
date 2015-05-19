@@ -38,15 +38,14 @@ HealthHunt.Routers.Router = Backbone.Router.extend({
   },
 
   show: function (id) {
-    var product = this.products.getOrFetch(id);
-    this.showView = new HealthHunt.Views.ProductShow({
-      model: product
-    });
-
     if (!this._currentView) {
       this.index();
     }
 
+    var product = this.products.getOrFetch(id);
+    this.showView = new HealthHunt.Views.ProductShow({
+      model: product
+    });
     $(".modal").html(this.showView.render().$el);
   },
 
@@ -57,14 +56,6 @@ HealthHunt.Routers.Router = Backbone.Router.extend({
       model: product
     });
     this._swapView(formView);
-  },
-
-  collectionAddProduct: function (id) {
-    var product = this.products.getOrFetch(id);
-    var collectionAddProductView = new HealthHunt.Views.AddProduct({
-      model: product
-    });
-    this._swapView(collectionAddProductView);
   },
 
   collectionsIndex: function () {

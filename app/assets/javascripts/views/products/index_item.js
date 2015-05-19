@@ -5,10 +5,12 @@ HealthHunt.Views.ProductsIndexItem = Backbone.View.extend({
 
   tagName: "li",
   className: "product group",
-  
+
   template: JST["products/index_item"],
+
   events: {
-    "click .upvote": "toggleVote"
+    "click .upvote": "toggleVote",
+    "click .prod-coll-link": "collectionAddProduct",
   },
 
   render: function () {
@@ -32,5 +34,12 @@ HealthHunt.Views.ProductsIndexItem = Backbone.View.extend({
         this.collection.add(this.model, { merge: true });
       }.bind(this)
     });
+  },
+
+  collectionAddProduct: function () {
+    var collectionAddProductView = new HealthHunt.Views.AddProduct({
+      model: this.model
+    });
+    this.$("#product-collection-show-index").html(collectionAddProductView.render().$el);
   }
 });

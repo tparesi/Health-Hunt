@@ -12,10 +12,12 @@ HealthHunt.Views.ProductShow = Backbone.CompositeView.extend({
   events: {
     "click .new-comment": "createComment",
     "click .upvote": "toggleVote",
-    "click .modal-blur": "close"
+    "click .modal-blur": "close",
+    "click .prod-coll-link-prod-show": "collectionAddProduct"
   },
 
   template: JST['products/show'],
+  prodCollTemplate: JST['collections/add_product'],
 
   render: function () {
     var content = this.template({
@@ -74,5 +76,12 @@ HealthHunt.Views.ProductShow = Backbone.CompositeView.extend({
   close: function () {
     this.closeModal();
     window.history.back();
+  },
+
+  collectionAddProduct: function () {
+    var collectionAddProductView = new HealthHunt.Views.AddProduct({
+      model: this.model
+    });
+    this.$(".product-collection-product-show").html(collectionAddProductView.render().$el);
   }
 });
