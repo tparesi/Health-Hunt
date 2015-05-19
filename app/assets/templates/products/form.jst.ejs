@@ -1,15 +1,19 @@
-<h3><%= product.isNew() ? 'New Product' : 'Edit Product' %></h3>
+<div class="modal-screen"></div>
 
-<input type='text' name='title' value='<%= product.escape('title') %>' placeholder="Enter Product Name">
+<form class="modal-form product-form">
+  <h3><%= product.isNew() ? 'New Product' : 'Edit Product' %></h3>
 
-<input type='text' name='url' value='<%= product.escape('url') %>' placeholder="Enter Product URL">
+  <input type='text' name='title' value='<%= product.escape('title') %>' placeholder="Enter Product Name">
 
-<textarea name='description' placeholder="Enter Product Description"><%= product.escape('description') %></textarea>
+  <input type='text' name='url' value='<%= product.escape('url') %>' placeholder="Enter Product URL">
 
-<button class="new-product">Submit</button>
+  <textarea name='description' placeholder="Enter Product Description"><%= product.escape('description') %></textarea>
 
-<a href='#'>Cancel</a>
+  <button class="new-product">Submit</button>
 
-<% if (!product.isNew()) { %>
-  <button class="delete-product">Delete product</button>
-<% } %>
+  <button class="close-modal">Cancel</a>
+
+  <% if (!product.isNew()) { %>
+    <button class="delete-product">Delete product</button>
+  <% } %>
+</form>

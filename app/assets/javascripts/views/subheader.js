@@ -18,7 +18,8 @@ HealthHunt.Views.SubHeader = Backbone.View.extend({
   template: JST["subheader"],
 
   events: {
-    'click .prod-col a': "toggleActive"
+    "click .prod-col a": "toggleActive",
+    "click .new-product": "newProductView"
   },
 
   render: function () {
@@ -40,5 +41,15 @@ HealthHunt.Views.SubHeader = Backbone.View.extend({
   collectionActive: function (event) {
     this.$("a").removeClass("active-subheader");
     this.$(".prod-col h2:last-child a").addClass("active-subheader");
+  },
+
+  newProductView: function () {
+    var product = new HealthHunt.Models.Product();
+    var formView = new HealthHunt.Views.ProductForm({
+      collection: this.collection,
+      model: product
+    });
+
+    $(".new-product-modal").html(formView.render().$el);
   }
 });

@@ -1,19 +1,20 @@
 HealthHunt.Views.ProductShow = Backbone.CompositeView.extend({
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
-    this.collection = this.model.comments();
+    this.comments = this.model.comments();
 
     // Set up for composite views
-    this.listenTo(this.collection, 'add', this.addCommentView);
-    this.collection.each(this.addCommentView.bind(this));
-    this.listenTo(this.collection, 'remove', this.removeCommentView);
+    this.listenTo(this.comments, 'add', this.addCommentView);
+    this.comments.each(this.addCommentView.bind(this));
+    this.listenTo(this.comments, 'remove', this.removeCommentView);
   },
 
   events: {
     "click .new-comment": "createComment",
     "click .upvote": "toggleVote",
     "click .modal-blur": "close",
-    "click .prod-coll-link-prod-show": "collectionAddProduct"
+    "click .prod-coll-link-prod-show": "collectionAddProduct",
+    "click .edit-product": "editProductView"
   },
 
   template: JST['products/show'],
@@ -46,7 +47,7 @@ HealthHunt.Views.ProductShow = Backbone.CompositeView.extend({
     comment.set(attrs);
     comment.save({}, {
       success: function() {
-        this.collection.add(comment);
+        this.comments.add(comment);
         this.$('form').each(function(){
           this.reset();
         });
@@ -83,5 +84,14 @@ HealthHunt.Views.ProductShow = Backbone.CompositeView.extend({
       model: this.model
     });
     this.$(".product-collection-product-show").html(collectionAddProductView.render().$el);
+  },
+
+  editProductView: function () {
+    var formView = new HealthHunt.Views.ProductForm({
+      collection: this.collection,
+      model: this.model
+    });
+
+    $(".new-product-modal").html(formView.render().$el);
   }
 });

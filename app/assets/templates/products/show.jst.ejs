@@ -1,4 +1,4 @@
-<div class="modal-main modal-open">
+<div class="modal-main">
   <div class="prod-show-header">
     <h3><%= product.escape("title") %></h3>
 
@@ -10,7 +10,7 @@
 
     <a href="<%= product.escape("url") %>">Check it Out!</a>
     <% if (product.get("owner_id") === HealthHunt.currentUser.get("id")) { %>
-      <a class="edit-product" href="#/products/<%= product.id %>/edit">Edit Product</a>
+      <button class="edit-product new-product">Edit Product</button>
     <% } %>
   </div>
 

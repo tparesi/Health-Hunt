@@ -1,13 +1,16 @@
 HealthHunt.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
-    var subHeaderView = new HealthHunt.Views.SubHeader();
-    $("#subheader").html(subHeaderView.render().$el);
 
     this.products = new HealthHunt.Collections.Products();
     this.products.fetch();
     this.collections = new HealthHunt.Collections.Collections();
     this.collections.fetch();
+
+    var subHeaderView = new HealthHunt.Views.SubHeader({
+      collection: this.products
+    });
+    $("#subheader").html(subHeaderView.render().$el);
   },
 
   routes: {
@@ -44,7 +47,8 @@ HealthHunt.Routers.Router = Backbone.Router.extend({
 
     var product = this.products.getOrFetch(id);
     this.showView = new HealthHunt.Views.ProductShow({
-      model: product
+      model: product,
+      collection: this.products
     });
     $(".modal").html(this.showView.render().$el);
   },
