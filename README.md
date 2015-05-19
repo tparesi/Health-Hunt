@@ -53,7 +53,7 @@ collection of products on the main page, that is reset each day.
 
 ### Phase 4:User Profile (~2 days)
 I want to add a profile page for the user where they can see their upvoted
-products, created products, collections, followers, and followees.
+products, created products, collections, followers, and followees. I will first create User Profiles that display just the products and collections for each user. After that, I will add in the functionality of following users, and then display those users on profile pages as well.
 
 [Details][phase-four]
 

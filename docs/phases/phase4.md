@@ -5,16 +5,19 @@
 * Following
 
 ### Controllers
+* api/users_controller
 
 ### Views
+* api/users/show.json.jbuilder
 
 ## Backbone
 ### Models
+* User
 
 ### Collections
+* Users
 
 ### Views
-* Follower Show
-* Followee Show
+* UserProfile
 
 ## Gems/Libraries

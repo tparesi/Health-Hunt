@@ -11,6 +11,7 @@ Rails.application.routes.draw do
         post :vote
       end
     end
+    resources :users, only: [:show]
     resources :comments, only: [:create, :update, :destroy]
     resources :collections, except: [:new, :edit]
     get 'api/products/vote', :to => 'products#vote'

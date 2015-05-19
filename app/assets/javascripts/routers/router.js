@@ -6,6 +6,7 @@ HealthHunt.Routers.Router = Backbone.Router.extend({
     this.products.fetch();
     this.collections = new HealthHunt.Collections.Collections();
     this.collections.fetch();
+    this.users = new HealthHunt.Collections.Users();
 
     var subHeaderView = new HealthHunt.Views.SubHeader({
       collection: this.products
@@ -20,7 +21,7 @@ HealthHunt.Routers.Router = Backbone.Router.extend({
     "collections": "collectionsIndex",
     "collections/new": "collectionNew",
     "collections/:id": "collectionShow",
-    HealthHunt.currentUser.get("email").match(/.+?(?=@)/): "userProfile"
+    "profile/:id": "userProfile"
   },
 
   index: function () {
@@ -68,8 +69,11 @@ HealthHunt.Routers.Router = Backbone.Router.extend({
     this._swapView(collectionFormView);
   },
 
-  userProfile: function () {
-    var userProfileView = new HealthHunt.User.Profile()
+  userProfile: function (id) {
+    var user = this.users.getOrFetch(id);
+    var userProfileView = new HealthHunt.Views.UserProfile({
+      model: user
+    });
     this._swapView(userProfileView);
   },
 
