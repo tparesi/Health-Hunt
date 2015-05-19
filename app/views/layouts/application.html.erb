@@ -16,7 +16,7 @@
 
       <div class="session-header group">
         <% if logged_in? %>
-          <div class="user-email"><%= current_user.email.match(/.+?(?=@)/) %></div>
+          <a href="#/<%= current_user.email.match(/.+?(?=@)/) %>" class="user-email"><%= current_user.email.match(/.+?(?=@)/) %></a>
           <%= button_to "Log Out", session_url, :method => :delete, :class => "logout"  %>
         <% else %>
           <%= link_to "Log In", new_session_url %>

@@ -19,7 +19,8 @@ HealthHunt.Routers.Router = Backbone.Router.extend({
     "products/:id/add_product": "collectionAddProduct",
     "collections": "collectionsIndex",
     "collections/new": "collectionNew",
-    "collections/:id": "collectionShow"
+    "collections/:id": "collectionShow",
+    HealthHunt.currentUser.get("email").match(/.+?(?=@)/): "userProfile"
   },
 
   index: function () {
@@ -65,6 +66,11 @@ HealthHunt.Routers.Router = Backbone.Router.extend({
       model: collection
     });
     this._swapView(collectionFormView);
+  },
+
+  userProfile: function () {
+    var userProfileView = new HealthHunt.User.Profile()
+    this._swapView(userProfileView);
   },
 
   _swapView: function (view) {

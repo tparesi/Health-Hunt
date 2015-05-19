@@ -15,7 +15,7 @@ Health Hunt is a clone of Product Hunt built on Rails and Backbone. Users can:
 - [x] View products and comments
 - [ ] View profile with owned collections, products, etc
 - [x] Upvote products
-- [ ] Browse each days most upvoted products
+- [x] Browse each days most upvoted products
 - [x] Browse popular public collections
 - [ ] Follow users
 
@@ -57,26 +57,23 @@ products, created products, collections, followers, and followees.
 
 [Details][phase-four]
 
-### Phase 5: Fancy Edit and Creation of Collections and Comments (~1 day)
-I plan to use third-party libraries to add functionality to the
-'CollectionForm' and `CommentForm` views in this phase.
-First I'll need to add a Markdown editor to the `CommentForm`. Then, I
-plan to integrate Filepicker for file uploads so users can add images to
-collections.
+### Phase 5: Fancy Edit and Creation of Collections (~1 day)
+I plan to integrate Filepicker for file uploads so users can add images
+to collections. I will also add modals for all the form views.
 
 [Details][phase-five]
 
 ### Phase 6: Prettify the app (~1.5 days)
-Afte the app is fully functional, I will work to implement additional
+After the app is fully functional, I will work to implement additional
 JS, HTML, and CSS to increase the UI/UX features of the app.
 
 ### Bonus Features (TBD)
 - [ ] Pagination/infinite scroll
 - [ ] Multiple sessions/session management
 - [ ] Log In API (Twitter/Facebook/Google)
-- [ ] User avatars
 - [ ] Product Search
-- [ ] Typeahead search bar
+- [ ] User crop photo
+
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
