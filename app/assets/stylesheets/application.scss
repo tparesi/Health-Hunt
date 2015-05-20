@@ -149,12 +149,11 @@ body {
 
 .background-image {
   position: fixed;
-  /*z-index: -500;*/
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  background-image: image-url("login_image.jpg");
+  background-image: image-url("login_image.jpg") no-repeat scroll center top/cover transparent;
   background-size: 100%;
 }
 
