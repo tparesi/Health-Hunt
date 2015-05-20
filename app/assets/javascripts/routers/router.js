@@ -3,7 +3,6 @@ HealthHunt.Routers.Router = Backbone.Router.extend({
     this.$rootEl = options.$rootEl;
 
     this.products = new HealthHunt.Collections.Products();
-    this.products.fetch();
     this.collections = new HealthHunt.Collections.Collections();
     this.collections.fetch();
     this.users = new HealthHunt.Collections.Users();
@@ -27,6 +26,7 @@ HealthHunt.Routers.Router = Backbone.Router.extend({
   },
 
   index: function () {
+    this.products.fetch();
     var indexView = new HealthHunt.Views.ProductsIndex({
       collection: this.products
     });

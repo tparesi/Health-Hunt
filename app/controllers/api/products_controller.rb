@@ -38,7 +38,7 @@ module Api
     end
 
     def vote
-      @product = Product.find(params[:product_id])
+      @product = Product.find(params[:id])
       @vote = Vote.find_by(product_id: @product.id, user_id: current_user.id)
 
       if @vote

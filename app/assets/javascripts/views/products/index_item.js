@@ -25,11 +25,9 @@ HealthHunt.Views.ProductsIndexItem = Backbone.View.extend({
     event.preventDefault();
 
     $.ajax({
-      url: "api/products/vote",
+      url: "api/products/" + this.model.id + "/vote",
       type: "POST",
-      data: {
-        product_id: this.model.id
-      }, success: function (attrs) {
+      success: function (attrs) {
         this.model.set(this.model.parse(attrs));
         this.collection.add(this.model, { merge: true });
       }.bind(this)

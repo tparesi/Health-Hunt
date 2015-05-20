@@ -11,7 +11,7 @@ HealthHunt.Views.ProductShow = Backbone.CompositeView.extend({
 
   events: {
     "click .new-comment": "createComment",
-    "click .upvote": "toggleVote",
+    "click .big-upvote": "toggleVote",
     "click .modal-blur": "close",
     "click .prod-coll-link-prod-show": "collectionAddProduct",
     "click .edit-product": "editProductView"
@@ -59,12 +59,12 @@ HealthHunt.Views.ProductShow = Backbone.CompositeView.extend({
     event.preventDefault();
 
     $.ajax({
-      url: "api/products/vote",
+      url: "api/products/" + this.model.id + "/vote",
       type: "POST",
-      data: {
-        product_id: this.model.id
-      }, success: function () {
+      success: function () {
         this.model.fetch();
+        this.model.set(this.model.parse(attrs));
+        this.collection.add(this.model, { merge: true });
       }.bind(this)
     });
   },

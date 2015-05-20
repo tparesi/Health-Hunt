@@ -5,6 +5,10 @@ HealthHunt.Views.UserProfile = Backbone.CompositeView.extend({
     this.listenTo(this.model, 'sync', this.render);
   },
 
+  events: {
+    "click .follow-button": "toggleFollow"
+  },
+
   template: JST["users/show"],
 
   render: function () {
@@ -17,6 +21,18 @@ HealthHunt.Views.UserProfile = Backbone.CompositeView.extend({
 
     this.$(".profile-header-nav a:nth-of-type(" + this.selectedATag + ")").attr("id", "profile-header-nav-active");
     return this;
+  },
+
+  toggleFollow: function (event) {
+    event.preventDefault();
+
+    $.ajax({
+      url: "api/users/" + this.model.id + "/follow",
+      type: "POST",
+      success: function () {
+        this.model.fetch();
+      }.bind(this)
+    });
   },
 
   _swapView: function (view) {

@@ -19,6 +19,12 @@ class User < ActiveRecord::Base
   has_many :votes
   has_many :upvoted_products, through: :votes, source: :product
 
+  has_many :in_follows, class_name: "Following", foreign_key: :following_id
+  has_many :followers, through: :in_follows, source: :follower
+
+  has_many :out_follows, class_name: "Following", foreign_key: :follower_id
+  has_many :followings, through: :out_follows, source: :following
+
   validates :email, :session_token, presence: true
   validates :email, :session_token, uniqueness: true
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create

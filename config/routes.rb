@@ -7,11 +7,15 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resource :session, only: [:show]
     resources :products, except: [:new, :edit] do
-      collection do
+      member do
         post :vote
       end
     end
-    resources :users, only: [:show]
+    resources :users, only: [:show] do
+      member do
+        post :follow
+      end
+    end
     resources :comments, only: [:create, :update, :destroy]
     resources :collections, except: [:new, :edit]
     get 'api/products/vote', :to => 'products#vote'

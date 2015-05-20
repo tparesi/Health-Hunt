@@ -2,6 +2,8 @@
   <div class="profile-header-content">
     <h3><%= user.get("email") ? user.get("email").match(/.+?(?=@)/) : null %></h3>
 
+    <button class="follow-button">Follow</button>
+
     <div class="profile-header-nav group">
       <a href="#/profile/<%= user.id %>">Upvoted Products</a>
       <a href="#/profile/<%= user.id %>/products">Posted Products</a>
