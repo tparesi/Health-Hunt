@@ -73,13 +73,13 @@ HealthHunt.Routers.Router = Backbone.Router.extend({
 
   userProfile: function (id) {
     var user = this.users.getOrFetch(id);
-    var indexView = new HealthHunt.Views.ProductsIndex({
+    var profileProductsView = new HealthHunt.Views.ProfileProducts({
       collection: user.upvotedProducts()
     });
 
     var userProfileView = new HealthHunt.Views.UserProfile({
       model: user,
-      view: indexView,
+      view: profileProductsView,
       selectedATag: 1
     });
 
@@ -88,13 +88,13 @@ HealthHunt.Routers.Router = Backbone.Router.extend({
 
   userProducts: function (id) {
     var user = this.users.getOrFetch(id);
-    var indexView = new HealthHunt.Views.ProductsIndex({
+    var profileProductsView = new HealthHunt.Views.ProfileProducts({
       collection: user.products()
     });
 
     var userProductsView = new HealthHunt.Views.UserProfile({
       model: user,
-      view: indexView,
+      view: profileProductsView,
       selectedATag: 2
     });
 
