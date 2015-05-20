@@ -2,12 +2,17 @@
   <div class="profile-header-content">
     <h3><%= user.get("email") ? user.get("email").match(/.+?(?=@)/) : null %></h3>
 
-    <button class="follow-button">Follow</button>
+    <% if ( user.id !== HealthHunt.currentUser.id ) { %>
+      <!-- No Spacing in order to get if statement to work -->
+      <button class="follow-button"><% if ( HealthHunt.currentUser.follows(user.id) ) { %>Unfollow<% } else { %>Follow<% } %></button>
+    <% } %>
 
     <div class="profile-header-nav group">
       <a href="#/profile/<%= user.id %>">Upvoted Products</a>
       <a href="#/profile/<%= user.id %>/products">Posted Products</a>
       <a href="#/profile/<%= user.id %>/collections">Collections</a>
+      <a href="#/profile/<%= user.id %>/followings">Following</a>
+      <a href="#/profile/<%= user.id %>/followers">Follower</a>
     </div>
   </div>
 </div>

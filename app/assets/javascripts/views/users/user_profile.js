@@ -30,7 +30,11 @@ HealthHunt.Views.UserProfile = Backbone.CompositeView.extend({
       url: "api/users/" + this.model.id + "/follow",
       type: "POST",
       success: function () {
-        this.model.fetch();
+        if (this.$(".follow-button").html() === "Follow"){
+          this.$(".follow-button").text("Unfollow");
+        } else {
+          this.$(".follow-button").text("Follow");
+        }
       }.bind(this)
     });
   },

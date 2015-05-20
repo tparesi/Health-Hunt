@@ -22,7 +22,9 @@ HealthHunt.Routers.Router = Backbone.Router.extend({
     "collections/:id": "collectionShow",
     "profile/:id": "userProfile",
     "profile/:id/products": "userProducts",
-    "profile/:id/collections": "userCollections"
+    "profile/:id/collections": "userCollections",
+    "profile/:id/followings": "userFollowings",
+    "profile/:id/followers": "userFollowers"
   },
 
   index: function () {
@@ -114,6 +116,36 @@ HealthHunt.Routers.Router = Backbone.Router.extend({
     });
 
     this._swapView(userCollectionsView);
+  },
+
+  userFollowings: function(id) {
+    var user = this.users.getOrFetch(id);
+    var userFollowsIndexView = new HealthHunt.Views.UserFollowsIndex({
+      collection: user.followings()
+    });
+
+    var userFollowingsView = new HealthHunt.Views.UserProfile({
+      model: user,
+      view: userFollowsIndexView,
+      selectedATag: 4
+    });
+
+    this._swapView(userFollowingsView);
+  },
+
+  userFollowers: function (id) {
+    var user = this.users.getOrFetch(id);
+    var userFollowsIndexView = new HealthHunt.Views.UserFollowsIndex({
+      collection: user.followers()
+    });
+
+    var userFollowersView = new HealthHunt.Views.UserProfile({
+      model: user,
+      view: userFollowsIndexView,
+      selectedATag: 5
+    });
+
+    this._swapView(userFollowersView);
   },
 
   _swapView: function (view) {

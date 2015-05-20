@@ -1,0 +1,10 @@
+<ul class="follow-users-body">
+  <% users.each( function (user) { %>
+    <li>
+      <a href="#/profile/<%= user.id %>"><%= user.get("email").match(/.+?(?=@)/) %></a>
+      <% if ( HealthHunt.currentUser.id ) { %>
+        <button class="small-follow-button">Unfollow</button>
+      <% } %>
+    </li>
+  <% }) %>
+</ul>
