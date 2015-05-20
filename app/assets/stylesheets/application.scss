@@ -1021,6 +1021,7 @@ body {
 
 .follow-users-body li {
   position: relative;
+  float: left;
   width: 450px;
   padding: 20px 0;
 }
@@ -1040,4 +1041,8 @@ body {
   background: #00aced;
   border-radius: 15px;
   font-size: 18px;
+}
+
+.small-follow-button:hover {
+  opacity: 0.8;
 }
