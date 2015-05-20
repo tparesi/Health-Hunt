@@ -915,3 +915,57 @@ body {
   height: 100%;
   position: relative;
 }
+
+/* Profile */
+
+.profile-header {
+  position: relative;
+  background: #534540;
+  height: 240px;
+  overflow: hidden;
+}
+
+.profile-header-content {
+  position: relative;
+  color: white;
+  margin: auto;
+  width: 900px;
+  padding: 80px 0 80px 100px;
+}
+
+.profile-header-content h3 {
+  font-size: 36px;
+  padding: 0 0 20px 0;
+}
+
+.profile-header-nav {
+  position: absolute;
+  bottom: -20px;
+}
+
+.profile-header-nav a {
+  float: left;
+  width: 170px;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  cursor: pointer;
+  background:rgba(255,255,255,0.2);
+}
+
+.profile-header-nav a:first-child {
+  border-top-left-radius: 5px;
+}
+
+.profile-header-nav a:last-child {
+  border-top-right-radius: 5px;
+}
+
+.profile-header-nav a:hover {
+  background:rgba(255,255,255,0.3);
+}
+
+#profile-header-nav-active {
+  background: white;
+  color: #534540;
+}

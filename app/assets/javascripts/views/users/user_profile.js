@@ -10,6 +10,11 @@ HealthHunt.Views.UserProfile = Backbone.CompositeView.extend({
       user: this.model
     });
     this.$el.html(content);
+
+    var indexView = new HealthHunt.Views.ProductsIndex({
+      collection: this.model.upvotedProducts()
+    });
+    this.$(".profile-body").html(indexView.render().$el);
     return this;
   }
 });
