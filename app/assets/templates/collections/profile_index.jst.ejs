@@ -1,0 +1,9 @@
+<ul class="collections group">
+  <% collections.each(function (collection) { %>
+    <li class="collection" style="background-image: url('<%= collection.get("image_url") %>') ">
+      <a href="#/collections/<%= collection.id %>">
+        <%= collection.escape("title") %>
+      </a>
+    </li>
+  <% }); %>
+</ul>

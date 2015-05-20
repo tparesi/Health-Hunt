@@ -3,14 +3,11 @@
     <h3><%= user.get("email") ? user.get("email").match(/.+?(?=@)/) : null %></h3>
 
     <div class="profile-header-nav group">
-      <a id="profile-header-nav-active" href="#/profile/<%= user.id %>">Upvoted Products</a>
+      <a href="#/profile/<%= user.id %>">Upvoted Products</a>
       <a href="#/profile/<%= user.id %>/products">Posted Products</a>
       <a href="#/profile/<%= user.id %>/collections">Collections</a>
     </div>
   </div>
 </div>
-
-
-
 
 <div class="profile-body"></div>
