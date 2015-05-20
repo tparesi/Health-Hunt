@@ -13,7 +13,7 @@ Health Hunt is a clone of Product Hunt built on Rails and Backbone. Users can:
 - [x] Create product comments
 - [x] Create collections of products
 - [x] View products and comments
-- [ ] View profile with owned collections, products, etc
+- [x] View profile with owned collections, products, etc
 - [x] Upvote products
 - [x] Browse each days most upvoted products
 - [x] Browse popular public collections

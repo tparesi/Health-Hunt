@@ -45,7 +45,7 @@ session_token   | string    | not null, unique
 column name  | data type | details
 -------------|-----------|-----------------------
 id           | integer   | not null, primary key
-followee_id  | integer   | not null, foreign key (references users)
+following_id | integer   | not null, foreign key (references users)
 follower_id  | integer   | not null, foreign key (references users)
 
 ## votes (each product and user combo must be unique)
