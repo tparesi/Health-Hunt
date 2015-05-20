@@ -46,6 +46,17 @@ input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
 
+input[type="password"],
+input[type="email"],
+input[type="text"],
+input[type="submit"],
+textarea,
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+
 input {
   color: black;
 }
@@ -642,7 +653,7 @@ body {
 }
 
 .modal-form {
-  position: absolute;
+  position: fixed;
   top: 100px;
   left: 50%;
   margin-left: -220px;
