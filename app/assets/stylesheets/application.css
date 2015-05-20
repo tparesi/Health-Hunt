@@ -91,6 +91,7 @@ body {
   top: 0px;
   background: #da552f;
   font-size: 20px;
+  border-bottom: 1px solid #fff;
 }
 
 .header-nav {
@@ -146,9 +147,20 @@ body {
 
 /* Login/Sign Up Form */
 
+.background-image {
+  position: fixed;
+  /*z-index: -500;*/
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url("login_image.jpg");
+  background-size: 100%;
+}
+
 .session-body {
   width: 300px;
-  height: 200px;
+  height: 150px;
   background-color: red;
   position: relative;
   top: 150px;
@@ -187,8 +199,8 @@ body {
 .session-body .button {
   padding: 0 5px 0 5px;
   position: absolute;
-  top: 150px;
-  right: 115px;
+  top: 107px;
+  right: 15px;
   height: 30px;
   width: 60px;
   border-radius: 5px;
