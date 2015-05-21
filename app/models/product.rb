@@ -15,7 +15,7 @@ class Product < ActiveRecord::Base
   pg_search_scope :search_by_product,
                   :against => [:title, :description],
                   :using => {
-                    :tsearch => {:any_word => true}
+                    :tsearch => {:prefix => true}
                   }
 
 

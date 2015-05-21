@@ -253,10 +253,15 @@ body {
   font-weight: bold;
 }
 
-.add-product {
+.right-subheader {
   display: block;
   float: right;
-  margin: 10px 150px 0 0;
+}
+
+.add-product {
+  display: block;
+  float: left;
+  margin: 10px 0 0 0;
   background: white;
   color: #da552f;
   font-size: 24px;
@@ -273,6 +278,35 @@ body {
   background-color: rgba(215, 86, 55, 0.8);
   color: white;
   cursor: pointer;
+}
+
+.search-bar {
+  display: block;
+  float: right;
+}
+
+.search-bar input {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 1px solid #da552f;
+  color: #534540;
+  margin: 5px 0 5px 10px;
+}
+
+:-moz-placeholder {
+  color: #da552f;
+}
+
+::-moz-placeholder {
+  color: #da552f;
+}
+
+:-ms-input-placeholder {
+  color: #da552f;
+}
+
+::-webkit-input-placeholder {
+   color: #da552f;
 }
 
 /* Product Index */

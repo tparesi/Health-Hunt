@@ -21,10 +21,10 @@ HealthHunt.Views.Search = Backbone.View.extend({
 
 	renderResults: function () {
 		this.renderSearchInfo();
-		var $container = this.$("#main");
+		var $container = this.$("#search-results");
 		$container.empty();
 
-    var view = new HealthHunt.Views.ProductsIndex({
+    var view = new HealthHunt.Views.ProfileProducts({
       collection: this.collection
     });
 
