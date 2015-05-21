@@ -5,7 +5,7 @@ HealthHunt.Views.UserFollowsIndex = Backbone.View.extend ({
   },
 
   template: JST['users'],
-  className: "follow-users",
+  className: "follow-users group",
 
   render: function () {
     var content = this.template({

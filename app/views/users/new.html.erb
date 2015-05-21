@@ -4,13 +4,8 @@
   <form class="group" action="<%= users_url %>" method="post">
     <%= auth_token_input %>
 
-    <label>Email
-      <input type="text" name="user[email]" value="">
-    </label>
-
-    <label>Password
-      <input type="password" name="user[password]" value="">
-    </label>
+    <input type="text" name="user[email]" value="" placeholder="Email">
+    <input type="password" name="user[password]" value="" placeholder="Password">
 
     <input type="submit" class="button" value="Sign Up">
   </form>
