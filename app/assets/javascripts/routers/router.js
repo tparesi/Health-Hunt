@@ -25,11 +25,13 @@ HealthHunt.Routers.Router = Backbone.Router.extend({
     "profile/:id/collections": "userCollections",
     "profile/:id/followings": "userFollowings",
     "profile/:id/followers": "userFollowers",
-    "search": "search"
+    "search/:query": "search"
   },
 
-  search: function () {
-		var view = new HealthHunt.Views.Search();
+  search: function (query) {
+		var view = new HealthHunt.Views.Search({
+      query: query
+    });
 
 		this._swapView(view);
 	},

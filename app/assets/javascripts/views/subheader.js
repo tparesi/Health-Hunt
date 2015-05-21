@@ -19,7 +19,8 @@ HealthHunt.Views.SubHeader = Backbone.View.extend({
 
   events: {
     "click .prod-col a": "toggleActive",
-    "click .new-product": "newProductView"
+    "click .new-product": "newProductView",
+    "click button": "search"
   },
 
   render: function () {
@@ -51,5 +52,12 @@ HealthHunt.Views.SubHeader = Backbone.View.extend({
     });
 
     $(".new-product-modal").html(formView.render().$el);
-  }
+  },
+
+  search: function (event) {
+		event.preventDefault();
+		var query = this.$("#query").val();
+
+		Backbone.history.navigate('#/search/' + query, { trigger: true });
+	}
 });

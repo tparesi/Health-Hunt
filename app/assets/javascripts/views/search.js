@@ -1,13 +1,13 @@
 HealthHunt.Views.Search = Backbone.View.extend({
-
-	initialize: function () {
+	initialize: function (options) {
+		this.query = options.query;
 		this.collection = new HealthHunt.Collections.SearchResults();
 		this.listenTo(this.collection, "sync", this.renderResults);
+		this.search();
 	},
 
 	events: {
-		"click button": "search",
-		"click .next-page": "nextPage"
+		"click .next-page": "nextPage",
 	},
 
 	template: JST["search"],
@@ -19,28 +19,16 @@ HealthHunt.Views.Search = Backbone.View.extend({
 		return this;
 	},
 
-	search: function (event) {
-		event.preventDefault();
-		var $input = this.$("#query");
-		this.collection.searchInfo.query = $input.val();
-		this.collection.searchInfo.page = 1;
-
-		var that = this;
-		this.collection.fetch({
-			data: this.collection.searchInfo,
-		});
-	},
-
 	renderResults: function () {
 		this.renderSearchInfo();
-		var $container = this.$("#search-results");
+		var $container = this.$("#main");
 		$container.empty();
 
     var view = new HealthHunt.Views.ProductsIndex({
       collection: this.collection
     });
 
-		$container.append(view.render().$el);
+		$container.html(view.render().$el);
 	},
 
 	nextPage: function () {
@@ -52,6 +40,15 @@ HealthHunt.Views.Search = Backbone.View.extend({
 
 	renderSearchInfo: function () {
 		this.$("#pages").html(this.collection.searchInfo.totalPages);
-	}
+	},
 
+	search: function () {
+		this.collection.searchInfo.query = this.query;
+		this.collection.searchInfo.page = 1;
+
+		var that = this;
+		this.collection.fetch({
+			data: this.collection.searchInfo,
+		});
+	}
 });
