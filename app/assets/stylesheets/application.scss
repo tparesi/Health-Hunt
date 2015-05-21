@@ -282,7 +282,14 @@ body {
 
 .search-bar {
   display: block;
+  position: relative;
   float: right;
+}
+
+.search-bar label {
+  position: absolute;
+  top: 16px;
+  left: 31px;
 }
 
 .search-bar input {
@@ -290,23 +297,7 @@ body {
   border-radius: 5px;
   border: 1px solid #da552f;
   color: #534540;
-  margin: 5px 0 5px 10px;
-}
-
-:-moz-placeholder {
-  color: #da552f;
-}
-
-::-moz-placeholder {
-  color: #da552f;
-}
-
-:-ms-input-placeholder {
-  color: #da552f;
-}
-
-::-webkit-input-placeholder {
-   color: #da552f;
+  margin: 5px 5px 5px 10px;
 }
 
 /* Product Index */
