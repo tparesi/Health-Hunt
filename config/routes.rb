@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :update, :destroy]
     resources :collections, except: [:new, :edit]
     get 'api/products/vote', :to => 'products#vote'
+
+    get "search", to: "static_pages#search"
   end
 
 end

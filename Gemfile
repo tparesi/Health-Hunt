@@ -28,6 +28,8 @@ gem 'ejs'
 gem "paperclip", "~> 4.2"
 gem 'figaro'
 gem 'aws-sdk', '< 2.0'
+gem 'pg_search'
+gem 'kaminari'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt'

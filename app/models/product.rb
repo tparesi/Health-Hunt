@@ -11,6 +11,14 @@
 #  updated_at      :datetime
 
 class Product < ActiveRecord::Base
+  include PgSearch
+  pg_search_scope :search_by_product,
+                  :against => [:title, :description],
+                  :using => {
+                    :tsearch => {:any_word => true}
+                  }
+
+
   belongs_to :owner, class_name: "User", foreign_key: :owner_id
   has_many :comments
   has_many :collectionings
