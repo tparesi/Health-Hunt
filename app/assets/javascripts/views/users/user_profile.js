@@ -3,15 +3,9 @@ HealthHunt.Views.UserProfile = Backbone.CompositeView.extend({
     this.view = options.view;
     this.selectedATag = options.selectedATag;
     this.listenTo(this.model, 'sync', this.render);
-    this.listenTo(HealthHunt.currentUser, 'change', this.render);
   },
 
-  events: {
-    "click .follow-button": "toggleFollow",
-    "click .small-follow-button": "targetedToggleFollow"
-  },
-
-  template: JST["users/show"],
+  template: JST["users/profile"],
 
   render: function () {
     var content = this.template({
@@ -20,39 +14,27 @@ HealthHunt.Views.UserProfile = Backbone.CompositeView.extend({
 
     this.$el.html(content);
     this._swapView(this.view);
+    if (!this.model.get("is_current_user")) {
+      this.addFollowButton(this.model);
+    }
 
     this.$(".profile-header-nav a:nth-of-type(" + this.selectedATag + ")").attr("id", "profile-header-nav-active");
     return this;
   },
 
-  toggleFollow: function (event) {
-    event.preventDefault();
-
-    $.ajax({
-      url: "api/users/" + this.model.id + "/follow",
-      type: "POST",
-      success: function (attrs) {
-        HealthHunt.currentUser.set(HealthHunt.currentUser.parse(attrs));
-      }
+  addFollowButton: function (user) {
+    var subview = new HealthHunt.Views.FollowButton({
+      model: user,
+      className: "follow-button"
     });
+    this.addSubview('.follow', subview);
   },
 
-  targetedToggleFollow: function (event) {
-    event.preventDefault();
-    var id = $(event.currentTarget).data("id");
-
-    $.ajax({
-      url: "api/users/" + id + "/follow",
-      type: "POST",
-      success: function (attrs) {
-        HealthHunt.currentUser.set(HealthHunt.currentUser.parse(attrs));
-      }
-    });
+  removeFollowButton: function (user) {
+    this.removeModelSubview('.follow', user);
   },
 
   _swapView: function (view) {
-    this._currentView && this._currentView.remove();
-    this._currentView = view;
-    this.$(".profile-body").html(view.render().$el);
+    this.addSubview(".profile-body", view);
   }
 });

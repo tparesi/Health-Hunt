@@ -1,18 +1,28 @@
-HealthHunt.Views.UserFollowsIndex = Backbone.View.extend ({
+HealthHunt.Views.UserFollowsIndex = Backbone.CompositeView.extend ({
   initialize: function () {
-    this.listenTo(this.collection, 'sync', this.render);
-    this.listenTo(HealthHunt.currentUser, 'change', this.render);
+    this.listenTo(this.collection, 'add', this.addUserView);
+    this.listenTo(this.collection, 'remove', this.removeUserView);
+    this.collection.each(this.addUserView.bind(this));
   },
 
   template: JST['users'],
   className: "follow-users group",
 
   render: function () {
-    var content = this.template({
-      users: this.collection
-    });
-
+    var content = this.template();
     this.$el.html(content);
+    this.attachSubviews();
     return this;
-  }
+  },
+
+  addUserView: function (user) {
+    var subview = new HealthHunt.Views.UserShow({
+      model: user
+    });
+    this.addSubview('.follow-users-body', subview);
+  },
+
+  removeUserView: function (user) {
+    this.removeModelSubview('.follow-users-body', user);
+  },
 });

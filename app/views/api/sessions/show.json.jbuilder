@@ -1,4 +1,4 @@
-json.extract! @user, :id, :email
+json.partial! 'api/users/user', user: @user
 
 json.products @user.products.includes(:votes) do |product|
   json.partial! 'api/products/product', product: product

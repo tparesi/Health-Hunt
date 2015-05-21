@@ -79,13 +79,7 @@ HealthHunt.Routers.Router = Backbone.Router.extend({
       collection: user.upvotedProducts()
     });
 
-    var userProfileView = new HealthHunt.Views.UserProfile({
-      model: user,
-      view: profileProductsView,
-      selectedATag: 1
-    });
-
-    this._swapView(userProfileView);
+    this.userMain(user, profileProductsView, 1);
   },
 
   userProducts: function (id) {
@@ -94,13 +88,7 @@ HealthHunt.Routers.Router = Backbone.Router.extend({
       collection: user.products()
     });
 
-    var userProductsView = new HealthHunt.Views.UserProfile({
-      model: user,
-      view: profileProductsView,
-      selectedATag: 2
-    });
-
-    this._swapView(userProductsView);
+    this.userMain(user, profileProductsView, 2);
   },
 
   userCollections: function (id) {
@@ -109,40 +97,37 @@ HealthHunt.Routers.Router = Backbone.Router.extend({
       collection: user.collections()
     });
 
-    var userCollectionsView = new HealthHunt.Views.UserProfile({
-      model: user,
-      view: userCollectionsIndexView,
-      selectedATag: 3
-    });
-
-    this._swapView(userCollectionsView);
+    this.userMain(user, userCollectionsIndexView, 3);
   },
 
   userFollowings: function(id) {
-    var user = this.users.getOrFetch(id);
+    var user;
+    if (parseInt(id) === HealthHunt.currentUser.id) {
+      user = HealthHunt.currentUser;
+    } else {
+      user = this.users.getOrFetch(id);
+    }
     var userFollowsIndexView = new HealthHunt.Views.UserFollowsIndex({
       collection: user.followings()
     });
 
-    var userFollowingsView = new HealthHunt.Views.UserProfile({
-      model: user,
-      view: userFollowsIndexView,
-      selectedATag: 4
-    });
-
-    this._swapView(userFollowingsView);
+    this.userMain(user, userFollowsIndexView, 4);
   },
 
   userFollowers: function (id) {
     var user = this.users.getOrFetch(id);
     var userFollowsIndexView = new HealthHunt.Views.UserFollowsIndex({
-      collection: user.followers()
+      collection: user.followers(),
     });
 
+    this.userMain(user, userFollowsIndexView, 5);
+  },
+
+  userMain: function (user, view, tag) {
     var userFollowersView = new HealthHunt.Views.UserProfile({
       model: user,
-      view: userFollowsIndexView,
-      selectedATag: 5
+      view: view,
+      selectedATag: tag
     });
 
     this._swapView(userFollowersView);
