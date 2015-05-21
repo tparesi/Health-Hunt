@@ -79,7 +79,7 @@ body {
 
 #main {
   position: relative;
-  top: 104px;
+  top: 101px;
 }
 
 /* Header */
@@ -217,7 +217,7 @@ body {
   display: block;
   position: fixed;
   z-index: 5;
-  top: 55px;
+  top: 52px;
   color: #da552f;
   border-bottom: 1px solid #da552f;
   background: white;
@@ -1040,4 +1040,37 @@ body {
 
 .small-follow-button:hover {
   opacity: 0.8;
+}
+
+/* Experimental Spinner */
+
+/* Start by setting display:none to make this hidden.
+   Then we position it in relation to the viewport window
+   with position:fixed. Width, height, top and left speak
+   for themselves. Background we set to 80% white with
+   our animation centered, and no-repeating */
+.loading-modal {
+    display:    none;
+    position:   fixed;
+    z-index:    2000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .9 )
+                url('http://i.stack.imgur.com/FhHRx.gif')
+                50% 50%
+                no-repeat;
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+body.loading {
+    overflow: hidden;
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+body.loading .loading-modal {
+    display: block;
 }

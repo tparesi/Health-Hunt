@@ -8,4 +8,8 @@
     HealthHunt.initialize();
     $(".header").css("background", "#da552f");
   });
+
+  $body = $("body");
+  $(document).ajaxStart(function() { $body.addClass("loading") });
+  $(document).ajaxStop(function() { $body.removeClass("loading") });
 </script>
