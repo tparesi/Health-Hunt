@@ -1,6 +1,7 @@
 HealthHunt.Views.UserFollowsIndex = Backbone.View.extend ({
   initialize: function () {
     this.listenTo(this.collection, 'sync', this.render);
+    this.listenTo(HealthHunt.currentUser, 'change', this.render);
   },
 
   template: JST['users'],

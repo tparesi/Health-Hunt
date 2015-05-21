@@ -2,9 +2,15 @@
   <% users.each( function (user) { %>
     <li>
       <a href="#/profile/<%= user.id %>"><%= user.get("email").match(/.+?(?=@)/) %></a>
-      <% if ( HealthHunt.currentUser.id ) { %>
-        <button class="small-follow-button">Unfollow</button>
-      <% } %>
+      <% if ( user.id !== HealthHunt.currentUser.id ) { %>
+        <button class="small-follow-button" data-id="<%= user.id %>">
+          <% if ( HealthHunt.currentUser.follows(user.id) ) { %>
+            Unfollow
+          <% } else { %>
+            Follow
+          <% } %>
+        </button>
+        <% } %>
     </li>
   <% }) %>
 </ul>

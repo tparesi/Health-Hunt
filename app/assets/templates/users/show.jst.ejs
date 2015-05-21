@@ -3,8 +3,13 @@
     <h3><%= user.get("email") ? user.get("email").match(/.+?(?=@)/) : null %></h3>
 
     <% if ( user.id !== HealthHunt.currentUser.id ) { %>
-      <!-- No Spacing in order to get if statement to work -->
-      <button class="follow-button"><% if ( HealthHunt.currentUser.follows(user.id) ) { %>Unfollow<% } else { %>Follow<% } %></button>
+      <button class="follow-button">
+        <% if ( HealthHunt.currentUser.follows(user.id) ) { %>
+          Unfollow
+        <% } else { %>
+          Follow
+        <% } %>
+      </button>
     <% } %>
 
     <div class="profile-header-nav group">

@@ -3,10 +3,12 @@ HealthHunt.Views.UserProfile = Backbone.CompositeView.extend({
     this.view = options.view;
     this.selectedATag = options.selectedATag;
     this.listenTo(this.model, 'sync', this.render);
+    this.listenTo(HealthHunt.currentUser, 'change', this.render);
   },
 
   events: {
-    "click .follow-button": "toggleFollow"
+    "click .follow-button": "toggleFollow",
+    "click .small-follow-button": "targetedToggleFollow"
   },
 
   template: JST["users/show"],
@@ -29,13 +31,22 @@ HealthHunt.Views.UserProfile = Backbone.CompositeView.extend({
     $.ajax({
       url: "api/users/" + this.model.id + "/follow",
       type: "POST",
-      success: function () {
-        if (this.$(".follow-button").html() === "Follow"){
-          this.$(".follow-button").text("Unfollow");
-        } else {
-          this.$(".follow-button").text("Follow");
-        }
-      }.bind(this)
+      success: function (attrs) {
+        HealthHunt.currentUser.set(HealthHunt.currentUser.parse(attrs));
+      }
+    });
+  },
+
+  targetedToggleFollow: function (event) {
+    event.preventDefault();
+    var id = $(event.currentTarget).data("id");
+
+    $.ajax({
+      url: "api/users/" + id + "/follow",
+      type: "POST",
+      success: function (attrs) {
+        HealthHunt.currentUser.set(HealthHunt.currentUser.parse(attrs));
+      }
     });
   },
 

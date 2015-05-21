@@ -3,7 +3,6 @@ HealthHunt.Models.CurrentUser = Backbone.Model.extend({
 
   follows: function (userId) {
     var boolean = false;
-
     this.followings().each(function(following) {
       if (following.id === userId) {
         boolean = true;
