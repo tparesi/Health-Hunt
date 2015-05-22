@@ -4,10 +4,10 @@ HealthHunt.Views.AddProduct = Backbone.View.extend({
     this.listenTo(HealthHunt.currentUser, 'sync', this.render);
     this.listenTo(HealthHunt.currentUser.collections(), 'add remove', this.render);
     $(document).mouseup( function (event) {
-      if (!$(".product-collection-form").is(event.target)) {
-        $(".product-collection-form").hide();
+      if ($("#product-collection-show-index").has(event.target).length === 0) {
+        this.cancelForm();
       }
-    });
+    }.bind(this));
   },
 
   className: 'product-collection-form',
@@ -15,8 +15,7 @@ HealthHunt.Views.AddProduct = Backbone.View.extend({
   events: {
     "click .prod-coll": "toggleProduct",
     "click .new-collection": "submit",
-    "click .cancel-form": "cancelForm",
-    "blur .product": "cancelForm"
+    "click .cancel-form": "cancelForm"
   },
 
   template: JST['collections/add_product'],
@@ -52,6 +51,9 @@ HealthHunt.Views.AddProduct = Backbone.View.extend({
         HealthHunt.currentUser.collections().add(newCollectionModel);
         this.model.addCollectionAndSave(newCollectionModel);
         this.cancelForm();
+      }.bind(this),
+      error: function (model, response) {
+        this.$(".new-collection-errors").html(response.responseJSON[0]);
       }.bind(this)
     });
   },

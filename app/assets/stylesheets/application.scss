@@ -717,6 +717,7 @@ body {
 .new-product-errors {
   font-size: 16px;
   text-align: center;
+  color: #534540;
   padding: 10px 0 0 0;
 }
 
@@ -805,6 +806,12 @@ body {
   display: block;
   font-size: 16px;
   padding: 5px 0 5px 10px;
+}
+
+.new-collection-errors {
+  font-size: 14px;
+  color: #534540;
+  margin: 5px 0 0 10px;
 }
 
 .new-collection-form input {
