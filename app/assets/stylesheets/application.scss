@@ -1105,7 +1105,8 @@ body {
     height:     100%;
     width:      100%;
     background: rgba( 255, 255, 255, .9 )
-                url('http://i.stack.imgur.com/FhHRx.gif')
+                image-url("spinner.gif")
+                // url('http://i.stack.imgur.com/FhHRx.gif')
                 50% 50%
                 no-repeat;
 }
