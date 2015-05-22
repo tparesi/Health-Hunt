@@ -104,6 +104,13 @@ body {
   font-size: 24px;
 }
 
+.header-logo a img {
+  float: left;
+  height: 35px;
+  width: 35px;
+  margin: -5px 10px 0 -20px;
+}
+
 .header-logo a:hover {
   background:rgba(255,255,255,0.2);
 }
