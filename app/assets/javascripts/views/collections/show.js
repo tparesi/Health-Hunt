@@ -13,6 +13,7 @@ HealthHunt.Views.CollectionShow = Backbone.CompositeView.extend({
     "submit": "submit",
     "click .delete-collection": "deleteCollection",
     "click .cancel-form-grey": "cancelForm",
+    "click .upload-button": "clickChooseFile",
     "change #input-collection-image": "fileInputChange"
   },
 
@@ -66,6 +67,11 @@ HealthHunt.Views.CollectionShow = Backbone.CompositeView.extend({
     event.preventDefault();
     this.$(".edit-collection").empty();
     this.$("img").attr("src", this.model.get("image_url"));
+  },
+
+  clickChooseFile: function (event) {
+    event.preventDefault();
+    this.$("#input-collection-image").click();
   },
 
   fileInputChange: function(event){
