@@ -61,10 +61,10 @@ HealthHunt.Views.ProductShow = Backbone.CompositeView.extend({
     $.ajax({
       url: "api/products/" + this.model.id + "/vote",
       type: "POST",
-      success: function () {
+      success: function (attrs) {
         this.model.fetch({
           success: function () {
-            $body.removeClass("loading");
+            $("body").removeClass("loading");
           }
         });
         this.model.set(this.model.parse(attrs));
