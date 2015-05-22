@@ -714,8 +714,15 @@ body {
   padding: 20px 10px 20px 0 ;
 }
 
+.new-product-errors {
+  font-size: 16px;
+  text-align: center;
+  padding: 10px 0 0 0;
+}
+
 .product-form textarea,
 .product-form input {
+  text-align: left;
   display: block;
   background: #fff;
   border: 1px solid #ccc;

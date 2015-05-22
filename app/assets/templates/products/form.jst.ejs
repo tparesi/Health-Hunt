@@ -1,7 +1,11 @@
 <div class="modal-screen"></div>
 
+
+
 <form class="modal-form product-form">
   <h3><%= product.isNew() ? 'New Product' : 'Edit Product' %></h3>
+
+  <div class="new-product-errors"></div>
 
   <input type='text' name='title' value='<%= product.escape('title') %>' placeholder="Enter Product Name">
 

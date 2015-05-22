@@ -26,6 +26,11 @@ HealthHunt.Views.ProductForm = Backbone.View.extend({
       success: function () {
         this.collection.add(this.model, { merge: true });
         this.closeModal();
+      }.bind(this),
+      error: function (model, response) {
+        response.responseJSON.forEach(function (error) {
+          this.$(".new-product-errors").append(error + ".  ");
+        }.bind(this));
       }.bind(this)
     });
   },
