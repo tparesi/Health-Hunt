@@ -1,6 +1,6 @@
 <div class="profile-header">
   <div class="profile-header-content">
-    <h3><%= user.get("email") ? user.get("email").match(/.+?(?=@)/) : null %></h3>
+    <h3><%= user.get("email") ? user.get("email").match(/(\w+)@?/)[1] : null %></h3>
 
     <div class="follow"></div>
 

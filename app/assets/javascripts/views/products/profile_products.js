@@ -10,7 +10,6 @@ HealthHunt.Views.ProfileProducts = Backbone.CompositeView.extend({
     var content = this.template();
     this.$el.html(content);
     this.collection.each(this.removeProductView.bind(this));
-
     this.collection.each(this.addProductView.bind(this));
     return this;
   },

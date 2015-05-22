@@ -9,9 +9,8 @@
     $(".header").css("background", "#da552f");
   });
 
-  $body = $("body");
   $(document).ajaxStart(function() {
-    $body.addClass("loading");
+    $("body").addClass("loading");
 
     var counter = 0;
     spinModal = setInterval(function() {
@@ -19,11 +18,12 @@
         var offset=counter * -frameWidth;
         document.getElementById("spinner").style.backgroundPosition=
             offset + "px" + " " + 0 + "px";
-        counter++; if (counter>=frames) counter =0;
+        counter++; if (counter>=frames) counter = 0;
     }, 100);
   });
+
   $(document).ajaxStop(function() {
-    $body.removeClass("loading");
+    $("body").removeClass("loading");
     clearInterval(spinModal);
   });
 </script>

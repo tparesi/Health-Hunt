@@ -1,2 +1,2 @@
-<a href="#/profile/<%= user.id %>"><%= user.get("email").match(/.+?(?=@)/) %></a>
+<a href="#/profile/<%= user.id %>"><%= user.get("email") && user.get("email").match(/(\w+)@?/)[1] %></a>
 <div class="small-follow"></div>

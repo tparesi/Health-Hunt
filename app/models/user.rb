@@ -27,8 +27,8 @@ class User < ActiveRecord::Base
 
   validates :email, :session_token, presence: true
   validates :email, :session_token, uniqueness: true
-  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
-  validates :password, length: { in: 6..12 }, allow_nil: true
+  # validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
+  validates :password, length: { minimum: 6 }, allow_nil: true
 
   after_initialize :ensure_session_token
 
@@ -36,6 +36,22 @@ class User < ActiveRecord::Base
     user = User.find_by(email: email)
     return nil if user.nil?
     user.is_password?(password) ? user : nil
+  end
+
+  def self.find_or_create_by_auth_hash(auth_hash)
+    user = User.find_by(
+            provider: auth_hash[:provider],
+            uid: auth_hash[:uid])
+
+    unless user
+      user = User.create!(
+            provider: auth_hash[:provider],
+            uid: auth_hash[:uid],
+            email: auth_hash[:info][:nickname], #bad solution
+            password: SecureRandom::urlsafe_base64)
+    end
+
+    user
   end
 
   def ensure_session_token

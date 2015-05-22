@@ -11,7 +11,6 @@ HealthHunt.Views.UserProfile = Backbone.CompositeView.extend({
     var content = this.template({
       user: this.model
     });
-
     this.$el.html(content);
     this._swapView(this.view);
     if (!this.model.get("is_current_user")) {
