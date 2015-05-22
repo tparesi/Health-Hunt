@@ -3,8 +3,9 @@ HealthHunt.Views.AddProduct = Backbone.View.extend({
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(HealthHunt.currentUser, 'sync', this.render);
     this.listenTo(HealthHunt.currentUser.collections(), 'add remove', this.render);
+
     $(document).mouseup( function (event) {
-      if ($("#product-collection-show-index").has(event.target).length === 0) {
+      if ($(".product-collection-show-index").has(event.target).length === 0) {
         this.cancelForm();
       }
     }.bind(this));
