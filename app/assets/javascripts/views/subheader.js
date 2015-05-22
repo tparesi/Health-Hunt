@@ -56,6 +56,7 @@ HealthHunt.Views.SubHeader = Backbone.View.extend({
   },
 
   showLabel: function () {
+    this.$("#query").val("");
     this.$(".search-bar label").css("display", "block");
   },
 
