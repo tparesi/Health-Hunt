@@ -1,5 +1,8 @@
 <div class="background-image"></div>
 <div class="session-body">
+  <div class="errors">
+    <%= flash[:errors].join("<br>").html_safe if flash[:errors] %>
+  </div>
 
   <form class="group" action="<%= users_url %>" method="post">
     <%= auth_token_input %>
