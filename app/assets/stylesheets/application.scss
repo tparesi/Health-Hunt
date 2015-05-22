@@ -1094,27 +1094,36 @@ body {
   opacity: 0.8;
 }
 
-/* Experimental Spinner */
+/* Spinner */
 
 .loading-modal {
-    display:    none;
-    position:   fixed;
-    z-index:    2000;
-    top:        0;
-    left:       0;
-    height:     100%;
-    width:      100%;
-    background: rgba( 255, 255, 255, .9 )
-                image-url("spinner.gif")
-                // url('http://i.stack.imgur.com/FhHRx.gif')
-                50% 50%
-                no-repeat;
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba( 255, 255, 255, .9 );
+}
+
+.modal-image {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 128px;
+  width: 128px;
+  margin: auto;
+  line-height: 200px;
+  background: image-url("spinner.png") no-repeat left center;
 }
 
 body.loading {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 body.loading .loading-modal {
-    display: block;
+  display: block;
 }
