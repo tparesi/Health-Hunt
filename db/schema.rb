@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150522151426) do
+ActiveRecord::Schema.define(version: 20150523141539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,10 +81,19 @@ ActiveRecord::Schema.define(version: 20150522151426) do
 
   add_index "products", ["owner_id"], name: "index_products_on_owner_id", using: :btree
 
+  create_table "sessions", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "token",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "sessions", ["token"], name: "index_sessions_on_token", using: :btree
+  add_index "sessions", ["user_id"], name: "index_sessions_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",           null: false
     t.string   "password_digest", null: false
-    t.string   "session_token",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "provider"
@@ -93,7 +102,6 @@ ActiveRecord::Schema.define(version: 20150522151426) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true, using: :btree
-  add_index "users", ["session_token"], name: "index_users_on_session_token", unique: true, using: :btree
 
   create_table "votes", force: :cascade do |t|
     t.integer  "product_id", null: false
@@ -104,4 +112,5 @@ ActiveRecord::Schema.define(version: 20150522151426) do
 
   add_index "votes", ["product_id", "user_id"], name: "index_votes_on_product_id_and_user_id", unique: true, using: :btree
 
+  add_foreign_key "sessions", "users"
 end
