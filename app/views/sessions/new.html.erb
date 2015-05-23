@@ -15,4 +15,9 @@
   </form>
 
   <a href="/auth/twitter" class="button">Log in with Twitter</a>
+
+  <form class="demo" action="<%= session_demo_url %>" method="post">
+    <%= auth_token_input %>
+    <button class="button">Demo User</button>
+  </form>
 </div>

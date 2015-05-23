@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:create, :new]
   resource :session, only: [:create, :new, :destroy]
+  post '/session/demo', to: 'sessions#demo'
 
   get "/auth/:provider/callback", to: "sessions#omniauth"
 

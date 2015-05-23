@@ -19,6 +19,12 @@ class SessionsController < ApplicationController
     end
   end
 
+  def demo
+   @user = User.find_by_credentials("DemoUser", "password")
+   login_user!(@user)
+   redirect_to root_url
+  end
+
   def destroy
     @session = Session.find_by(token: session[:session_token])
     @session.destroy!
@@ -27,7 +33,6 @@ class SessionsController < ApplicationController
   end
 
   def omniauth
-    # do something with the auth_hash
     user = User.find_or_create_by_auth_hash(auth_hash)
     login_user!(user)
     redirect_to root_url
