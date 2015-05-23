@@ -15,16 +15,16 @@ class User < ActiveRecord::Base
 
   has_many :sessions, dependent: :destroy
 
-  has_many :products, foreign_key: :owner_id
-  has_many :comments, foreign_key: :author_id
-  has_many :collections, foreign_key: :owner_id
+  has_many :products, foreign_key: :owner_id, dependent: :destroy
+  has_many :comments, foreign_key: :author_id, dependent: :destroy
+  has_many :collections, foreign_key: :owner_id, dependent: :destroy
   has_many :votes
   has_many :upvoted_products, through: :votes, source: :product
 
-  has_many :in_follows, class_name: "Following", foreign_key: :following_id
+  has_many :in_follows, class_name: "Following", foreign_key: :following_id, dependent: :destroy
   has_many :followers, through: :in_follows, source: :follower
 
-  has_many :out_follows, class_name: "Following", foreign_key: :follower_id
+  has_many :out_follows, class_name: "Following", foreign_key: :follower_id, dependent: :destroy
   has_many :followings, through: :out_follows, source: :following
 
   validates :email, presence: true

@@ -12,7 +12,7 @@
 
 class Collection < ActiveRecord::Base
   belongs_to :owner, class_name: "User", foreign_key: :owner_id
-  has_many :collectionings
+  has_many :collectionings, dependent: :destroy
   has_many :products, through: :collectionings
 
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => ":style/missing.png"

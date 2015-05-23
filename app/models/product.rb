@@ -18,12 +18,11 @@ class Product < ActiveRecord::Base
                     :tsearch => {:prefix => true}
                   }
 
-
   belongs_to :owner, class_name: "User", foreign_key: :owner_id
-  has_many :comments
-  has_many :collectionings
+  has_many :comments, dependent: :destroy
+  has_many :collectionings, dependent: :destroy
   has_many :collections, through: :collectionings
-  has_many :votes
+  has_many :votes, dependent: :destroy
   has_many :voters, through: :votes, source: :user
 
   validates :owner_id, :title, :url, :description, presence: true
