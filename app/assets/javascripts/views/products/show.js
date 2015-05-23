@@ -87,7 +87,7 @@ HealthHunt.Views.ProductShow = Backbone.CompositeView.extend({
     var collectionAddProductView = new HealthHunt.Views.AddProduct({
       model: this.model
     });
-    this.$(".product-collection-product-show").html(collectionAddProductView.render().$el);
+    this.$("#product-collection-product-show").html(collectionAddProductView.render().$el);
   },
 
   editProductView: function () {

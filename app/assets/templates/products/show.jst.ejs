@@ -18,7 +18,7 @@
     <a href="#/profile/<%= product.get("owner_id") %>"><h4>Product Submitted by <%= product.escape("creator") && product.escape("creator").match(/(\w+)@?/)[1] %></h4></a>
 
     <button class="prod-coll-link-prod-show">Add Product to a Collection</button>
-    <div class="product-collection-product-show"></div>
+    <div id="product-collection-product-show" class="product-collection-show-index"></div>
   </div>
 
   <div class="prod-show-body">
