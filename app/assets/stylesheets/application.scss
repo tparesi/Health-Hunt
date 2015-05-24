@@ -269,19 +269,21 @@ body {
   }
 }
 
-@media only screen
-  and (min-device-width: 375px)
-  and (max-device-width: 667px)
-  and (-webkit-min-device-pixel-ratio: 2) {
-    .header-nav {
-      width: 450px;
-    }
 
-    .tag-line {
-      width: 400px;
-      text-align: center;
-      left: -50px;
-    }
+@media (max-width: 500px) {
+  .header-nav {
+    width: 300px;
+  }
+
+  .tag-line {
+    width: 300px;
+    text-align: center;
+    left: 0px;
+  }
+
+  .session-header a {
+    padding: 5px;
+  }
 }
 
 /* Subheader */
