@@ -33,9 +33,13 @@ HealthHunt.Views.AddProduct = Backbone.View.extend({
     event && event.preventDefault();
     var collection_ids = this.$el.find(".update-coll").serializeJSON();
 
+    if (jQuery.isEmptyObject(collection_ids)) {
+      collection_ids = {collection_ids: []};
+    }
+
     this.model.set(collection_ids);
     this.model.save({}, {
-      success: function () {
+      success: function (response) {
         this.cancelForm();
       }.bind(this)
     });
@@ -49,7 +53,7 @@ HealthHunt.Views.AddProduct = Backbone.View.extend({
     newCollectionModel.set(attrs);
     newCollectionModel.save({}, {
       success: function () {
-        HealthHunt.currentUser.collections().add(newCollectionModel);
+        HealthHunt.currentUser.collections().add(newCollectionModel, { merge: true });
         this.model.addCollectionAndSave(newCollectionModel);
         this.cancelForm();
       }.bind(this),

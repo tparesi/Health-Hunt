@@ -168,10 +168,19 @@ body {
   background-size: cover;
 }
 
+.tag-line {
+  display: block;
+  color: white;
+  width: 600px;
+  position: absolute;
+  top: -40px;
+  left: -90px;
+}
+
 .session-body {
   width: 300px;
   height: 150px;
-  position: relative;
+  position: fixed;
   top: 150px;
   left: 0;
   right: 0;
@@ -232,6 +241,32 @@ body {
 
 .demo {
   margin: 10px 0 0 0;
+}
+
+/* Media Query */
+
+@media (max-width: 900px) {
+  .header-nav {
+    width: 750px;
+  }
+}
+
+@media (max-width: 750px) {
+  .header-nav {
+    width: 600px;
+  }
+}
+
+@media (max-width: 600px) {
+  .header-nav {
+    width: 500px;
+  }
+
+  .tag-line {
+    width: 400px;
+    text-align: center;
+    left: -50px;
+  }
 }
 
 /* Subheader */

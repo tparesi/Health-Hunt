@@ -4,7 +4,7 @@ HealthHunt.Views.CollectionShow = Backbone.CompositeView.extend({
     this.products = this.model.products();
 
     // Set up for composite views
-    this.listenTo(this.products, 'sync', this.addProductView);
+    this.listenTo(this.products, 'sync', this.render);
     this.listenTo(this.products, 'remove', this.removeProductView);
   },
 
@@ -34,8 +34,7 @@ HealthHunt.Views.CollectionShow = Backbone.CompositeView.extend({
 
   addProductView: function (product) {
     var subview = new HealthHunt.Views.ProductsIndexItem({
-      model: product,
-      collection: this.products
+      model: product
     });
     this.addSubview('.products', subview);
   },
@@ -103,6 +102,7 @@ HealthHunt.Views.CollectionShow = Backbone.CompositeView.extend({
     if(ask){
       this.model.destroy({
         success: function () {
+          
           Backbone.history.navigate("#/collections", { trigger: true });
         }
       });

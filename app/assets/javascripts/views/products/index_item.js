@@ -36,7 +36,8 @@ HealthHunt.Views.ProductsIndexItem = Backbone.View.extend({
 
   collectionAddProduct: function () {
     var collectionAddProductView = new HealthHunt.Views.AddProduct({
-      model: this.model
+      model: this.model,
+      view: this
     });
     this.$("#product-collection-show-index").html(collectionAddProductView.render().$el);
   }
