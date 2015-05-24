@@ -245,19 +245,19 @@ body {
 
 /* Media Query */
 
-@media (max-width: 900px) {
+@media screen and (max-width: 900px) {
   .header-nav {
     width: 750px;
   }
 }
 
-@media (max-width: 750px) {
+@media screen and (max-width: 750px) {
   .header-nav {
     width: 600px;
   }
 }
 
-@media (max-width: 600px) {
+@media screen and (max-width: 600px) {
   .header-nav {
     width: 500px;
   }
