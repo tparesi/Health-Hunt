@@ -74,7 +74,7 @@ JS, HTML, and CSS to increase the UI/UX features of the app.
 - [x] Product Search
 - [ ] Photo Crop for collection show background
 - [ ] Add information features (such as comment totals on products)
-- [1/2] Continue work on responsive design for mobile (Ongoing)
+- [x] [1/2] Continue work on responsive design for mobile (Ongoing)
 - [ ] Use Twitter API for avatars
 - [ ] User Settings management (such as password resets)
 
