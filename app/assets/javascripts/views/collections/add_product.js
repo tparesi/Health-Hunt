@@ -1,5 +1,6 @@
 HealthHunt.Views.AddProduct = Backbone.View.extend({
-  initialize: function () {
+  initialize: function (options) {
+    this.currentCollection = options.currentCollection;
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(HealthHunt.currentUser, 'sync', this.render);
     this.listenTo(HealthHunt.currentUser.collections(), 'add remove', this.render);
@@ -41,6 +42,9 @@ HealthHunt.Views.AddProduct = Backbone.View.extend({
     this.model.save({}, {
       success: function (response) {
         this.cancelForm();
+        if (this.currentCollection && collection_ids.collection_ids.indexOf(this.currentCollection.id.toString()) < 0) {
+          this.collection.remove(this.model);
+        }
       }.bind(this)
     });
   },
