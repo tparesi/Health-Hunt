@@ -335,14 +335,18 @@ body {
   and (max-device-width: 667px)
   and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: landscape) {
+    .header {
+      position: relative !important;
+    }
+
     .header-nav {
-      width: 500px;
+      width: 400px;
     }
 
     .tag-line {
-      width: 400px;
+      width: 350px;
       text-align: center;
-      left: -50px;
+      left: -30px;
     }
 
     .session-body {
