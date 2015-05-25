@@ -16,5 +16,3 @@
 
 ## Gems/Libraries
 * Filepicker
-* Markdown-js
-* Bootstrap Markdown
