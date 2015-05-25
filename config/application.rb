@@ -22,6 +22,7 @@ module ProductHuntClone
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    config.action_dispatch.perform_deep_munge = false
 
     config.paperclip_defaults = {
       :storage => :s3,

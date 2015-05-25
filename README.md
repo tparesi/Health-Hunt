@@ -1,8 +1,8 @@
 # Health Hunt
 
-[Heroku link][heroku]
+[Live][live]
 
-[heroku]: https://producthuntclone.herokuapp.com/
+[live]: https://www.healthhunt.us/
 
 ## Minimum Viable Product
 Health Hunt is a clone of Product Hunt built on Rails and Backbone. Users can:
