@@ -2,7 +2,7 @@
 
 [Live][live]
 
-[live]: https://www.healthhunt.us/
+[live]: http://www.healthhunt.us/
 
 ## Minimum Viable Product
 Health Hunt is a clone of Product Hunt built on Rails and Backbone. Users can:
