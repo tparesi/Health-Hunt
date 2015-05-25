@@ -322,11 +322,19 @@ body {
     }
 
     .subheader {
-      top: 94px;
+      top: 94px !important;
     }
 
     #main {
       top: 140px;
+    }
+
+    .prod-col-header {
+      width: 500px !important;
+    }
+
+    .products {
+      width: 500px !important;
     }
 }
 
@@ -337,6 +345,10 @@ body {
   and (orientation: landscape) {
     .header {
       position: relative !important;
+    }
+
+    .backgound-image {
+      position: absolute !important;
     }
 
     .header-nav {
@@ -351,6 +363,22 @@ body {
 
     .session-body {
       position: absolute !important;
+    }
+
+    .subheader {
+      top: 94px !important;
+    }
+
+    #main {
+      top: 40px;
+    }
+
+    .prod-col-header {
+      width: 500px !important;
+    }
+
+    .products {
+      width: 500px !important;
     }
 }
 
