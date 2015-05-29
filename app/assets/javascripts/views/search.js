@@ -28,7 +28,11 @@ HealthHunt.Views.Search = Backbone.View.extend({
       collection: this.collection
     });
 
-		$container.html(view.render().$el);
+		if (this.collection.length === 0) {
+			$container.html("<div class='no-results'>No Products Found. Play this <a href='http://snake.tparesi.com'>game</a> while you pout.</div>");
+		} else {
+			$container.html(view.render().$el);
+		}
 	},
 
 	nextPage: function () {

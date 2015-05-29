@@ -1283,3 +1283,18 @@ body.loading {
 body.loading .loading-modal {
   display: block;
 }
+
+/* Search Results */
+
+.no-results {
+  margin: auto;
+  width: 900px;
+  padding: 30px 0;
+  font-size: 20px;
+  color: #534540;
+}
+
+.no-results a {
+  cursor: pointer;
+  color: rgb(218, 85, 47);
+}
