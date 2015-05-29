@@ -1,5 +1,6 @@
 module Api
-  class CollectionsController < ApiController
+  class CollectionsController < ApplicationController
+    before_action :require_user!, only: [:create, :update, :destroy]
 
     def create
       @collection = current_user.collections.new(collection_params)

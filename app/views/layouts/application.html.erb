@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Health Hunt</title>
+  <%= favicon_link_tag 'healthhunt.png' %>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -11,7 +12,7 @@
   <header class="header group">
     <nav class="header-nav">
       <h1 class="header-logo">
-        <a href="#"><img src="<%= asset_path 'healthhunt-logo.png' %>"/>Health Hunt</a>
+        <a href="<%= root_url %>"><img src="<%= asset_path 'healthhunt-logo.png' %>"/>Health Hunt</a>
       </h1>
 
       <div class="session-header group">

@@ -41,36 +41,45 @@ HealthHunt.Views.ProductShow = Backbone.CompositeView.extend({
 
   createComment: function (event) {
     event.preventDefault();
-    var attrs = this.$("form").serializeJSON();
-    var comment = new HealthHunt.Models.Comment();
 
-    comment.set(attrs);
-    comment.save({}, {
-      success: function() {
-        this.comments.add(comment);
-        this.$('form').each(function(){
-          this.reset();
-        });
-      }.bind(this)
-    });
+    if (HealthHunt.currentUser && HealthHunt.currentUser.id) {
+      var attrs = this.$("form").serializeJSON();
+      var comment = new HealthHunt.Models.Comment();
+
+      comment.set(attrs);
+      comment.save({}, {
+        success: function() {
+          this.comments.add(comment);
+          this.$('form').each(function(){
+            this.reset();
+          });
+        }.bind(this)
+      });
+    } else {
+      Backbone.history.navigate("#/session/new", { trigger: true });
+    }
   },
 
   toggleVote: function (event) {
     event.preventDefault();
 
-    $.ajax({
-      url: "api/products/" + this.model.id + "/vote",
-      type: "POST",
-      success: function (attrs) {
-        this.model.fetch({
-          success: function () {
-            $("body").removeClass("loading");
-          }
-        });
-        this.model.set(this.model.parse(attrs));
-        this.collection.add(this.model, { merge: true });
-      }.bind(this)
-    });
+    if (HealthHunt.currentUser && HealthHunt.currentUser.id) {
+      $.ajax({
+        url: "api/products/" + this.model.id + "/vote",
+        type: "POST",
+        success: function (attrs) {
+          this.model.fetch({
+            success: function () {
+              $("body").removeClass("loading");
+            }
+          });
+          this.model.set(this.model.parse(attrs));
+          this.collection.add(this.model, { merge: true });
+        }.bind(this)
+      });
+    } else {
+      Backbone.history.navigate("#/session/new", { trigger: true });
+    }
   },
 
   closeModal: function () {
@@ -84,10 +93,14 @@ HealthHunt.Views.ProductShow = Backbone.CompositeView.extend({
   },
 
   collectionAddProduct: function () {
-    var collectionAddProductView = new HealthHunt.Views.AddProduct({
-      model: this.model
-    });
-    this.$("#product-collection-product-show").html(collectionAddProductView.render().$el);
+    if (HealthHunt.currentUser && HealthHunt.currentUser.id) {
+      var collectionAddProductView = new HealthHunt.Views.AddProduct({
+        model: this.model
+      });
+      this.$("#product-collection-product-show").html(collectionAddProductView.render().$el);
+    } else {
+      Backbone.history.navigate("#/session/new", { trigger: true });
+    }
   },
 
   editProductView: function () {

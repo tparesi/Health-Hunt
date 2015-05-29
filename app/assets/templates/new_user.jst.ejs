@@ -1,0 +1,25 @@
+<meta name="viewport" content="width=device-width">
+
+<div class="background-image"></div>
+
+<div class="session-body">
+  <div class="tag-line">Health Hunt is a <a href="www.producthunt.com">Product Hunt</a> Clone with with a focus on Health</div>
+
+  <div class="errors"></div>
+
+  <form class="group" action="/user" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= authToken %>">
+
+    <input type="text" name="user[email]" value="" placeholder="Email">
+    <input type="password" name="user[password]" value="" placeholder="Password">
+
+    <input type="submit" class="button" value="Sign Up">
+  </form>
+
+  <a href="/auth/twitter" class="button">Sign Up with Twitter</a>
+
+  <form class="demo" action="/session/demo" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= authToken %>">
+    <button class="button">Demo User</button>
+  </form>
+</div>

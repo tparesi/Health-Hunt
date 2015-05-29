@@ -25,22 +25,30 @@ HealthHunt.Views.ProductsIndexItem = Backbone.View.extend({
   toggleVote: function (event) {
     event.preventDefault();
 
-    $.ajax({
-      url: "api/products/" + this.model.id + "/vote",
-      type: "POST",
-      success: function (attrs) {
-        this.model.set(this.model.parse(attrs));
-        this.collection.add(this.model, { merge: true });
-      }.bind(this)
-    });
+    if (HealthHunt.currentUser && HealthHunt.currentUser.id) {
+      $.ajax({
+        url: "api/products/" + this.model.id + "/vote",
+        type: "POST",
+        success: function (attrs) {
+          this.model.set(this.model.parse(attrs));
+          this.collection.add(this.model, { merge: true });
+        }.bind(this)
+      });
+    } else {
+      Backbone.history.navigate("#/session/new", { trigger: true });
+    }
   },
 
   collectionAddProduct: function () {
-    var collectionAddProductView = new HealthHunt.Views.AddProduct({
-      model: this.model,
-      currentCollection: this.currentCollection,
-      collection: this.collection
-    });
-    this.$("#product-collection-show-index").html(collectionAddProductView.render().$el);
+    if (HealthHunt.currentUser && HealthHunt.currentUser.id) {
+      var collectionAddProductView = new HealthHunt.Views.AddProduct({
+        model: this.model,
+        currentCollection: this.currentCollection,
+        collection: this.collection
+      });
+      this.$("#product-collection-show-index").html(collectionAddProductView.render().$el);
+    } else {
+      Backbone.history.navigate("#/session/new", { trigger: true });
+    }
   }
 });

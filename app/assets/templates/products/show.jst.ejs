@@ -9,7 +9,7 @@
     <h4><%= product.escape("description") %></h4>
 
     <a href="<%= product.escape("url") %>">Check it Out!</a>
-    <% if (product.get("owner_id") === HealthHunt.currentUser.get("id")) { %>
+    <% if (HealthHunt.currentUser && (product.get("owner_id") === HealthHunt.currentUser.get("id"))) { %>
       <button class="edit-product new-product">Edit Product</button>
     <% } %>
   </div>
@@ -26,10 +26,11 @@
     <ul class="comments group"></ul>
 
     <form class="comments-form">
-    <input type="hidden" name="product_id" value="<%= product.id %>">
+      <input type="hidden" name="product_id" value="<%= product.id %>">
 
-    <textarea name="body" placeholder="Enter New Comment"></textarea>
-    <button class="new-comment">Add Comment</button>
+      <textarea name="body" placeholder="Enter New Comment"></textarea>
+
+      <button class="new-comment">Add Comment</button>
     </form>
   </div>
 </div>

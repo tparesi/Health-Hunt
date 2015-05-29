@@ -1,5 +1,5 @@
 module Api
-  class Api::StaticPagesController < ApiController
+  class Api::StaticPagesController < ApplicationController
 
     def search
       @search_results = Product

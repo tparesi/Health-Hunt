@@ -1,6 +1,8 @@
 HealthHunt.Views.FollowButton = Backbone.View.extend({
   initialize: function () {
-    this.listenTo(HealthHunt.currentUser.followings(), 'add remove', this.render);
+    if (HealthHunt.currentUser) {
+      this.listenTo(HealthHunt.currentUser.followings(), 'add remove', this.render);
+    }
   },
 
   template: JST["users/follow_button"],
@@ -21,12 +23,16 @@ HealthHunt.Views.FollowButton = Backbone.View.extend({
   toggleFollow: function (event) {
     event.preventDefault();
 
-    $.ajax({
-      url: "api/users/" + this.model.id + "/follow",
-      type: "POST",
-      success: function (attrs) {
-        HealthHunt.currentUser.set(HealthHunt.currentUser.parse(attrs));
-      }.bind(this)
-    });
+    if (HealthHunt.currentUser.id && (HealthHunt.currentUser && HealthHunt.currentUser.id)) {
+      $.ajax({
+        url: "api/users/" + this.model.id + "/follow",
+        type: "POST",
+        success: function (attrs) {
+          HealthHunt.currentUser.set(HealthHunt.currentUser.parse(attrs));
+        }.bind(this)
+      });
+    } else {
+      Backbone.history.navigate("#/session/new", { trigger: true });
+    }
   }
 });

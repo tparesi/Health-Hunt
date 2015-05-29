@@ -1,5 +1,6 @@
 module Api
-  class ProductsController < ApiController
+  class ProductsController < ApplicationController
+    before_action :require_user!, only: [:create, :update, :destroy, :vote]
 
     def create
       @product = current_user.products.new(product_params)

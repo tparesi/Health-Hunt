@@ -25,7 +25,9 @@ HealthHunt.Routers.Router = Backbone.Router.extend({
     "profile/:id/collections": "userCollections",
     "profile/:id/followings": "userFollowings",
     "profile/:id/followers": "userFollowers",
-    "search/:query": "search"
+    "search/:query": "search",
+    "session/new": "newSession",
+    "user/new": "newUser"
   },
 
   search: function (query) {
@@ -111,7 +113,7 @@ HealthHunt.Routers.Router = Backbone.Router.extend({
 
   userFollowings: function(id) {
     var user;
-    if (parseInt(id) === HealthHunt.currentUser.id) {
+    if (HealthHunt.currentUser && (parseInt(id) === HealthHunt.currentUser.id)) {
       user = HealthHunt.currentUser;
     } else {
       user = this.users.getOrFetch(id);
@@ -140,6 +142,16 @@ HealthHunt.Routers.Router = Backbone.Router.extend({
     });
 
     this._swapView(userFollowersView);
+  },
+
+  newSession: function () {
+    var newSessionView = new HealthHunt.Views.newSession();
+    this._swapView(newSessionView);
+  },
+
+  newUser: function () {
+    var newUserView = new HealthHunt.Views.newUser();
+    this._swapView(newUserView);
   },
 
   _swapView: function (view) {

@@ -1,5 +1,7 @@
 module Api
-  class CommentsController < ApiController
+  class CommentsController < ApplicationController
+    before_action :require_user!, only: [:create, :update, :destroy]
+    
     def create
       @comment = current_user.comments.new(comment_params)
 

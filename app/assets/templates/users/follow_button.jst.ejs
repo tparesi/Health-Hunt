@@ -1,4 +1,4 @@
-<% if ( HealthHunt.currentUser.follows(user.id) ) { %>
+<% if ( HealthHunt.currentUser && HealthHunt.currentUser.follows(user.id) ) { %>
   Unfollow
 <% } else { %>
   Follow

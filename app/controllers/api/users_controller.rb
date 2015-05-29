@@ -1,5 +1,7 @@
 module Api
-  class UsersController < ApiController
+  class UsersController < ApplicationController
+    before_action :require_user!, only: [:follow]
+
     def show
       @user = User.find(params[:id])
       render :show

@@ -46,13 +46,17 @@ HealthHunt.Views.SubHeader = Backbone.View.extend({
   },
 
   newProductView: function () {
-    var product = new HealthHunt.Models.Product();
-    var formView = new HealthHunt.Views.ProductForm({
-      collection: this.collection,
-      model: product
-    });
+    if (HealthHunt.currentUser && HealthHunt.currentUser.id) {
+      var product = new HealthHunt.Models.Product();
+      var formView = new HealthHunt.Views.ProductForm({
+        collection: this.collection,
+        model: product
+      });
 
-    $(".new-product-modal").html(formView.render().$el);
+      $(".new-product-modal").html(formView.render().$el);
+    } else {
+      Backbone.history.navigate("#/session/new", { trigger: true });
+    }
   },
 
   showLabel: function () {
