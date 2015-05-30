@@ -56,7 +56,8 @@ HealthHunt.Views.ProductShow = Backbone.CompositeView.extend({
         }.bind(this)
       });
     } else {
-      Backbone.history.navigate("#/session/new", { trigger: true });
+      $(".log-in-modal").addClass("open-modal");
+      $(".modal-screen").one("click", this.closeLoginModal);
     }
   },
 
@@ -78,7 +79,8 @@ HealthHunt.Views.ProductShow = Backbone.CompositeView.extend({
         }.bind(this)
       });
     } else {
-      Backbone.history.navigate("#/session/new", { trigger: true });
+      $(".log-in-modal").addClass("open-modal");
+      $(".modal-screen").one("click", this.closeLoginModal);
     }
   },
 
@@ -99,7 +101,8 @@ HealthHunt.Views.ProductShow = Backbone.CompositeView.extend({
       });
       this.$("#product-collection-product-show").html(collectionAddProductView.render().$el);
     } else {
-      Backbone.history.navigate("#/session/new", { trigger: true });
+      $(".log-in-modal").addClass("open-modal");
+      $(".modal-screen").one("click", this.closeLoginModal);
     }
   },
 
@@ -110,5 +113,9 @@ HealthHunt.Views.ProductShow = Backbone.CompositeView.extend({
     });
 
     $(".new-product-modal").html(formView.render().$el);
+  },
+
+  closeLoginModal: function () {
+    $(".log-in-modal").removeClass("open-modal");
   }
 });

@@ -32,7 +32,12 @@ HealthHunt.Views.FollowButton = Backbone.View.extend({
         }.bind(this)
       });
     } else {
-      Backbone.history.navigate("#/session/new", { trigger: true });
+      $(".log-in-modal").addClass("open-modal");
+      $(".modal-screen").one("click", this.closeLoginModal);
     }
+  },
+
+  closeLoginModal: function () {
+    $(".log-in-modal").removeClass("open-modal");
   }
 });

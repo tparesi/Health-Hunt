@@ -2,6 +2,7 @@ HealthHunt.Views.newSession = Backbone.View.extend({
   initialize: function () {
     $(".subheader").css("display", "none");
     $(".header").removeClass("orange");
+    $(".log-in-modal").removeClass("open-modal");
   },
 
   template: JST['new_session'],

@@ -1303,3 +1303,34 @@ body.loading .loading-modal {
   cursor: pointer;
   color: rgb(218, 85, 47);
 }
+
+/* Log In Modal */
+
+.log-in-modal {
+  display: none;
+}
+
+.open-modal {
+  display: block;
+}
+
+.log-in {
+  position: fixed;
+  top: 150px;
+  left: 50%;
+  margin-left: -220px;
+  width: 450px;
+  height: 60px;
+  background: #eaeaea;
+  z-index: 1002;
+  border-radius: 5px;
+  border: 1px solid #a7a6a6;
+  font-size: 24px;
+  padding: 20px;
+  color: #534540;
+  text-align: center;
+}
+
+.log-in a {
+  color: #00aced;
+}

@@ -35,7 +35,8 @@ HealthHunt.Views.ProductsIndexItem = Backbone.View.extend({
         }.bind(this)
       });
     } else {
-      Backbone.history.navigate("#/session/new", { trigger: true });
+      $(".log-in-modal").addClass("open-modal");
+      $(".modal-screen").one("click", this.closeLoginModal);
     }
   },
 
@@ -48,7 +49,12 @@ HealthHunt.Views.ProductsIndexItem = Backbone.View.extend({
       });
       this.$("#product-collection-show-index").html(collectionAddProductView.render().$el);
     } else {
-      Backbone.history.navigate("#/session/new", { trigger: true });
+      $(".log-in-modal").addClass("open-modal");
+      $(".modal-screen").one("click", this.closeLoginModal);
     }
+  },
+
+  closeLoginModal: function () {
+    $(".log-in-modal").removeClass("open-modal");
   }
 });

@@ -55,7 +55,8 @@ HealthHunt.Views.SubHeader = Backbone.View.extend({
 
       $(".new-product-modal").html(formView.render().$el);
     } else {
-      Backbone.history.navigate("#/session/new", { trigger: true });
+      $(".log-in-modal").addClass("open-modal");
+      $(".modal-screen").one("click", this.closeLoginModal);
     }
   },
 
@@ -74,5 +75,9 @@ HealthHunt.Views.SubHeader = Backbone.View.extend({
 
   		Backbone.history.navigate('#/search/' + query, { trigger: true });
     }
-	}
+	},
+
+  closeLoginModal: function () {
+    $(".log-in-modal").removeClass("open-modal");
+  }
 });
