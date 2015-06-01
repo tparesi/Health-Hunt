@@ -12,7 +12,7 @@ HealthHunt.Views.ProductsIndex = Backbone.CompositeView.extend({
     this.collection.each(this.removeProductView.bind(this));
 
     var previousProduct = null;
-
+    debugger
     this.collection.each( function (product) {
       if (!previousProduct || !product.compareDateTruthy(previousProduct)) {
         this.$('.products').append("<div class='date'>" + product.date().toDateString() + "</div>");
