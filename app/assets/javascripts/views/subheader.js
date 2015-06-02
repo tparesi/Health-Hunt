@@ -13,6 +13,7 @@ HealthHunt.Views.SubHeader = Backbone.View.extend({
           this.productActive();
         }
       }.bind(this));
+     
   },
 
   template: JST["subheader"],

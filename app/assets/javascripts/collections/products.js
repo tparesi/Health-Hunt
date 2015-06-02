@@ -19,10 +19,11 @@ HealthHunt.Collections.Products = Backbone.Collection.extend({
       } else {
         return 1;
       }
-    } else if (product1.compareDate(product2) === -1) {
-      return -1;
-    } else {
+      return 0;
+    } else if (product1.compareDate(product2) === 1) {
       return 1;
+    } else {
+      return -1;
     }
   },
 
